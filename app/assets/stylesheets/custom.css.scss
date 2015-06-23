@@ -1,0 +1,56 @@
+@import "bootstrap";
+@import "font-awesome";
+.navbar {
+  border-radius: 0px;
+}
+
+@media(max-width:767px) {
+    .navbar .navbar-form {
+        width: 285px;
+        padding-left:0;
+        padding-right:0;
+    }
+
+  .logo {
+    min-height: 100px;
+    width: 100%;
+  }
+}
+@media(min-width:768px) {
+
+    .navbar .navbar-form {
+        width: 250px;
+    }
+
+  .logo {
+    min-height: 100px;
+    width: 100%;
+  }
+}
+.navbar .navbar-form {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-right: 0;
+    margin-left: 0;
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+
+footer {
+  clear: both;
+  font-size: 11px;
+  text-align: center;
+  padding: 25px 0;
+  color: #555;
+}
+
+.video {
+  padding-bottom: 18px;
+  border-bottom: solid 1px #e5e5e5;
+  margin-bottom: 20px;
+}
+.screenshot {
+  float: left;
+}
