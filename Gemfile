@@ -1,11 +1,13 @@
 source "https://rubygems.org"
 
-
+gem "pygments.rb"
+gem "redcarpet"
 gem "mini_magick"
 gem "carrierwave"
 gem "font-awesome-rails"
 gem "bootstrap-sass"
-gem "bootstrap-will_paginate", "0.0.9"
+gem "will_paginate"
+gem "bootstrap-will_paginate"
 gem "rails", "4.2.1"
 gem "mysql2"
 gem "sass-rails", "~> 5.0"

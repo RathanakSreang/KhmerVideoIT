@@ -17,9 +17,9 @@
          <span class="icon-bar"></span>
          <span class="icon-bar"></span>
          <span class="icon-bar"></span>
-         </button>
-         <a class="navbar-brand hidden-xs" href="#">Kh It</a>
-         <a class="navbar-brand visible-xs" href="#">KH</a>
+         </button>         
+         <%= link_to "KH IT", root_path, class: "navbar-brand hidden-xs" %>
+         <%= link_to "KH", root_path, class: "navbar-brand visible-xs" %>         
          <form class="navbar-form pull-left" role="search">
             <div class="input-group">              
                <input type="text" class="form-control" placeholder="Search">
@@ -33,8 +33,12 @@
       </div>
       <div class="navbar-collapse collapse">
          <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">Browse Courses</a></li>          
+            <li class="<%= "active" if controller?("statis_pages")&&action?("home") %>">
+              <%= link_to "Home", root_path %>
+            </li>
+            <li class="<%= "active" if controller?("videos")&&action?("index") %>">
+               <%= link_to "All Video", videos_path %>
+            </li>
             <li><a href="#contact">Play List</a></li>            
          </ul>
       </div>

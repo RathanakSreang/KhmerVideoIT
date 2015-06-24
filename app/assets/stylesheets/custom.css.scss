@@ -53,4 +53,32 @@ footer {
 }
 .screenshot {
   float: left;
+  width: 205px;
+}
+
+.video-info {
+  margin-top: -20px;
+  .info {
+    color: #999;
+    font-size: 12px;
+  }
+}
+
+.btn-read-video {
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+.code_block {
+  margin: 12px 0;
+  clear: both;
+}
+
+.code_header {
+  position: relative;
+  background-color: #E0E0E0;
+  font-size: 12px;
+  padding: 4px 7px;
+  border: solid 1px #b6b6b6;
+  border-bottom: none;
 }

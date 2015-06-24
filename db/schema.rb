@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150623073153) do
+ActiveRecord::Schema.define(version: 20150624041935) do
+
+  create_table "articles", force: :cascade do |t|
+    t.text     "content",    limit: 65535
+    t.integer  "video_id",   limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  create_table "usefull_links", force: :cascade do |t|
+    t.string   "title",      limit: 255
+    t.string   "link",       limit: 255
+    t.integer  "video_id",   limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "videos", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -20,6 +35,7 @@ ActiveRecord::Schema.define(version: 20150623073153) do
     t.integer  "duration",    limit: 4
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.string   "image",       limit: 255
   end
 
 end
