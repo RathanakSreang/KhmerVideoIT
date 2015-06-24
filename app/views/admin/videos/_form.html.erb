@@ -1,0 +1,50 @@
+<%= form_for [:admin, @video] do |f| %>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: "form-control", autofocus: true %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_area :description, rows:5, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :file, "Video Link" %>
+        <%= f.text_field :file, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :duration %>
+        <%= f.text_field :duration, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :image, "ScreenShot" %>
+        <%= f.file_field :image, class: "form-control" %>
+        <%= f.hidden_field :image_cache %>
+      </div>
+        
+      <div class="well">
+        <label>Link in Video</label>
+        <div class="form-group">
+          <%= f.fields_for :usefull_links do |builder| %>
+            <%= render "usefull_link_fields", f: builder %>
+          <% end %>
+          <%= link_to_add_fields "Add more Link", f, :usefull_links %>
+        </div>                                
+      </div>
+    </div>      
+  </div>
+  <div class="form-group">
+    <%= f.fields_for :article do |builder| %>
+      <%= builder.label "Snippet" %>
+      <%= builder.text_area :content, rows: 25, class: "form-control" %>
+    <% end %>
+  </div>      
+  <div class="form-group">        
+    <%= f.submit action, class: "btn btn-primary" %>
+  </div>
+<% end %>

@@ -7,4 +7,5 @@ class Video < ActiveRecord::Base
   mount_uploader :image, ImageUploader
 
   accepts_nested_attributes_for :usefull_links, allow_destroy: true
+  accepts_nested_attributes_for :article, allow_destroy: true
 end

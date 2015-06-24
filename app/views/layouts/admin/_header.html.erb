@@ -1,0 +1,48 @@
+<header>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">      
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collape-side-bar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <%= link_to root_path do %>
+          <span class="navbar-brand">KH IT</span>
+        <% end %>
+      </div>    
+      <!-- <div class="">
+        <ul class="nav navbar-right top-nav">          
+          <li><%= link_to "User Profile", "#" %></li>
+        </ul>
+      </div>  -->
+      <div class="collapse navbar-collapse" id="collape-side-bar">
+          <ul class="nav navbar-nav side-nav">
+              <li class="<%= "active" if controller?("admin/static_pages") && action?("dashboard") %>">
+                <%= link_to admin_root_path do %>
+                  <i class="fa fa-fw fa-dashboard"></i> Dashboard
+                <% end %>
+              </li>
+              <li class="<%= "active" if controller?("admin/videos") %>">
+                <%= link_to admin_videos_path do %>
+                  <i class="fa fa-fw fa-dashboard"></i> Videos
+                <% end %>
+              </li>              
+              <li class="<%= "active" if controller?("admin/static_pages") && !action?("dashboard") %>">
+                  <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Pages <i class="fa fa-fw fa-caret-down"></i></a>                  
+                  <ul id="demo" class="collapse">
+                      <li>
+                        <%= link_to "about", "#" %>
+                      </li>
+                      <li>
+                        <%= link_to "contact", "#" %>
+                      </li>
+                  </ul>
+              </li>
+          </ul>
+      </div>
+      <!-- /.navbar-collapse -->   
+    </div>
+  </div>
+</header>

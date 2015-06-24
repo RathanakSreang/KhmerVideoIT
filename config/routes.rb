@@ -1,18 +1,16 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    root "static_pages#dashboard"    
+    resources :videos
+  end
+
   resources :videos, only: [:show, :index]
-  root "statis_pages#home"
+  root "static_pages#home"
 
-  get "statis_pages/help"
+  get "static_pages/help"
 
-  get "statis_pages/about"
+  get "static_pages/about"
 
-  get "statis_pages/contact"
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  get "static_pages/contact"
 end
