@@ -1,0 +1,15 @@
+<center><h3><u>Video</u></h3></center>
+<%= link_to "Add new Video", new_admin_video_path %>
+<table class="table">
+  <thead>
+    <th>Title</th>
+    <th>Discription</th>
+    <th>Duration</th>
+    <th></th>
+    <th>Action</th>
+  </thead>
+  <tbody>
+    <%= render @videos %>    
+  </tbody>
+</table>
+<%= will_paginate @videos %>

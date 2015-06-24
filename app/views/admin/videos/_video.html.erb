@@ -1,0 +1,18 @@
+<tr>
+  <td>
+    <%= video.title %>
+  </td>
+  <td>
+    <%= video.description %>
+  </td>
+  <td>
+    <%= video.duration %>
+  </td>
+  <td>
+    <%= link_to "detail", admin_video_path(video) %>
+  </td>
+  <td>
+    <%= link_to "edit", edit_admin_video_path(video) %>
+    | <%= link_to "delete", admin_video_path(video) %>
+  </td>
+</tr>
