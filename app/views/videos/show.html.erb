@@ -1,0 +1,41 @@
+<div class="row" id="video-show">
+  <div class="col-md-3 screenshot">
+    <%= image_tag @video.image, class: "img-responsive" %>    
+    <%= link_to "Read more", "#", class: "btn btn-primary btn-read-video" %>
+  </div>
+  <div class="col-md-9 video-info">
+    <h2><%= @video.title %></h2>
+    <span class="info">
+      <%= @video.created_at.to_date %>
+      , duration:<%= @video.duration %> minutes
+    </span>
+    <br>
+    <%= @video.description %>
+  </div>  
+</div>
+<br/>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-12">
+            Link in this video:
+            <ul>
+              <%= render @video.usefull_links %>
+            </ul>
+          </div>
+          <div class="col-md-12">
+            <%= render @video.article %>
+          </div>
+          <div class="col-md-12">
+            Comment
+          </div>
+          <div class="col-md-12">
+            Similar Video
+          </div>
+        </div>
+      </div>      
+    </div>
+  </div>
+</div>
