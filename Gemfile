@@ -1,5 +1,6 @@
 source "https://rubygems.org"
 
+gem "ckeditor"
 gem "pygments.rb"
 gem "redcarpet"
 gem "mini_magick"

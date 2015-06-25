@@ -5,6 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Page.create about: Faker::Lorem.paragraph(10)
 5.times do 
   Language.create name: Faker::Lorem.word
 end

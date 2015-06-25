@@ -6,6 +6,8 @@ class StaticPagesController < ApplicationController
   end
 
   def about
+    @page = Page.first
+    @page = Page.new unless @page
   end
 
   def contact

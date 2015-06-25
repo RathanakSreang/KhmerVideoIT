@@ -33,14 +33,16 @@
       </div>
       <div class="navbar-collapse collapse">
          <ul class="nav navbar-nav navbar-right">
-            <li class="<%= "active" if controller?("statis_pages")&&action?("home") %>">
+            <li class="<%= "active" if controller?("static_pages")&&action?("home") %>">
               <%= link_to "Home", root_path %>
             </li>
             <li class="<%= "active" if controller?("videos")&&action?("index") %>">
                <%= link_to "All Video", videos_path %>
             </li>
             <li><a href="#contact">Tutorails</a></li>
-            <li><a href="#contact">About us</a></li>
+            <li class="<%= "active" if controller?("static_pages")&&action?("about") %>" >
+               <%= link_to "About Us", about_path %>
+            </li>
          </ul>
       </div>
       <!--/.navbar-collapse -->
