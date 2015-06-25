@@ -44,20 +44,10 @@
                   <i class="fa fa-user"></i> Users
                 <% end %>
               </li>
-              <li class="<%= "active" if controller?("admin/static_pages") && !action?("dashboard") %>">
-                  <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Pages <i class="fa fa-fw fa-caret-down"></i></a>                  
-                  <ul id="demo" class="collapse">
-                      <li>
-                        <%= link_to "#" do %>
-                          <i class="fa fa-info-circle"></i> About Page
-                        <% end %>
-                      </li>
-                      <li>
-                        <%= link_to "#" do %>
-                          <i class="fa fa-map-marker"></i> Contact
-                        <% end %>
-                      </li>
-                  </ul>
+              <li class="<%= "active" if controller?("admin/static_pages") && !action?("dashboard") %>" >
+                <%= link_to admin_about_path do %>
+                  <i class="fa fa-info-circle"></i> About Page
+                <% end %>
               </li>
           </ul>
       </div>
