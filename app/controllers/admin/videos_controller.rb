@@ -31,17 +31,27 @@ class Admin::VideosController < ApplicationController
 
   def update
     @video = Video.find params[:id]
+    if @video.update_attributes video_params
+      flash.now[:success] = "successful update"
+      redirect_to [:admin, @video]
+    else
+      flash.now[:danger] = "Fail Update"
+      render "edit"
+    end
   end
 
   def destroy
     @video = Video.find params[:id]
+    @video.destroy
+    flash.now[:success] = "successful dalate"
+    redirect_to admin_videos_path
   end
 
   private
   def video_params
-    params.require(:video).permit :id, :title, :image, :image_cache, :description,
+    params.require(:video).permit :id, :tutorial_id, :title, :image, :image_cache, :description,
                                   :link, :file, :duration,
-                                  usefull_links_attributes: [:id, :title, :link],
+                                  usefull_links_attributes: [:id, :title, :link, :_destroy],
                                   article_attributes: [:id, :content]
 
   end

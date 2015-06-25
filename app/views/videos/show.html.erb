@@ -8,6 +8,13 @@
     <span class="info">
       <%= @video.created_at.to_date %>
       , duration:<%= @video.duration %> minutes
+      <br/>
+      <%= link_to "#" do %>
+        tutorial: <%= @video.tutorial.title %>
+      <% end %>
+      <%= link_to "#" do %>
+        ,language: <%= @video.tutorial.language.name %>
+      <% end %>
     </span>
     <br>
     <%= @video.description %>

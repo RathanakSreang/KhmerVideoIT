@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   namespace :admin do
     root "static_pages#dashboard"    
     resources :videos
+    resources :tutorials
+    resources :languages
   end
 
   resources :videos, only: [:show, :index]

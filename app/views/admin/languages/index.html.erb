@@ -1,0 +1,12 @@
+<center><h3><u>Language</u></h3></center>
+<%= link_to "Add new Language", new_admin_language_path %>
+<table class="table">
+  <thead>
+    <th>Name</th>    
+    <th>Action</th>
+  </thead>
+  <tbody>
+    <%= render @languages %>    
+  </tbody>
+</table>
+<%= will_paginate @languages %>
