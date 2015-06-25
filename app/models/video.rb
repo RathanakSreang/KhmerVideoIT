@@ -1,4 +1,5 @@
 class Video < ActiveRecord::Base
+  belongs_to :tutorial
   has_many :usefull_links, dependent: :destroy , inverse_of: :video
   has_one :article, dependent: :destroy
   

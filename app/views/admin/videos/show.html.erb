@@ -1,20 +1,28 @@
 <div class="row" id="video-show">
   <div class="col-md-3 screenshot">
     <%= image_tag @video.image, class: "img-responsive" %>
-    <%= link_to "Edit", "#", class: "btn btn-primary btn-read-video" %>
-    <%= link_to "Delete", "#", class: "btn btn-danger btn-read-video" %>
+    <%= link_to "Edit", edit_admin_video_path(@video), class: "btn btn-primary btn-read-video" %>
+    <%= link_to "Delete", admin_video_path(@video), data: {method: :delete, confirm: "Are you sure?"} , class: "btn btn-danger btn-read-video" %>
   </div>
   <div class="col-md-8 video-info">
     <h2><%= @video.title %></h2>
     <span class="info">
       <%= @video.created_at.to_date %>
       , duration:<%= @video.duration %> minutes
+      <br/>
+      <%= link_to "#" do %>
+        tutorial: <%= @video.tutorial.title %>
+      <% end %>
+      <%= link_to "#" do %>
+        ,language: <%= @video.tutorial.language.name %>
+      <% end %>
     </span>
     <br>
     <%= @video.description %>
   </div>  
 </div>
 <br/>
+<%= link_to "Back", :back %>
 <div class="row">
   <div class="col-md-12">
     <div class="panel panel-default">

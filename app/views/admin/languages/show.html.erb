@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 well">
+    <%= link_to "Back", :back %>
+    <center><h4>Name: <%= @language.name %></h4></center>
+    <br/>
+    <%= link_to "edit", edit_admin_language_path(@language), class: "btn btn-primary" %>
+    <%= link_to "delete", admin_language_path(@language), data: {method: :delete, confirm: "Are you sure?"}, class: "btn btn-danger" %>
+  </div>
+</div>

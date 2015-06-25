@@ -3,7 +3,10 @@
     <%= video.title %>
   </td>
   <td>
-    <%= video.description %>
+    <%= truncate video.description, length: 20 %>
+  </td>
+  <td>
+    <%= video.tutorial.title %>
   </td>
   <td>
     <%= video.duration %>
@@ -13,6 +16,6 @@
   </td>
   <td>
     <%= link_to "edit", edit_admin_video_path(video) %>
-    | <%= link_to "delete", admin_video_path(video) %>
+    | <%= link_to "delete", admin_video_path(video), data: {method: :delete, confirm: "Are you sure?"} %>
   </td>
 </tr>

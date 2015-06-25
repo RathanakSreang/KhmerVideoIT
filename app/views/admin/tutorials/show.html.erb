@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 well">
+    <%= link_to "Back", :back %>
+    <center><h3><u><%= @tutorial.title.capitalize %></u></h3></center>
+    <p>Language: <%= @tutorial.language.name %></p>
+    <pre><%= @tutorial.description %></pre>
+    <br/>
+    <%= link_to "edit", edit_admin_tutorial_path(@tutorial), class: "btn btn-primary" %>
+    <%= link_to "delete", admin_tutorial_path(@tutorial), data: {method: :delete, confirm: "Are you sure?"}, class: "btn btn-danger" %>
+  </div>
+</div>

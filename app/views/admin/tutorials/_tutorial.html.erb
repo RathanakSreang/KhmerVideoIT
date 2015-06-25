@@ -1,0 +1,16 @@
+<tr>
+  <td>
+    <%= tutorial.title %>
+  </td>
+  <td>
+    <%= tutorial.language.name %>
+  </td>
+  <td>
+    <%= truncate tutorial.description, length: 20 %>
+  </td>
+  <td>
+    <%= link_to "detail", admin_tutorial_path(tutorial) %>
+    | <%= link_to "edit", edit_admin_tutorial_path(tutorial) %>
+    | <%= link_to "delete", admin_tutorial_path(tutorial), data: {method: :delete, confirm: "Are you sure?"} %>
+  </td>
+</tr>

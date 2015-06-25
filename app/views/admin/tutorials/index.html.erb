@@ -1,0 +1,14 @@
+<center><h3><u>Turails</u></h3></center>
+<%= link_to "Add new Turail", new_admin_tutorial_path %>
+<table class="table">
+  <thead>
+    <th>Title</th>
+    <th>Language</th>
+    <th>Discription</th>    
+    <th>Action</th>
+  </thead>
+  <tbody>
+    <%= render @tutorials %>    
+  </tbody>
+</table>
+<%= will_paginate @tutorials %>

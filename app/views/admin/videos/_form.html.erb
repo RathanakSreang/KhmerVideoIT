@@ -1,6 +1,12 @@
 <%= form_for [:admin, @video] do |f| %>
+
+  <%= render "shared/error_message", object: f.object %>
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
+      <div class="form-group">
+        <%= f.select(:tutorial_id,options_from_collection_for_select(Tutorial.all, "id", "title", (f.object.tutorial.nil? ? 1 : f.object.tutorial.id)),{},{class: "form-control"}) %>
+      </div>
+      
       <div class="form-group">
         <%= f.label :title %>
         <%= f.text_field :title, class: "form-control", autofocus: true %>

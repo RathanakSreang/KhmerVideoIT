@@ -24,19 +24,38 @@
                   <i class="fa fa-fw fa-dashboard"></i> Dashboard
                 <% end %>
               </li>
+              <li class="<%= "active" if controller?("admin/languages") %>">
+                <%= link_to admin_languages_path do %>
+                  <i class="fa fa-language"></i> Languages
+                <% end %>
+              </li>
+              <li class="<%= "active" if controller?("admin/tutorials") %>">
+                <%= link_to admin_tutorials_path do %>
+                  <i class="fa fa-book"></i> Tutorials
+                <% end %>
+              </li>
               <li class="<%= "active" if controller?("admin/videos") %>">
                 <%= link_to admin_videos_path do %>
-                  <i class="fa fa-fw fa-dashboard"></i> Videos
+                  <i class="fa fa-video-camera"></i> Videos
                 <% end %>
-              </li>              
+              </li>
+              <li class="<%= "active" if controller?("admin/users") %>">
+                <%= link_to "#" do %>
+                  <i class="fa fa-user"></i> Users
+                <% end %>
+              </li>
               <li class="<%= "active" if controller?("admin/static_pages") && !action?("dashboard") %>">
                   <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Pages <i class="fa fa-fw fa-caret-down"></i></a>                  
                   <ul id="demo" class="collapse">
                       <li>
-                        <%= link_to "about", "#" %>
+                        <%= link_to "#" do %>
+                          <i class="fa fa-info-circle"></i> About Page
+                        <% end %>
                       </li>
                       <li>
-                        <%= link_to "contact", "#" %>
+                        <%= link_to "#" do %>
+                          <i class="fa fa-map-marker"></i> Contact
+                        <% end %>
                       </li>
                   </ul>
               </li>
