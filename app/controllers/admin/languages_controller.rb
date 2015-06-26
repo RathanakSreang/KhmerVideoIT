@@ -4,6 +4,8 @@ class Admin::LanguagesController < ApplicationController
   layout "admin/application"
 
   def show
+    @tutorials = @language.tutorials.paginate page: params[:page], per_page: 10
+    @articles = @language.articles.paginate page: params[:page], per_page: 10
   end
 
   def index

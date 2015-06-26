@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
+    @videos = Video.order_video.limit(5)
   end
 
   def help

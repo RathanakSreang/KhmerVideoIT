@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-6 col-md-offset-3 well">
+  <div class="col-md-10 col-md-offset-1 well">
     <%= link_to "Back", :back %>
     <center><h3><u><%= @tutorial.title.capitalize %></u></h3></center>
     <p>Language: <%= @tutorial.language.name %></p>
@@ -7,5 +7,23 @@
     <br/>
     <%= link_to "edit", edit_admin_tutorial_path(@tutorial), class: "btn btn-primary" %>
     <%= link_to "delete", admin_tutorial_path(@tutorial), data: {method: :delete, confirm: "Are you sure?"}, class: "btn btn-danger" %>
+
+    <br/>
+    <center><h3><u>Video</u></h3></center>
+      <%= link_to "Add new Video", new_admin_video_path %>
+      <table class="table">
+        <thead>
+          <th>Title</th>
+          <th>Discription</th>
+          <th>Tutorial</th>
+          <th>Duration</th>
+          <th></th>
+          <th>Action</th>
+        </thead>
+        <tbody>
+          <%= render @videos %>    
+        </tbody>
+      </table>
+      <%= will_paginate @videos %>
   </div>
 </div>

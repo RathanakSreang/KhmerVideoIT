@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  mount Ckeditor::Engine => "/ckeditor"
+  mount Ckeditor::Engine => '/ckeditor'
   namespace :admin do
     root "static_pages#dashboard"
     get "about"=> "static_pages#about"
@@ -9,8 +9,11 @@ Rails.application.routes.draw do
     resources :videos
     resources :tutorials
     resources :languages
+    resources :articles
   end
 
+  resources :tutorials, only: [:show, :index]
+  resources :articles, only: [:show, :index]
   resources :videos, only: [:show, :index]
   root "static_pages#home"
   get "about" => "static_pages#about"

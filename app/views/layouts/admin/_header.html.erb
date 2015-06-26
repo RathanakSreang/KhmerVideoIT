@@ -29,6 +29,11 @@
                   <i class="fa fa-language"></i> Languages
                 <% end %>
               </li>
+              <li class="<%= "active" if controller?("admin/articles") %>">
+                <%= link_to admin_articles_path do %>
+                  <i class="fa fa-book"></i> Articles
+                <% end %>
+              </li>
               <li class="<%= "active" if controller?("admin/tutorials") %>">
                 <%= link_to admin_tutorials_path do %>
                   <i class="fa fa-book"></i> Tutorials
