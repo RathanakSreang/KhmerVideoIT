@@ -1,4 +1,5 @@
 class Admin::LanguagesController < ApplicationController
+  before_action :authenticate_user!
   before_action :load_language, only: [:show, :edit, :update]
 
   layout "admin/application"

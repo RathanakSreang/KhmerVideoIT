@@ -1,4 +1,5 @@
 class Admin::StaticPagesController < ApplicationController
+  before_action :authenticate_user!
   layout "admin/application"
 
   def dashboard

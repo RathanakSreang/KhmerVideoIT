@@ -1,4 +1,5 @@
 class Admin::ArticlesController < ApplicationController
+  before_action :authenticate_user!
   before_action :load_article, only: [:show, :edit, :update]
   layout "admin/application"
 
