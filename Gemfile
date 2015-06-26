@@ -1,5 +1,6 @@
 source "https://rubygems.org"
 
+gem "devise"
 gem "ckeditor"
 gem "pygments.rb"
 gem "redcarpet"
