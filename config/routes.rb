@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  devise_for :users
+  devise_scope :user do
+    get "sign_out", to: "devise/sessions#destroy"
+  end
   mount Ckeditor::Engine => '/ckeditor'
   namespace :admin do
     root "static_pages#dashboard"
@@ -12,6 +16,7 @@ Rails.application.routes.draw do
     resources :articles
   end
 
+  resources :users, only: [:show]
   resources :tutorials, only: [:show, :index]
   resources :articles, only: [:show, :index]
   resources :videos, only: [:show, :index]
