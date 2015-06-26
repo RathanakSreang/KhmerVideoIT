@@ -1,4 +1,5 @@
 class Admin::VideosController < ApplicationController
+  before_action :authenticate_user!
   layout "admin/application"
 
   def show

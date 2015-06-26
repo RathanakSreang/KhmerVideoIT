@@ -1,4 +1,5 @@
 class Admin::TutorialsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_tutorial, only: [:show, :edit, :update]
   layout "admin/application"
 

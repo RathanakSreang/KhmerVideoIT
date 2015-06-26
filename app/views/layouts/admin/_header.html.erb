@@ -8,15 +8,19 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collape-user">
+            <span class="sr-only">Toggle navigation</span>
+            <i class="fa fa-user"></i>
+        </button>
         <%= link_to root_path do %>
           <span class="navbar-brand">KH IT</span>
         <% end %>
-      </div>    
-      <!-- <div class="">
+      </div>
+      <div class="collapse navbar-collapse" id="collape-user">
         <ul class="nav navbar-right top-nav">          
-          <li><%= link_to "User Profile", "#" %></li>
+          <li><%= link_to "Welcome! User Profile", "#" %></li>
         </ul>
-      </div>  -->
+      </div> 
       <div class="collapse navbar-collapse" id="collape-side-bar">
           <ul class="nav navbar-nav side-nav">
               <li class="<%= "active" if controller?("admin/static_pages") && action?("dashboard") %>">
