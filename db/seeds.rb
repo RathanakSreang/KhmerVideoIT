@@ -30,5 +30,11 @@ Video.all.each do |video|
                               link: Faker::Internet.url
   end
 
-  video.create_article content: Faker::Lorem.paragraph(10)
+  video.create_snippet content: Faker::Lorem.paragraph(10)
+end
+
+Language.all.each do |language|
+  Article.create title: Faker::Lorem.sentence,
+                  content: Faker::Lorem.paragraph(10),
+                  language_id: language.id
 end

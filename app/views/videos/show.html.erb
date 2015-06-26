@@ -33,13 +33,23 @@
             </ul>
           </div>
           <div class="col-md-12">
-            <%= render @video.article %>
+            <%= render @video.snippet %>
           </div>
           <div class="col-md-12">
             Comment
           </div>
+          <br/>
           <div class="col-md-12">
-            Similar Video
+            <div class="row well">
+            <% @simlar_videos.each do |video| %>
+              <div class="col-xs-6 col-sm-3 similar-video">
+                <%= link_to video do %>
+                  <%= image_tag video.image, class: "img-responsive" %>
+                  <p><%= truncate video.description, length: 50 %></p>
+                <% end %>
+              </div>
+            <% end %>
+            </div>
           </div>
         </div>
       </div>      

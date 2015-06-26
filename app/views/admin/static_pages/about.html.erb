@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col-md-10 col-md-offset-1 well">
     <center><h3>About</h3></center>
-    <%= @page.about.html_safe %>
+    <%= sanitize @page.about %>
     <br/>
-    <%= link_to "Edit", admin_edit_about_path, class: "btn btn-primary" %>
+    <%= link_to "Edit", admin_edit_about_path, class: "btn btn-primary", "data-no-turbolink" => true %>
   </div>
 </div>

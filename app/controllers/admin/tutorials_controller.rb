@@ -2,11 +2,16 @@ class Admin::TutorialsController < ApplicationController
   before_action :set_tutorial, only: [:show, :edit, :update]
   layout "admin/application"
 
-  def show    
+  def show
+    @videos = @tutorial.videos.paginate page: params[:page], per_page: 10
   end
 
-  def index
-    @tutorials = Tutorial.all.paginate page: params[:page], per_page: 10
+  def index    
+    if params[:search]
+      @tutorials = Tutorial.search(params[:search]).order("created_at DESC").paginate page: params[:page], per_page: 7
+    else
+      @tutorials = Tutorial.order("created_at DESC").paginate page: params[:page], per_page: 7
+    end
   end
 
   def new

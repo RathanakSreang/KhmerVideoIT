@@ -29,5 +29,5 @@ function remove_fields(link) {
 $(document).ready(ready);
 $(document).on("page:load", ready);
 $(document).on("page:update", ready);
-function ready(){  
+function ready(){   
 }

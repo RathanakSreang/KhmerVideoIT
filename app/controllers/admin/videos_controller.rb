@@ -5,13 +5,17 @@ class Admin::VideosController < ApplicationController
     @video = Video.find params[:id]
   end
 
-  def index
-    @videos = Video.all.paginate page: params[:page], per_page: 10
+  def index    
+    if params[:search]
+      @videos = Video.search(params[:search]).order("created_at DESC").paginate page: params[:page], per_page: 7
+    else
+      @videos = Video.order("created_at DESC").paginate page: params[:page], per_page: 7
+    end
   end
 
   def new
     @video = Video.new
-    @video.build_article
+    @video.build_snippet
   end
 
   def create
@@ -52,7 +56,7 @@ class Admin::VideosController < ApplicationController
     params.require(:video).permit :id, :tutorial_id, :title, :image, :image_cache, :description,
                                   :link, :file, :duration,
                                   usefull_links_attributes: [:id, :title, :link, :_destroy],
-                                  article_attributes: [:id, :content]
+                                  snippet_attributes: [:id, :content]
 
   end
 end

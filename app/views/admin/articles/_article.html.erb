@@ -1,0 +1,16 @@
+<tr>
+  <td>
+    <%= article.title %>
+  </td>
+  <td>
+    <%= article.language.name %>
+  </td>
+  <td>
+    <%= truncate article.description, length: 20 %>
+  </td>
+  <td>
+    <%= link_to "detail", admin_article_path(article) %>
+    | <%= link_to "edit", edit_admin_article_path(article), "data-no-turbolink" => true %>
+    | <%= link_to "delete", admin_article_path(article), data: {method: :delete, confirm: "Are you sure?"} %>
+  </td>
+</tr>

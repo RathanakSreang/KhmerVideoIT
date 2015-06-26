@@ -3,7 +3,7 @@
     <center><h3>Edit About page</h3></center>
     <%= form_tag admin_update_about_path, method: :patch do |f| %>
       <div class="form-group">
-        <%= cktext_area_tag :about, @page.about %>
+        <%= cktext_area_tag :about, @page.about, rows: 10, class: "form-control ckeditor" %>
       </div>
       <div class="form-group">
         <%= submit_tag "Update", class: "btn btn-primary" %>
