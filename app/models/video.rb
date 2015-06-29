@@ -2,7 +2,7 @@ class Video < ActiveRecord::Base
   belongs_to :tutorial
   has_many :usefull_links, dependent: :destroy , inverse_of: :video
   has_one :snippet, dependent: :destroy
-  
+  has_many :comments, as: :commentable, dependent: :destroy
   
   validates :title, :description, :image, presence: true
   mount_uploader :image, ImageUploader

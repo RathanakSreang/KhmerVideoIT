@@ -1,12 +1,36 @@
 <div class="row">
   <div class="col-md-10 col-md-offset-1 well">
     <center><h3>Edit About page</h3></center>
-    <%= form_tag admin_update_about_path, method: :patch do |f| %>
+    <%= form_for @page, url: admin_update_about_path, method: :patch do |f| %>
       <div class="form-group">
-        <%= cktext_area_tag :about, @page.about, rows: 10, class: "form-control ckeditor" %>
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon1">
+            <i class="fa fa-facebook"></i>
+          </span>          
+          <%= f.text_field :ff_link, class: "form-control", placeHolder: "facebook link" %>
+        </div>
+      </div>      
+      <div class="form-group">            
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon1">
+            <i class="fa fa-twitter"></i>
+          </span>
+          <%= f.text_field :tw_link, class: "form-control", placeHolder: "twitter link" %>
+        </div>
       </div>
       <div class="form-group">
-        <%= submit_tag "Update", class: "btn btn-primary" %>
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon1">
+            <i class="fa fa-youtube"></i>
+          </span>
+          <%= f.text_field :yt_link, class: "form-control", placeHolder: "youtube link" %>
+        </div>
+      </div>      
+      <div class="form-group">
+        <%= f.cktext_area :about, rows: 10, class: "form-control ckeditor" %>
+      </div>
+      <div class="form-group">
+        <%= f.submit "Update", class: "btn btn-primary" %>
       </div>
     <% end %>
   </div>

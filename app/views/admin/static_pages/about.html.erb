@@ -1,6 +1,16 @@
 <div class="row">
   <div class="col-md-10 col-md-offset-1 well">
     <center><h3>About</h3></center>
+    <%= link_to @page.ff_link do %>
+      <i class="fa fa-facebook-square fa-3x"></i>
+    <% end %>
+    <%= link_to @page.tw_link do %>
+      <i class="fa fa-twitter-square fa-3x"></i>
+    <% end %>
+    <%= link_to @page.yt_link do %>
+      <i class="fa fa-youtube-square fa-3x"></i>
+    <% end %>  
+    <br/>
     <%= sanitize @page.about %>
     <br/>
     <%= link_to "Edit", admin_edit_about_path, class: "btn btn-primary", "data-no-turbolink" => true %>

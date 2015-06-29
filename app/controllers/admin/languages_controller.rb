@@ -1,5 +1,6 @@
 class Admin::LanguagesController < ApplicationController
   before_action :authenticate_user!
+  before_action :admin_user
   before_action :load_language, only: [:show, :edit, :update]
 
   layout "admin/application"
@@ -54,5 +55,9 @@ class Admin::LanguagesController < ApplicationController
 
   def load_language
     @language = Language.find params[:id]
+  end
+
+  def admin_user
+    redirect_to root_url unless current_user.admin?
   end
 end

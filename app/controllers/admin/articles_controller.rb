@@ -1,5 +1,6 @@
 class Admin::ArticlesController < ApplicationController
   before_action :authenticate_user!
+  before_action :admin_user
   before_action :load_article, only: [:show, :edit, :update]
   layout "admin/application"
 
@@ -56,5 +57,9 @@ class Admin::ArticlesController < ApplicationController
 
   def load_article
     @article = Article.find params[:id]
+  end
+
+  def admin_user
+    redirect_to root_url unless current_user.admin?
   end
 end
