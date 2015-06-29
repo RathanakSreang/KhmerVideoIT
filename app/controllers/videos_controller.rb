@@ -1,6 +1,9 @@
 class VideosController < ApplicationController
   def show
     @video = Video.find params[:id]
+    @commentable = @video
+    @comments = @commentable.comments
+    @comment = Comment.new
     @simlar_videos = @video.tutorial.language.videos.order("RAND()").limit(4)
   end
 

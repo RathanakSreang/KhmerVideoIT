@@ -1,6 +1,7 @@
 class Article < ActiveRecord::Base
   belongs_to :language
-
+  has_many :comments, as: :commentable, dependent: :destroy
+  
   validates :title, :content, presence: true
   
   scope :order_article, ->{

@@ -1,5 +1,6 @@
 class Admin::TutorialsController < ApplicationController
   before_action :authenticate_user!
+  before_action :admin_user
   before_action :set_tutorial, only: [:show, :edit, :update]
   layout "admin/application"
 
@@ -57,5 +58,9 @@ class Admin::TutorialsController < ApplicationController
 
   def set_tutorial
     @tutorial = Tutorial.find params[:id]
+  end
+
+  def admin_user
+    redirect_to root_url unless current_user.admin?
   end
 end

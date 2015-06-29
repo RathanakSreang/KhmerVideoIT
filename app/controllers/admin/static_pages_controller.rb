@@ -1,5 +1,6 @@
 class Admin::StaticPagesController < ApplicationController
   before_action :authenticate_user!
+  before_action :admin_user
   layout "admin/application"
 
   def dashboard
@@ -17,7 +18,7 @@ class Admin::StaticPagesController < ApplicationController
 
   def update_about
     @page = Page.first
-    if @page.update_attributes about: params[:about]
+    if @page.update_attributes page_params
       flash[:success] = "Successful update"
       redirect_to admin_about_path
     else
@@ -26,4 +27,12 @@ class Admin::StaticPagesController < ApplicationController
     end
   end
 
+  private
+  def page_params
+    params.require(:page).permit :id, :about, :ff_link, :tw_link, :yt_link
+  end
+
+  def admin_user
+    redirect_to root_url unless current_user.admin?
+  end
 end

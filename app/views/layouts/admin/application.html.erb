@@ -15,7 +15,7 @@
     <div class="row admin-head">
       <div class="col-lg-12">
         <% flash.each do |key, value| %>
-          <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+         <%= content_tag(:div, value, class: "alert alert-#{(key == "danger")? "danger" : "success"}") %>
         <% end %>    
         <%= yield %>
       </div>

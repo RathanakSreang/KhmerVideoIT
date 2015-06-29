@@ -4,10 +4,13 @@
     <%= link_to "Read more", video_path(video), class: "btn btn-primary btn-read-video" %>
   </div>
   <div class="col-md-9 video-info">
-    <h2><%= video.title %></h2>
+    <h2>
+      <%= link_to video.title, video_path(video) %>
+    </h2>
     <span class="info">
       <%= video.created_at.to_date %>
       , duration:<%= video.duration %> minutes
+      , <%= video.comments.size %> comments
     </span>
     <br>
     <%= video.description %>

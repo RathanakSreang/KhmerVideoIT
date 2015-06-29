@@ -6,9 +6,10 @@
     <%= sanitize @article.content %>
   </div>
   <div class="col-md-12">
-    Comment
+    <br/>
+    <%= render "comments/comments" %>
+    <%= render "comments/form" %>
   </div>
-  <br/>
   <div class="col-md-12">
     <div class="row well">
     Similar Article:

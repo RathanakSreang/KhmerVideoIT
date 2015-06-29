@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 well">    
+    <legend><i class="fa fa-user "></i> User Profile</legend>
+    <%= link_to "Back", :back %>
+    <ul>
+      <li>
+        Name: <%= @user.name %>
+      </li>
+      <li>
+        Email: <%= @user.email %>
+      </li>
+      <li>
+        Created: <%= @user.created_at %>
+      </li>
+      <li>Role: <%= @user.role %></li>
+    </ul>
+    <%= link_to "Edit", edit_admin_user_path(@user), class: "btn btn-primary" %>
+    <%= link_to "Delete", admin_user_path(@user), data: {method: :delete, confirm: "Are you sure?"} , class: "btn btn-danger" %>
+  </div>
+</div>
