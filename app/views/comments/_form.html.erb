@@ -1,17 +1,76 @@
 <!-- Comments Form -->
-<div class="well">
-    <h4>Leave a Comment:</h4>    
-    <%= form_for [@commentable, @comment] do |f| %>
-      <%= render "shared/error_message", object: f.object %>
-      <%= f.hidden_field :parent_id %>
-      <div class="form-group">
-        <%= f.text_area :content, rows: 3, class: "form-control" %>
+<div class="media">
+  <a class="pull-left" href="#">
+    <%= image_tag current_user.avatar, class: "img-round img-responsive user_profile" %>
+  </a>
+  <div class="media-body">
+    <div class="comment-heading"><%= comment_title %>, <%= current_user.name %>      
+    </div>
+    <div class="comment_content">
+      Use Markdown for formatting. See how use <a href="javascript:void(0)" class="markdown_link_<%= @comment.parent_id %>">here.</a>
+      <div class="markdown_examples_<%= @comment.parent_id %>">
+        <table class="table-bordered">
+          <tbody>
+            <tr>
+              <td><%= simple_format "[Link(http://example.com/)]" %></td>
+              <td><%= markdown "[Link(http://example.com/)]" %></td>
+            </tr>
+            <tr>
+              <td><%= simple_format "*Italic*" %></td>
+              <td><%= markdown "*Italic*" %></td>
+            </tr>
+            <tr>
+              <td><%= simple_format "**Bold**" %></td>
+              <td><%= markdown "**Bold**" %></td>
+            </tr>
+            <tr>
+              <td><%= simple_format "* Listed" %></td>
+              <td><%= markdown "* Listed" %></td>
+            </tr>
+            <tr>
+              <td><%= simple_format "> Block quote" %></td>
+              <td><%= markdown "> Block quote" %></td>
+            </tr>
+            <tr>
+              <td><%= simple_format "`Inline code`" %></td>
+              <td><%= markdown "`Inline code`" %></td>
+            </tr>
+            <tr>
+              <td><%= simple_format "
+              ```` java
+System.out.println(\"Hello\");
+              ```" %></td>
+              <td><%= markdown "```` java
+System.out.println(\"Hello\");
+              " %></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+      <br/>
+      <%= form_for [@commentable, @comment], remote: true do |f| %>      
+        <%#= render "shared/error_message", object: f.object %>
+        <div id="comment_errors_<%= @comment.parent_id %>">        
+        </div>
+        <%= f.hidden_field :parent_id %>
+        <div class="form-group">
+          <%= f.text_area :content, rows: 6, class: "form-control", id: "comment_content_#{ @comment.parent_id}" %>
+        </div>
 
-      <div class="form-group">
-        <%= f.submit "Submit", class: "btn btn-primary" %>
-      </div>
-    <% end %>
-</div>
-
-<hr>
+        <div class="form-group">
+          <%= f.button raw("Post <i class='fa fa-paper-plane-o'></i>"), class: "btn-reply" %>
+        </div>
+      <% end %>
+    </div>    
+  </div>
+</div>    
+<script type="text/javascript">
+  $(".markdown_examples_<%= @comment.parent_id %>").hide();
+  $(".markdown_link_<%= @comment.parent_id %>").click(function(){
+    if($(".markdown_examples_<%= @comment.parent_id %>").is(":visible")){
+      $(".markdown_examples_<%= @comment.parent_id %>").hide();
+    }else{
+      $(".markdown_examples_<%= @comment.parent_id %>").show();
+    }    
+  });
+</script>

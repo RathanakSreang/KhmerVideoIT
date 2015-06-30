@@ -1,0 +1,13 @@
+<tr>
+  <td>
+    <%= tag.name %>
+  </td>
+  <td>
+    <%= tag.created_at %>
+  </td>
+  <td>
+    <%= link_to "detail", admin_tag_path(tag) %>
+    | <%= link_to "edit", edit_admin_tag_path(tag) %>
+    | <%= link_to "delete", admin_tag_path(tag), data: {method: :delete, confirm: "Are you sure?"} %>
+  </td>
+</tr>

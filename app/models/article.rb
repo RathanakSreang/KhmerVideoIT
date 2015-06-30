@@ -1,9 +1,12 @@
-class Article < ActiveRecord::Base
-  belongs_to :language
+class Article < ActiveRecord::Base  
   has_many :comments, as: :commentable, dependent: :destroy
+  
+  has_many :article_tags, dependent: :destroy
+  has_many :tags, through: :article_tags
   
   validates :title, :content, presence: true
   
+
   scope :order_article, ->{
     order("created_at DESC")
   }

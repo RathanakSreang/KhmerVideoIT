@@ -52,7 +52,7 @@ class Admin::ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit :id, :content, :title, :description, :language_id
+    params.require(:article).permit :id, :content, :title, :description, tag_ids:[]
   end
 
   def load_article

@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
 gem "ancestry"
+gem "sublimevideo_rails"
 gem "devise"
 gem "ckeditor"
 gem "pygments.rb"

@@ -1,16 +1,29 @@
 <div class="media">
-  <a class="pull-left" href="#">
-    <img class="media-object" src="http://placehold.it/64x64" alt="">
+  <a class="pull-left" href="#">    
+    <%= image_tag comment.user.avatar, class: "img-round img-responsive user_profile" %>
   </a>
-  <div class="media-body well">
-    <p class="media-heading">Start Bootstrap
+  <div class="media-body">
+    <div class="comment-heading">
+      <%= link_to comment.user.name, comment.user %>      
       <%= time_ago_in_words comment.created_at %> ago
-    </p>
-    <hr/>
-    <%= simple_format comment.content %>
-    <% if comment.ancestor_ids.count < 3 %>
-      <%= link_to "Reply", new_polymorphic_path([@commentable, Comment.new], parent_id: comment) %>
-    <% end %>
-    <%= render comment.children %>
+    </div>
+    <div class="comment_content">
+      <%= markdown comment.content %>
+      <% if comment.ancestor_ids.count < 3 %>
+        <% if user_signed_in? %>
+          <%= link_to raw("Reply <i class='fa fa-paper-plane-o'></i>"), new_polymorphic_path([@commentable, Comment.new], parent_id: comment), remote: true, class: "btn-reply" %>
+          <br/><br/>
+        <% else %>
+          <%= link_to "Sign in", new_user_session_path  %>
+          <%= " to reply this comment" %>
+          <br/><br/>
+        <% end %>
+      <% end %>
+      <div id="comment_<%= comment.id %>">
+        <%= render comment.children %>
+      </div>
+      <div id="reply_form_<%= comment.id %>">      
+      </div>
+    </div>    
   </div>
 </div>    

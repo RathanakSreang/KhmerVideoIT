@@ -55,10 +55,10 @@ class Admin::VideosController < ApplicationController
 
   private
   def video_params
-    params.require(:video).permit :id, :tutorial_id, :title, :image, :image_cache, :description,
-                                  :link, :file, :duration,
+    params.require(:video).permit :id, :title, :image, :image_cache, :description,
+                                  :link, :file, :file_cache, :duration,
                                   usefull_links_attributes: [:id, :title, :link, :_destroy],
-                                  snippet_attributes: [:id, :content]
+                                  snippet_attributes: [:id, :content], tag_ids:[]
 
   end
 
