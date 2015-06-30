@@ -11,14 +11,13 @@ Rails.application.routes.draw do
     get "edit_about"=> "static_pages#edit_about"
     patch "update_about"=> "static_pages#update_about"    
     resources :videos
-    resources :tutorials
-    resources :languages
+    resources :tags
     resources :articles
     resources :users
   end
 
-  resources :users, only: [:show]
-  resources :tutorials, only: [:show, :index]
+  resources :tags
+  resources :users, only: [:show]  
   resources :articles, only: [:show, :index] do
     resources :comments
   end

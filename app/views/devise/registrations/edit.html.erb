@@ -5,6 +5,15 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= render "shared/error_message", object: f.object %>
 
+      <center>
+        <%= image_tag f.object.avatar, class:"img-round img-responsive user_profile", id: "uploadPreview"  %>
+      </center>  
+      
+      <div class="form-group">
+        <%= f.file_field :avatar, class: "form-control", id: "uploadImage", onchange:"PreviewImage();", accept: "image/png,image/gif,image/jpeg" %>
+        <%= f.hidden_field :avatar_cache %>
+      </div>
+      
       <div class="form-group">
         <%= f.label :name %>
         <%= f.text_field :name, autofocus: true, class: "form-control" %>

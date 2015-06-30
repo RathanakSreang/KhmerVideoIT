@@ -8,12 +8,10 @@
     <span class="info">
       <%= @video.created_at.to_date %>
       , duration:<%= @video.duration %> minutes
-      <br/>
-      <%= link_to "#" do %>
-        tutorial: <%= @video.tutorial.title %>
-      <% end %>
-      <%= link_to "#" do %>
-        ,language: <%= @video.tutorial.language.name %>
+      <br/>      
+      Tags:
+      <% @video.tags.each do |tag| %>
+        <%= link_to tag.name, tag %>
       <% end %>
     </span>
     <br>
@@ -38,7 +36,14 @@
           <div class="col-md-12">
             <br/>
             <%= render "comments/comments" %>
-            <%= render "comments/form" %>
+            <% if user_signed_in? %>
+              <div id="reply_comment_form">
+                <%= render "comments/form", comment_title: "Leave a comment as" %>  
+              </div>
+            <% else %>
+                <%= link_to "Sign in", new_user_session_path  %>
+                <%= " to post a comment" %>
+            <% end %>            
           </div>
           <br/>
           <div class="col-md-12">

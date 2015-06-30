@@ -69,9 +69,7 @@
          <ul class="nav navbar-nav navbar-right">
             <li class="<%= "active" if controller?("videos")&&action?("index") %>">
                <%= link_to "All Video", videos_path %>
-            </li>
-            <li class="<%= "active" if controller?("tutorials")&&action?("index") %>">
-               <%= link_to "Tutorails", tutorials_path %></li>
+            </li>            
             <li class="<%= "active" if controller?("articles")&&action?("index") %>">
                <%= link_to "Articles", articles_path %></li>
             <li class="<%= "active" if controller?("static_pages")&&action?("about") %>" >

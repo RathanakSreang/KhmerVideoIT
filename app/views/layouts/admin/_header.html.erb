@@ -44,19 +44,14 @@
                   <i class="fa fa-fw fa-dashboard"></i> Dashboard
                 <% end %>
               </li>
-              <li class="<%= "active" if controller?("admin/languages") %>">
-                <%= link_to admin_languages_path do %>
-                  <i class="fa fa-language"></i> Languages
+              <li class="<%= "active" if controller?("admin/tags") %>">
+                <%= link_to admin_tags_path do %>
+                  <i class="fa fa-language"></i> Tags
                 <% end %>
               </li>
               <li class="<%= "active" if controller?("admin/articles") %>">
                 <%= link_to admin_articles_path do %>
                   <i class="fa fa-book"></i> Articles
-                <% end %>
-              </li>
-              <li class="<%= "active" if controller?("admin/tutorials") %>">
-                <%= link_to admin_tutorials_path do %>
-                  <i class="fa fa-book"></i> Tutorials
                 <% end %>
               </li>
               <li class="<%= "active" if controller?("admin/videos") %>">

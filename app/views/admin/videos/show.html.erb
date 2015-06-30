@@ -9,13 +9,11 @@
     <span class="info">
       <%= @video.created_at.to_date %>
       , duration:<%= @video.duration %> minutes
-      <br/>
-      <%= link_to "#" do %>
-        tutorial: <%= @video.tutorial.title %>
-      <% end %>
-      <%= link_to "#" do %>
-        ,language: <%= @video.tutorial.language.name %>
-      <% end %>
+      <br/>      
+        Tags: 
+        <% @video.tags.each do |tag| %>
+          <%= link_to tag.name, [:admin, tag] %>,
+        <% end %>      
     </span>
     <br>
     <%= @video.description %>

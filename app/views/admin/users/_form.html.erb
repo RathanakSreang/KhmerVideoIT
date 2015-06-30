@@ -1,6 +1,17 @@
 <%= form_for [:admin, @user] do |f| %>
 
   <%= render "shared/error_message", object: f.object %>
+
+  <div class="col-md-8 col-md-offset-2">
+    <center>
+      <%= image_tag f.object.avatar, class:"img-round img-responsive user_profile", id: "uploadPreview"  %>
+    </center>  
+  </div>
+  <div class="form-group">
+    <%= f.file_field :avatar, class: "form-control", id: "uploadImage", onchange:"PreviewImage();", accept: "image/png,image/gif,image/jpeg" %>
+    <%= f.hidden_field :avatar_cache %>
+  </div>
+
   <div class="form-group">
     <%= f.label :name %>
     <%= f.text_field :name, autofocus: true, class: "form-control" %>

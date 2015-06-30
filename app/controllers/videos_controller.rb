@@ -4,7 +4,7 @@ class VideosController < ApplicationController
     @commentable = @video
     @comments = @commentable.comments
     @comment = Comment.new
-    @simlar_videos = @video.tutorial.language.videos.order("RAND()").limit(4)
+    @simlar_videos = Video.order("RAND()").limit(4)
   end
 
   def index    

@@ -1,0 +1,25 @@
+<center><h3><u>Tags</u></h3></center>
+<%= link_to "Add new Tag", new_admin_tag_path %>
+<div class="col-md-3 pull-right">
+  <%= form_tag admin_tags_path, method: "get", class: "", id: "search-form", role: "search" do %>
+  <div class="input-group">
+    <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search Video" %>
+       <div class="input-group-btn">
+          <button type="submit" class="btn btn-default">
+             <i class="fa fa-search fa-lg"></i>
+          </button>
+       </div>            
+  </div>
+<% end %>
+</div>
+<table class="table">
+  <thead>
+    <th>Name</th>
+    <th>Created_at</th>      
+    <th>Action</th>
+  </thead>
+  <tbody>
+    <%= render @tags %>    
+  </tbody>
+</table>
+<%= will_paginate @tags %>

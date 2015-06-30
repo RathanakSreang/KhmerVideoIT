@@ -2,7 +2,11 @@
   <div class="col-md-10 col-md-offset-1 well">
     <%= link_to "Back", :back %>
     <center><h3><u><%= @article.title.capitalize %></u></h3></center>
-    <p>Language: <%= @article.language.name %></p>    
+    <p>Tags: 
+    <% @article.tags.each do |tag| %>
+        <%= link_to tag.name, [:admin, tag] %>,
+    <% end %>
+        </p>    
     <br/>
     <p><%= @article.description %></p>
     <%= link_to "edit", edit_admin_article_path(@article), class: "btn btn-primary", "data-no-turbolink" => true %>

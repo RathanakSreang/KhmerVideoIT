@@ -1,1 +1,8 @@
-$("#comments").append("<%= j render @comment %>")
+<% if @comment.errors.any? %>
+  $("#comment_errors_<%= @comment.parent_id %>").append("<%= j render 'shared/error_message', object: @comment %>");
+<% else %>  
+  $("#comment_<%= @comment.parent_id %>").append("<%= j render @comment %>");
+  $("#comment_content_<%= @comment.parent_id %>").val("");
+  $("#reply_form_<%= @comment.parent_id %>").html("");
+  $("#comment_errors_<%= @comment.parent_id %>").html("");
+<% end %>

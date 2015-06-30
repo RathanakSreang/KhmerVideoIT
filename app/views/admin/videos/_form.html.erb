@@ -3,8 +3,26 @@
   <%= render "shared/error_message", object: f.object %>
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
+
+      <center>
+        <%= image_tag f.object.image, class:"img-round img-responsive user_profile", id: "uploadPreview"  %>
+      </center>
+      
       <div class="form-group">
-        <%= f.select(:tutorial_id,options_from_collection_for_select(Tutorial.all, "id", "title", (f.object.tutorial.nil? ? 1 : f.object.tutorial.id)),{},{class: "form-control"}) %>
+        <%= f.label :image, "ScreenShot" %>
+        <%= f.file_field :image, class: "form-control", id: "uploadImage", onchange:"PreviewImage();", accept: "image/png,image/gif,image/jpeg" %>
+        <%= f.hidden_field :image_cache %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :file, "Video Link" %>
+        <%#= f.text_field :file, class: "form-control" %>
+        <%= f.file_field :file, class: "form-control" %>
+        <%= f.hidden_field :file_cache %>
+      </div>
+
+      <div class="form-group">
+        <%= f.select(:tag_ids,options_from_collection_for_select(Tag.all, "id", "name", f.object.tag_ids),{},{multiple: true, size: 5, class: "form-control"}) %>
       </div>
       
       <div class="form-group">
@@ -18,23 +36,12 @@
       </div>
 
       <div class="form-group">
-        <%= f.label :file, "Video Link" %>
-        <%= f.text_field :file, class: "form-control" %>
-      </div>
-
-      <div class="form-group">
         <%= f.label :duration %>
         <%= f.text_field :duration, class: "form-control" %>
       </div>
-
-      <div class="form-group">
-        <%= f.label :image, "ScreenShot" %>
-        <%= f.file_field :image, class: "form-control" %>
-        <%= f.hidden_field :image_cache %>
-      </div>
         
       <div class="well">
-        <label>Link in Video</label>
+        <label>Resources link in video</label>
         <div class="form-group">
           <%= f.fields_for :usefull_links do |builder| %>
             <%= render "usefull_link_fields", f: builder %>

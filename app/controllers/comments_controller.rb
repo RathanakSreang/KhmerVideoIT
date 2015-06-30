@@ -12,13 +12,8 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @commentable.comments.new comment_params
+    @comment.user_id = current_user.id
     if @comment.save
-      flash[:success] = "Comment create"
-      # redirect_to [@commentable, :comments]
-      redirect_to @commentable
-    else
-      flash.now[:danger] = "Fail to create"
-      render "new"
     end
 
   end
