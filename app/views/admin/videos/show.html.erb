@@ -7,7 +7,7 @@
   <div class="col-md-8 video-info">
     <h2><%= @video.title %></h2>
     <span class="info">
-      <%= @video.created_at.to_date %>
+      <%= l @video.created_at.to_date %>
       , duration:<%= @video.duration %> minutes
       <br/>      
         Tags: 
@@ -17,6 +17,8 @@
     </span>
     <br>
     <%= @video.description %>
+    <br/>
+    Viedo link: <%= link_to @video.file_link, @video.file_link, target: "_blank" %>
   </div>  
 </div>
 <br/>

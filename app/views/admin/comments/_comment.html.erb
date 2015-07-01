@@ -1,0 +1,22 @@
+<div class="media">
+  <a class="pull-left" href="#">    
+    <%= image_tag comment.user.avatar, class: "img-round img-responsive user_profile" %>
+  </a>
+  <div class="media-body">
+    <div class="comment-heading">
+    <%= link_to comment.user.name, [:admin, comment.user] %>
+    , <%= comment.parent_id.present? ? "reply" : "post" %> comment on   
+    <%= link_to comment.commentable do %>
+      <%= comment.commentable.title %>
+    <% end %>          
+      <%= time_ago_in_words comment.created_at %> ago
+    </div>
+    <div class="comment_content">
+      <%= markdown comment.content %>
+      <div>
+        <%= link_to "show", admin_comment_path(comment) %>
+        | <%= link_to "delete", admin_comment_path(comment), data: {method: :delete, confirm: "Are you sure?"} %>
+      </div>
+    </div>    
+  </div>
+</div>

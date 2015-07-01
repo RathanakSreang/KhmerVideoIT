@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150630094630) do
+ActiveRecord::Schema.define(version: 20150701041317) do
+
+  create_table "activities", force: :cascade do |t|
+    t.integer  "user_id",        limit: 4
+    t.string   "action",         limit: 255
+    t.integer  "trackable_id",   limit: 4
+    t.string   "trackable_type", limit: 255
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "activities", ["trackable_type", "trackable_id"], name: "index_activities_on_trackable_type_and_trackable_id", using: :btree
+  add_index "activities", ["user_id"], name: "index_activities_on_user_id", using: :btree
 
   create_table "article_tags", force: :cascade do |t|
     t.integer  "article_id", limit: 4
@@ -117,7 +129,7 @@ ActiveRecord::Schema.define(version: 20150630094630) do
   create_table "videos", force: :cascade do |t|
     t.string   "title",       limit: 255
     t.text     "description", limit: 65535
-    t.string   "file",        limit: 255
+    t.string   "file_link",   limit: 255
     t.integer  "duration",    limit: 4
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
@@ -125,4 +137,5 @@ ActiveRecord::Schema.define(version: 20150630094630) do
     t.integer  "tutorial_id", limit: 4
   end
 
+  add_foreign_key "activities", "users"
 end

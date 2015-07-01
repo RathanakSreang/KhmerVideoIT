@@ -1,6 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
-    @videos = Video.order_video.limit(5)
+    @videos = Video.order_video.limit(3)
+    @articles = Article.order("created_at DESC").limit(3)
   end
 
   def help

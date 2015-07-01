@@ -1,8 +1,2 @@
-<% if params[:search] %>
-  <b>Applied Filters:</b> <%= params[:search] %>
-  <% unless @videos.size > 0 %>
-    <p>No video found.  <%= link_to "See all videos", videos_path %></p>
-  <% end %>  
-<% end %>
 <%= render @videos %>
 <%= will_paginate @videos %>

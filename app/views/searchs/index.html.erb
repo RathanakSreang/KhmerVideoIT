@@ -1,0 +1,14 @@
+<b>Applied Filters:</b> <%= params[:search] %>
+<% unless @videos && @videos.any? %>
+  <p>No video found.  <%= link_to "See all videos", videos_path %></p>
+<% else %>
+  <legend>Videos</legend>
+  <%= render @videos %>
+<% end %>
+<% unless @articles && @articles.any? %>
+  <p>No article found.  <%= link_to "See all articles", articles_path %></p>
+<% else %>
+  <legend>Articles</legend>
+  <%= render @articles %>
+<% end %>
+

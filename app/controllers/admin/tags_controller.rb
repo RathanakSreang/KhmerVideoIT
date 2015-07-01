@@ -5,7 +5,8 @@ class Admin::TagsController < ApplicationController
   layout "admin/application"
 
   def show
-    
+    @videos = @tag.videos.order("created_at DESC").paginate page: params[:page], per_page: 7
+    @articles = @tag.articles.order("created_at DESC").paginate page: params[:page], per_page: 7
   end
 
   def index
@@ -23,6 +24,7 @@ class Admin::TagsController < ApplicationController
   def create
     @tag = Tag.new tag_params
     if @tag.save
+      track_activity @tag
       flash[:success] = "Successful create"
       redirect_to [:admin, @tag]
     else
@@ -36,6 +38,7 @@ class Admin::TagsController < ApplicationController
 
   def update
     if @tag.update_attributes tag_params
+      track_activity @tag
       flash[:success] = "Successful update"
       redirect_to [:admin, @tag]
     else
@@ -47,6 +50,7 @@ class Admin::TagsController < ApplicationController
   def destroy
     @tag = Tag.find params[:id]
     @tag.destroy
+    track_activity @tag
     flash[:success] = "Successful delete"
     redirect_to admin_tags_path
   end

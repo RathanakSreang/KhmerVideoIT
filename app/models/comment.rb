@@ -4,4 +4,8 @@ class Comment < ActiveRecord::Base
   belongs_to :user
 
   validates :content, presence: true
+
+  def self.search(query)    
+    where("content like ?", "%#{query}%") 
+  end
 end

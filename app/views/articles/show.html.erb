@@ -5,6 +5,8 @@
       <% @article.tags.each do |tag| %>
         <%= link_to tag.name, tag %>
       <% end %>
+      <br/>
+      Post at: <%= l @article.created_at.localtime.to_date %>
     </p>
     <p><%#= @article.description %></p>    
     <%= sanitize @article.content %>

@@ -1,0 +1,5 @@
+<% if user %>
+  update an user <%= link_to user.name, [:admin, user] %>  
+<% else %>
+  update an user which has been removed
+<% end %>

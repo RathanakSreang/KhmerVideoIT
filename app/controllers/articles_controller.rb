@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find params[:id]
-    @simlar_articles = Article.order("RAND()").limit(4)
+    @simlar_articles = @article.simlar_articles
     @commentable = @article
     @comments = @commentable.comments
     @comment = Comment.new

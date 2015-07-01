@@ -6,7 +6,9 @@
     <% @article.tags.each do |tag| %>
         <%= link_to tag.name, [:admin, tag] %>,
     <% end %>
-        </p>    
+    <br/>
+    Created: <%= l @article.created_at.localtime %>
+    </p>
     <br/>
     <p><%= @article.description %></p>
     <%= link_to "edit", edit_admin_article_path(@article), class: "btn btn-primary", "data-no-turbolink" => true %>

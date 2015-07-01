@@ -1,8 +1,10 @@
-<div id="videos">
-  <h3>Recent Video</h3>
-  <%= render @videos %>
-</div>
-<div id="videos">
-  <h3>Recent Article</h3>
-  <%#= render @videos %>
+<div class="row">  
+  <div class="col-md-12">
+    <legend>Recent Video</legend>
+    <%= render @videos %>
+  </div>
+  <div class="col-md-12">
+    <legend>Recent Article</legend>
+    <%= render @articles %>
+  </div>
 </div>

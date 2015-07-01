@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2 well">
+    <div class="media">
+      <a class="pull-left" href="#">    
+        <%= image_tag @comment.user.avatar, class: "img-round img-responsive user_profile" %>
+      </a>
+      <div class="media-body">
+        <div class="comment-heading"><%= @comment.user.name %>
+        , @comment on         
+        <%= link_to @comment.commentable do %>
+          <%= @comment.commentable.title %>
+        <% end %>          
+          <%= time_ago_in_words @comment.created_at %> ago
+        </div>
+        <div class="comment_content">
+          <%= markdown @comment.content %>          
+        </div>    
+      </div>
+      <br/>      
+      <%= link_to "delete", admin_comment_path(@comment), data: {method: :delete, confirm: "Are you sure?"}, class: "btn btn-danger" %>
+    </div>
+  </div>
+</div>

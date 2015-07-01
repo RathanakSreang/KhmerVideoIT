@@ -3,7 +3,7 @@
     <%= tag.name %>
   </td>
   <td>
-    <%= tag.created_at %>
+    <%= l tag.created_at.localtime %>
   </td>
   <td>
     <%= link_to "detail", admin_tag_path(tag) %>

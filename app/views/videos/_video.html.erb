@@ -8,7 +8,7 @@
       <%= link_to video.title, video_path(video) %>
     </h2>
     <span class="info">
-      <%= video.created_at.to_date %>
+      <%= l video.created_at.localtime.to_date %>
       , duration:<%= video.duration %> minutes
       , <%= video.comments.size %> comments
     </span>

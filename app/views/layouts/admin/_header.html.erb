@@ -39,14 +39,14 @@
       </div> 
       <div class="collapse navbar-collapse" id="collape-side-bar">
           <ul class="nav navbar-nav side-nav">
-              <li class="<%= "active" if controller?("admin/static_pages") && action?("dashboard") %>">
+              <li class="<%= "active" if controller?("admin/activities") %>">
                 <%= link_to admin_root_path do %>
                   <i class="fa fa-fw fa-dashboard"></i> Dashboard
                 <% end %>
               </li>
               <li class="<%= "active" if controller?("admin/tags") %>">
                 <%= link_to admin_tags_path do %>
-                  <i class="fa fa-language"></i> Tags
+                  <i class="fa fa-tags"></i> Tags
                 <% end %>
               </li>
               <li class="<%= "active" if controller?("admin/articles") %>">
@@ -62,6 +62,11 @@
               <li class="<%= "active" if controller?("admin/users") %>">
                 <%= link_to admin_users_path do %>
                   <i class="fa fa-user"></i> Users
+                <% end %>
+              </li>
+              <li class="<%= "active" if controller?("admin/comments") %>">
+                <%= link_to admin_comments_path do %>
+                  <i class="fa fa-user"></i> Comments
                 <% end %>
               </li>
               <li class="<%= "active" if controller?("admin/static_pages") && !action?("dashboard") %>" >
