@@ -25,10 +25,10 @@ class Admin::TagsController < ApplicationController
     @tag = Tag.new tag_params
     if @tag.save
       track_activity @tag
-      flash[:success] = "Successful create"
+      flash[:success] = t "flash.success_create"
       redirect_to [:admin, @tag]
     else
-      flash.now[:danger] = "Fail create"
+      flash.now[:danger] = t "flash.fail_create"
       render "new"
     end
   end
@@ -39,10 +39,10 @@ class Admin::TagsController < ApplicationController
   def update
     if @tag.update_attributes tag_params
       track_activity @tag
-      flash[:success] = "Successful update"
+      flash[:success] = t "flash.success_update"
       redirect_to [:admin, @tag]
     else
-      flash.now[:danger] = "Fail update"
+      flash.now[:danger] = t "flash.fail_update"
       render "edit"
     end
   end
@@ -51,7 +51,7 @@ class Admin::TagsController < ApplicationController
     @tag = Tag.find params[:id]
     @tag.destroy
     track_activity @tag
-    flash[:success] = "Successful delete"
+    flash[:success] = t "flash.success_delete"
     redirect_to admin_tags_path
   end
 

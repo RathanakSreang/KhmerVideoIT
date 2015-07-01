@@ -1,16 +1,16 @@
 <div class="row">
   <div class="col-md-12">
-    <h3>All in tag's <%= @tag.name %>:</h3>
+    <h3><%= t("tags.label.all_in_tag") %> <%= @tag.name %>:</h3>
   </div>
   <div class="col-md-12">
     <% if @videos.any? %>
-      <legend>Videos:</legend>
+      <legend><%= t("tags.label.videos") %></legend>
       <%= render @videos %>      
     <% end %>
   </div>
   <div class="col-md-12">
     <% if @articles.any? %>
-      <legend>Articles:</legend>
+      <legend><%= t("tags.label.articles") %></legend>
       <%= render @articles %>      
     <% end %>
   </div>

@@ -21,7 +21,7 @@ class Admin::CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @comment.destroy
     track_activity @comment    
-    flash[:success] = "Successful delete"
+    flash[:success] = t "flash.success_delete"
     redirect_to admin_comments_path
   end
 

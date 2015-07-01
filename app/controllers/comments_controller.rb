@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
+
   before_filter :load_commentable
 
   def index
@@ -16,7 +18,6 @@ class CommentsController < ApplicationController
     if @comment.save
       track_activity @comment
     end
-
   end
   private
 

@@ -13,23 +13,23 @@
             <i class="fa fa-user"></i>
         </button>
         <%= link_to root_path do %>
-          <span class="navbar-brand">KH IT</span>
+          <span class="navbar-brand"><%= t("layouts.admin.header.link.root_path") %></span>
         <% end %>
       </div>
       <div class="collapse navbar-collapse" id="collape-user">
         <ul class="nav navbar-right user-nav">          
           <li class="pull-right">
-            <%= link_to "Welcome! #{current_user.name}", "#", class:"dropdown-toggle", id:"admin-user-header", 
+            <%= link_to t("layouts.admin.header.link.welcome") + "#{current_user.name}", "#", class:"dropdown-toggle", id:"admin-user-header", 
                       'aria-expanded' =>'false', data: {toggle: "dropdown"} %>
               <ul id="login-dp" class="dropdown-menu">    
                 <li>
                   <%= link_to [:admin, current_user] do%>
-                    <i class="fa fa-user"> </i>  Profile
+                    <i class="fa fa-user"> </i>  <%= t("layouts.admin.header.link.profile") %>
                   <%end%>
                 </li>                              
                 <li class="divider"></li>
                 <li><%= link_to sign_out_path do%>
-                  <center><i class="fa fa-sign-out fa-lg"></i>  Sign Out</center>      
+                  <center><i class="fa fa-sign-out fa-lg"></i>  <%= t("layouts.admin.header.link.sign_out") %></center>      
                 <%end%>    
                 </li>
                 <br/>
@@ -41,37 +41,37 @@
           <ul class="nav navbar-nav side-nav">
               <li class="<%= "active" if controller?("admin/activities") %>">
                 <%= link_to admin_root_path do %>
-                  <i class="fa fa-fw fa-dashboard"></i> Dashboard
+                  <i class="fa fa-fw fa-dashboard"></i> <%= t("layouts.admin.header.link.dashboard") %>
                 <% end %>
               </li>
               <li class="<%= "active" if controller?("admin/tags") %>">
                 <%= link_to admin_tags_path do %>
-                  <i class="fa fa-tags"></i> Tags
+                  <i class="fa fa-tags"></i> <%= t("layouts.admin.header.link.tag") %>
                 <% end %>
               </li>
               <li class="<%= "active" if controller?("admin/articles") %>">
                 <%= link_to admin_articles_path do %>
-                  <i class="fa fa-book"></i> Articles
+                  <i class="fa fa-book"></i> <%= t("layouts.admin.header.link.articles") %>
                 <% end %>
               </li>
               <li class="<%= "active" if controller?("admin/videos") %>">
                 <%= link_to admin_videos_path do %>
-                  <i class="fa fa-video-camera"></i> Videos
+                  <i class="fa fa-video-camera"></i> <%= t("layouts.admin.header.link.videos") %>
                 <% end %>
               </li>
               <li class="<%= "active" if controller?("admin/users") %>">
                 <%= link_to admin_users_path do %>
-                  <i class="fa fa-user"></i> Users
+                  <i class="fa fa-user"></i> <%= t("layouts.admin.header.link.users") %>
                 <% end %>
               </li>
               <li class="<%= "active" if controller?("admin/comments") %>">
                 <%= link_to admin_comments_path do %>
-                  <i class="fa fa-user"></i> Comments
+                  <i class="fa fa-user"></i> <%= t("layouts.admin.header.link.comments") %>
                 <% end %>
               </li>
               <li class="<%= "active" if controller?("admin/static_pages") && !action?("dashboard") %>" >
                 <%= link_to admin_about_path do %>
-                  <i class="fa fa-info-circle"></i> About Page
+                  <i class="fa fa-info-circle"></i> <%= t("layouts.admin.header.link.about") %>
                 <% end %>
               </li>
           </ul>
