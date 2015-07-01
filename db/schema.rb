@@ -134,7 +134,6 @@ ActiveRecord::Schema.define(version: 20150701041317) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.string   "image",       limit: 255
-    t.integer  "tutorial_id", limit: 4
   end
 
   add_foreign_key "activities", "users"
