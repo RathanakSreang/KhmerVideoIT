@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-4 col-md-offset-4">
-    <h2>Edit <%= resource_name.to_s.humanize %></h2>
+    <h2><%= t("devise.label.edit") %> <%= resource_name.to_s.humanize %></h2>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= render "shared/error_message", object: f.object %>
@@ -15,44 +15,44 @@
       </div>
       
       <div class="form-group">
-        <%= f.label :name %>
+        <%= f.label t("devise.label.name") %>
         <%= f.text_field :name, autofocus: true, class: "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= f.label :email %>
+        <%= f.label t("devise.label.email") %>
         <%= f.email_field :email, autofocus: true, class: "form-control" %>
       </div>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <div><%= t("devise.label.email_info") %> <%= resource.unconfirmed_email %></div>
       <% end %>
 
       <div class="form-group">
-        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i>
+        <%= f.label t("devise.label.password") %> <i>(<%= t("devise.label.password_info") %>)</i>
         <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= f.label :password_confirmation %>
+        <%= f.label t("devise.label.password_confirmation") %>
         <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i>
+        <%= f.label t("devise.label.current_password") %> <i>(<%= t("devise.label.current_password_info") %>)</i>
         <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
       </div>
 
       <div class="actions">
-        <%= f.submit "Update", class: "btn btn-primary" %>
+        <%= f.submit t("devise.link.update"), class: "btn btn-primary" %>
       </div>
     <% end %>
 
-    <h3>Cancel my account</h3>
+    <h3><%= t("devise.label.cancel_account") %></h3>
 
-    <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete,class: "btn btn-danger" %></p>
+    <p><%= t("devise.label.unhappy") %> <%= button_to t("devise.link.cancel_account"), registration_path(resource_name), data: { confirm: t("devise.label.cancel_confirm") }, method: :delete,class: "btn btn-danger" %></p>
 
-    <%= link_to "Back", :back %>
+    <%= link_to t("devise.link.back"), :back %>
 
   </div>
 </div>

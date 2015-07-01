@@ -10,12 +10,12 @@
               <div class="col-md-12">
                   <div class="pull-right">
                     <% unless user_signed_in? %> 
-                     <%= link_to "Sign in ", new_user_session_path %>
-                     OR
-                     <%= link_to "Sign up here", new_user_registration_path %>
+                     <%= link_to t("layouts.header.link.sign_in"), new_user_session_path %>
+                     <%= t("layouts.header.label.or") %>
+                     <%= link_to link_to t("layouts.header.link.sign_up"), new_user_registration_path %>
                     <% else %>
-                      Log in as: <%= link_to current_user.email, user_path(current_user) %>
-                      | <%= link_to "Sign out", sign_out_path %>
+                      <%= t("layouts.header.label.log_as") %> <%= link_to current_user.name, user_path(current_user) %>
+                      | <%= link_to t("layouts.header.link.sign_out"), sign_out_path %>
                     <% end %>
                   </div>
               </div>
@@ -52,11 +52,11 @@
          <span class="icon-bar"></span>
          <span class="icon-bar"></span>
          </button>         
-         <%= link_to "KH IT", root_path, class: "navbar-brand hidden-xs" %>
-         <%= link_to "KH", root_path, class: "navbar-brand visible-xs" %>
+         <%= link_to t("layouts.header.link.root_path_full"), root_path, class: "navbar-brand hidden-xs" %>
+         <%= link_to t("layouts.header.link.root_path"), root_path, class: "navbar-brand visible-xs" %>
          <%= form_tag(searchs_path, :method => "get", class: "navbar-form pull-left", id: "search-form", role: "search") do %>
           <div class="input-group">
-            <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search Articles, Videos" %>
+            <%= text_field_tag :search, params[:search], class: "form-control", placeholder: t("layouts.header.label.search_holder") %>
                <div class="input-group-btn">
                   <button type="submit" class="btn btn-default">
                      <i class="fa fa-search fa-lg"></i>
@@ -68,12 +68,12 @@
       <div class="navbar-collapse collapse">
          <ul class="nav navbar-nav navbar-right">
             <li class="<%= "active" if controller?("videos")&&action?("index") %>">
-               <%= link_to "All Video", videos_path %>
+               <%= link_to t("layouts.header.link.all_video"), videos_path %>
             </li>            
             <li class="<%= "active" if controller?("articles")&&action?("index") %>">
-               <%= link_to "Articles", articles_path %></li>
+               <%= link_to t("layouts.header.link.articles"), articles_path %></li>
             <li class="<%= "active" if controller?("static_pages")&&action?("about") %>" >
-               <%= link_to "About Us", about_path %>
+               <%= link_to t("layouts.header.link.about"), about_path %>
             </li>
          </ul>
       </div>

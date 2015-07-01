@@ -24,10 +24,10 @@ class Admin::VideosController < ApplicationController
     @video = Video.new video_params
     if @video.save
       track_activity @video
-      flash[:success] = "successful Create"
+      flash[:success] = t "flash.success_create"
       redirect_to [:admin, @video]
     else
-      flash.now[:danger] = "Fail Create"
+      flash.now[:danger] = t "flash.fail_create"
       render "new"
     end
   end
@@ -39,11 +39,11 @@ class Admin::VideosController < ApplicationController
   def update
     @video = Video.find params[:id]
     if @video.update_attributes video_params      
-      flash[:success] = "successful updatae"
+      flash[:success] = t "flash.success_update"
       track_activity @video
       redirect_to [:admin, @video]
     else
-      flash.now[:danger] = "Fail Update"
+      flash.now[:danger] = t "flash.fail_update"
       render "edit"
     end
   end
@@ -52,7 +52,7 @@ class Admin::VideosController < ApplicationController
     @video = Video.find params[:id]
     @video.destroy
     track_activity @video
-    flash[:success] = "successful dalate"
+    flash[:success] = t "flash.success_delete"
     redirect_to admin_videos_path
   end
 

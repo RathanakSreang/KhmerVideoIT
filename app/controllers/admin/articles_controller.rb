@@ -23,10 +23,10 @@ class Admin::ArticlesController < ApplicationController
     @article = Article.new article_params
     if @article.save
       track_activity @article
-      flash[:success] = "Successful create"
+      flash[:success] = t "flash.success_create"
       redirect_to [:admin, @article]
     else
-      flash.now[:danger] = "Fail create"
+      flash.now[:danger] = t "flash.fail_create"
       render "new"
     end    
   end
@@ -37,10 +37,10 @@ class Admin::ArticlesController < ApplicationController
   def update
     if @article.update_attributes article_params
       track_activity @article
-      flash[:success] = "Successful update"
+      flash[:success] = t "flash.success_update"
       redirect_to [:admin, @article]
     else
-      flash.now[:danger] = "Fail update"
+      flash.now[:danger] = t "flash.fail_update"
       render "edit"
     end
   end
@@ -49,7 +49,7 @@ class Admin::ArticlesController < ApplicationController
     @article = Article.find params[:id]
     @article.destroy
     track_activity @article
-    flash[:success] = "Successful delete"
+    flash[:success] = t "flash.success_delete"
     redirect_to admin_articles_path
   end
 

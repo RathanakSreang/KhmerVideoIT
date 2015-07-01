@@ -21,6 +21,116 @@
 
 en:
   hello: "Hello world"
+  flash:
+    success_create: "Successful create"
+    success_update: "Successful update"
+    success_delete: "Successful delete"
+    fail_create: "Fail create"
+    fail_update: "Fail update"
+  devise:
+    label:
+      edit: "Edit"
+      login: "Log in"
+      name: "Name"
+      sign_up: "Sign up"
+      email: "Email"
+      password: "Password"
+      unhappy: "Unhappy?"
+      cancel_confirm: "Are you sure?"
+      cancel_account: "Cancel my account"
+      current_password: "Current password"
+      current_password_info: "we need your current password to confirm your changes"
+      password_info: "leave blank if you don't want to change it"
+      email_info: "Currently waiting confirmation for:"
+      password_confirmation: "Password confirmation"
+      password_lenth: "characters minimum"
+    link:
+      login: "Log in"
+      sign_up: "Sign up"
+      forgot_pass: "Forgot your password?"
+      confirm: "Didn't receive confirmation instructions?"
+      re_confirm: "Didn't receive unlock instructions?"
+      sign_in_with: "Sign in with "
+      update: "Update"
+      cancel_account: "Cancel my account"
+      back: "Back"
+  search:
+    label:
+      filter: "Applied Filters: "
+      video: "Videos"
+      article: "Articles"
+      article_no_found: "No article found. "
+      video_no_found: "No video found. "
+    link:
+      all_video: "See all videos"
+      all_article: "See all articles"
+  sheared:
+    label:
+      error: "Error"
+  static_page:
+    label:
+      recent_video: "Recent Video"
+      recent_article: "Recent Article"
+  tags:
+    label:
+      videos: "Videos: "
+      articles: "Articles: "
+      all_in_tag: "All in tag's"
+  users:
+    label:
+      profile: "'s Profile"
+      email: "Email: "
+      activity: "Your activity:"
+      comment_info: ", comment on"
+      ago: "ago"
+    link:
+      edit: "Edit"
+      sign_out: "Sign out"
+  videos:
+    label:
+      duration: ", duration: "
+      minute: " minutes"
+      tags: "Tags: "
+      more_link: "Link in this video: "
+      comment_title: "Leave a comment as "
+      comment_info: " to post a comment"
+    link:
+      read_more: "Read more"
+      sign_in: "Sign in"
+  layouts:
+    footer:
+      copy_right: "©2015 Kh I -"
+      policy: "Privacy Policy"
+      host: "Hosted by"
+    header:
+      label:
+        or: "OR"
+        log_as: "Log in as:"
+        search_holder: "Search Articles, Videos"
+      link:
+        sign_in: "Sign in"
+        sign_up: "Sign up here"
+        sign_out: "Sign out"
+        root_path_full: "KH IT"
+        root_path: "KH"
+        all_video: "All Video"
+        articles: "Articles"
+        about: "About Us"
+    admin:
+      header:
+        link:
+          root_path: "KH IT"
+          welcome: "Welcome! "
+          profile: "Profile"
+          sign_out: "Sign Out"
+          dashboard: "Dashboard"
+          tag: "Tags"
+          articles: "Articles"
+          videos: "Videos"
+          users: "Users"
+          comment: "Comments"
+          about: "About Page"
+
   date:
     formats:
       default: "%a %d/%b/%Y"

@@ -1,7 +1,7 @@
 <div class="row video">
   <div class="col-md-3 screenshot">
     <%= image_tag video.image, class: "img-responsive" %>    
-    <%= link_to "Read more", video_path(video), class: "btn btn-primary btn-read-video" %>
+    <%= link_to t("videos.link.read_more"), video_path(video), class: "btn btn-primary btn-read-video" %>
   </div>
   <div class="col-md-9 video-info">
     <h2>
@@ -9,7 +9,7 @@
     </h2>
     <span class="info">
       <%= l video.created_at.localtime.to_date %>
-      , duration:<%= video.duration %> minutes
+      <%= t("videos.label.duration") %><%= video.duration %> <%= t("videos.label.minute") %>
       , <%= video.comments.size %> comments
     </span>
     <br>

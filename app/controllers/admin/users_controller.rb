@@ -25,10 +25,10 @@ class Admin::UsersController < ApplicationController
     @user.skip_confirmation!
     if @user.save
       track_activity @user
-      flash[:success] = "Successful create"
+      flash[:success] = t "flash.success_create"
       redirect_to [:admin, @user]
     else
-      flash.now[:danger] = "Fail create"
+      flash.now[:danger] = t "flash.fail_create"
       render "new"
     end
   end
@@ -39,10 +39,10 @@ class Admin::UsersController < ApplicationController
   def update
     if @user.update_without_password user_params
       track_activity @user
-      flash[:success] = "Successful update"
+      flash[:success] = t "flash.success_update"
       redirect_to [:admin, @user]
     else
-      flash.now[:danger] = "Fail update"
+      flash.now[:danger] = t "flash.fail_update"
       render "edit"
     end
   end
@@ -51,7 +51,7 @@ class Admin::UsersController < ApplicationController
     @user = User.find params[:id]
     @user.destroy
     track_activity @user
-    flash[:success] = "Successful delete"
+    flash[:success] = t "flash.success_delete"
     redirect_to admin_users_path
   end
 

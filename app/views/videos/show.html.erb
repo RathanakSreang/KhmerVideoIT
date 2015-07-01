@@ -9,9 +9,9 @@
     <h2><%= @video.title %></h2>
     <span class="info">
       <%= l @video.created_at.localtime.to_date %>
-      , duration:<%= @video.duration %> minutes
+      <%= t("videos.label.duration") %><%= @video.duration %> <%= t("videos.label.minute") %>
       <br/>      
-      Tags:
+      <%= t("videos.label.tags") %>
       <% @video.tags.each do |tag| %>
         <%= link_to tag.name, tag %>
       <% end %>
@@ -27,7 +27,7 @@
       <div class="panel-body">
         <div class="row">
           <div class="col-md-12">
-            Link in this video:
+            <%= t("videos.label.more_link") %>
             <ul>
               <%= render @video.usefull_links %>
             </ul>
@@ -40,11 +40,11 @@
             <%= render "comments/comments" %>
             <% if user_signed_in? %>
               <div id="reply_comment_form">
-                <%= render "comments/form", comment_title: "Leave a comment as" %>  
+                <%= render "comments/form", comment_title: t("videos.label.comment_title") %>  
               </div>
             <% else %>
-                <%= link_to "Sign in", new_user_session_path  %>
-                <%= " to post a comment" %>
+                <%= link_to t("videos.link.sign_in"), new_user_session_path  %>
+                <%= t("videos.label.comment_info") %>
             <% end %>            
           </div>
           <br/>

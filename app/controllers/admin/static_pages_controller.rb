@@ -19,10 +19,10 @@ class Admin::StaticPagesController < ApplicationController
   def update_about
     @page = Page.first
     if @page.update_attributes page_params
-      flash[:success] = "Successful update"
+      flash[:success] = t "flash.success_update"
       redirect_to admin_about_path
     else
-      flash[:success] = "Fails update"
+      flash[:success] = t "flash.fail_update"
       render "edit_about"
     end
   end
