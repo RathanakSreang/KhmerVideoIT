@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
   mount Ckeditor::Engine => '/ckeditor'
   namespace :admin do
-    root "static_pages#dashboard"
+    root "activities#index"
     get "about"=> "static_pages#about"
     get "edit_about"=> "static_pages#edit_about"
     patch "update_about"=> "static_pages#update_about"    
@@ -14,10 +14,13 @@ Rails.application.routes.draw do
     resources :tags
     resources :articles
     resources :users
+    resources :activities, only: [:index]
+    resources :comments, only: [:show, :index, :destroy]
   end
 
-  resources :tags
-  resources :users, only: [:show]  
+  resources :tags, only: [:show]
+  resources :users, only: [:show]
+  resources :searchs, only: [:index]
   resources :articles, only: [:show, :index] do
     resources :comments
   end

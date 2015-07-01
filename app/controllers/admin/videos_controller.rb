@@ -23,7 +23,8 @@ class Admin::VideosController < ApplicationController
   def create
     @video = Video.new video_params
     if @video.save
-      flash.now[:success] = "successful Create"
+      track_activity @video
+      flash[:success] = "successful Create"
       redirect_to [:admin, @video]
     else
       flash.now[:danger] = "Fail Create"
@@ -37,8 +38,9 @@ class Admin::VideosController < ApplicationController
 
   def update
     @video = Video.find params[:id]
-    if @video.update_attributes video_params
-      flash.now[:success] = "successful update"
+    if @video.update_attributes video_params      
+      flash[:success] = "successful updatae"
+      track_activity @video
       redirect_to [:admin, @video]
     else
       flash.now[:danger] = "Fail Update"
@@ -49,14 +51,15 @@ class Admin::VideosController < ApplicationController
   def destroy
     @video = Video.find params[:id]
     @video.destroy
-    flash.now[:success] = "successful dalate"
+    track_activity @video
+    flash[:success] = "successful dalate"
     redirect_to admin_videos_path
   end
 
   private
   def video_params
     params.require(:video).permit :id, :title, :image, :image_cache, :description,
-                                  :link, :file, :file_cache, :duration,
+                                  :link, :file_link, :duration,
                                   usefull_links_attributes: [:id, :title, :link, :_destroy],
                                   snippet_attributes: [:id, :content], tag_ids:[]
 

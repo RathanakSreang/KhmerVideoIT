@@ -1,0 +1,5 @@
+<% if article %>
+  update a article <%= link_to article.title, [:admin, article] %>  
+<% else %>
+  updated a article which has been removed
+<% end %>

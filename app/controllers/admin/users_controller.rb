@@ -24,6 +24,7 @@ class Admin::UsersController < ApplicationController
     @user = User.new user_params
     @user.skip_confirmation!
     if @user.save
+      track_activity @user
       flash[:success] = "Successful create"
       redirect_to [:admin, @user]
     else
@@ -36,8 +37,8 @@ class Admin::UsersController < ApplicationController
   end
 
   def update
-
     if @user.update_without_password user_params
+      track_activity @user
       flash[:success] = "Successful update"
       redirect_to [:admin, @user]
     else
@@ -49,6 +50,7 @@ class Admin::UsersController < ApplicationController
   def destroy
     @user = User.find params[:id]
     @user.destroy
+    track_activity @user
     flash[:success] = "Successful delete"
     redirect_to admin_users_path
   end
