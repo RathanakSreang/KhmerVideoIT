@@ -2,7 +2,7 @@
   <div class="col-md-4 col-md-offset-4">
     <h2><%= t("devise.label.edit") %> <%= resource_name.to_s.humanize %></h2>
 
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, validate: true) do |f| %>
       <%= render "shared/error_message", object: f.object %>
 
       <center>
@@ -19,29 +19,26 @@
         <%= f.text_field :name, autofocus: true, class: "form-control" %>
       </div>
 
-      <div class="form-group">
-        <%= f.label t("devise.label.email") %>
-        <%= f.email_field :email, autofocus: true, class: "form-control" %>
-      </div>
+      <% unless f.object.provider.present? %>
+        <div class="form-group">
+          <%= f.label t("devise.label.email") %>
+          <%= f.email_field :email, autofocus: true, class: "form-control" %>
+        </div>
 
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <div><%= t("devise.label.email_info") %> <%= resource.unconfirmed_email %></div>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div><%= t("devise.label.email_info") %> <%= resource.unconfirmed_email %></div>
+        <% end %>
+
+        <div class="form-group">
+          <%= f.label t("devise.label.password") %> <i>(<%= t("devise.label.password_info") %>)</i>
+          <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label t("devise.label.password_confirmation") %>
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+        </div>
       <% end %>
-
-      <div class="form-group">
-        <%= f.label t("devise.label.password") %> <i>(<%= t("devise.label.password_info") %>)</i>
-        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label t("devise.label.password_confirmation") %>
-        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label t("devise.label.current_password") %> <i>(<%= t("devise.label.current_password_info") %>)</i>
-        <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
-      </div>
 
       <div class="actions">
         <%= f.submit t("devise.link.update"), class: "btn btn-primary" %>

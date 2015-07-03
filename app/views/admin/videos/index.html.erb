@@ -1,5 +1,5 @@
 <center><h3><u>Video</u></h3></center>
-<%= link_to "Add new Video", new_admin_video_path %>
+<%= link_to t("admin.videos.link.new_video"), new_admin_video_path %>
 <div class="col-md-3 pull-right">
   <%= form_tag(admin_videos_path, :method => "get", class: "", id: "search-form", role: "search") do %>
   <div class="input-group">
@@ -14,12 +14,12 @@
 </div>
 <table class="table">
   <thead>
-    <th>Title</th>
-    <th>Discription</th>
-    <th>Tags count</th>
-    <th>Duration</th>
+    <th><%= t("admin.videos.label.title") %></th>
+    <th><%= t("admin.videos.label.description") %></th>
+    <th><%= t("admin.videos.label.tag_count") %></th>
+    <th><%= t("admin.videos.label.duration") %></th>
     <th></th>
-    <th>Action</th>
+    <th><%= t("admin.videos.label.action") %></th>
   </thead>
   <tbody>
     <%= render @videos %>    

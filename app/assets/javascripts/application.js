@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require bootstrap
 //= require ckeditor/init
+//= require rails.validations
 //= require_tree .
 function add_fields(link, assoc, content) {
   var new_id = new Date().getTime();

@@ -1,1 +1,1 @@
-$("#reply_form_<%= @comment.parent_id %>").html("<%= j render 'comments/form', comment_title: "Reply this comment as" %>");
+$("#reply_form_<%= @comment.parent_id %>").html("<%= j render 'comments/form', comment_title: t("comments.label.new_reply_comment_title") %>");

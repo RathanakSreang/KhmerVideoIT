@@ -9,13 +9,13 @@
       </center>
       
       <div class="form-group">
-        <%= f.label :image, "ScreenShot" %>
+        <%= f.label :image, t("admin.videos.label.screenshot") %>
         <%= f.file_field :image, class: "form-control", id: "uploadImage", onchange:"PreviewImage();", accept: "image/png,image/gif,image/jpeg" %>
         <%= f.hidden_field :image_cache %>
       </div>
       
       <div class="form-group">
-        <%= f.label :file, "Video Link" %>
+        <%= f.label :file, t("admin.videos.label.video_link") %>
         <%= f.text_field :file_link, class: "form-control" %>        
       </div>
 
@@ -24,34 +24,34 @@
       </div>
       
       <div class="form-group">
-        <%= f.label :title %>
+        <%= f.label t("admin.videos.label.title") %>
         <%= f.text_field :title, class: "form-control", autofocus: true %>
       </div>
 
       <div class="form-group">
-        <%= f.label :description %>
+        <%= f.label t("admin.videos.label.description") %>
         <%= f.text_area :description, rows:5, class: "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= f.label :duration %>
+        <%= f.label t("admin.videos.label.duration") %>
         <%= f.text_field :duration, class: "form-control" %>
       </div>
         
       <div class="well">
-        <label>Resources link in video</label>
+        <label><%= t("admin.videos.label.resource_link") %></label>
         <div class="form-group">
           <%= f.fields_for :usefull_links do |builder| %>
             <%= render "usefull_link_fields", f: builder %>
           <% end %>
-          <%= link_to_add_fields "Add more Link", f, :usefull_links %>
+          <%= link_to_add_fields t("admin.videos.link.add_more_link"), f, :usefull_links %>
         </div>                                
       </div>
     </div>      
   </div>
   <div class="form-group">
     <%= f.fields_for :snippet do |builder| %>
-      <%= builder.label "Snippet" %>
+      <%= builder.label t("admin.videos.label.snippet") %>
       <%= builder.text_area :content, rows: 25, class: "form-control" %>
     <% end %>
   </div>      

@@ -7,7 +7,7 @@
     <div class="comment-heading"><%= comment_title %>, <%= current_user.name %>      
     </div>
     <div class="comment_content">
-      Use Markdown for formatting. See how use <a href="javascript:void(0)" class="markdown_link_<%= @comment.parent_id %>">here.</a>
+      <%= t("comments.label.use_markdown") %> <a href="javascript:void(0)" class="markdown_link_<%= @comment.parent_id %>"><%= t("comments.label.here") %></a>
       <div class="markdown_examples_<%= @comment.parent_id %>">
         <table class="table-bordered">
           <tbody>
@@ -58,7 +58,7 @@ System.out.println(\"Hello\");
         </div>
 
         <div class="form-group">
-          <%= f.button raw("Post <i class='fa fa-paper-plane-o'></i>"), class: "btn-reply" %>
+          <%= f.button raw("#{t("comments.label.post")} <i class='fa fa-paper-plane-o'></i>"), class: "btn-reply" %>
         </div>
       <% end %>
     </div>    

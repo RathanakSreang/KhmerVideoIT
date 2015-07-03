@@ -1,12 +1,12 @@
 <div class="row">
   <div class="col-md-12">
     <center><h3><u><%= @article.title.capitalize %></u></h3></center>
-    <p>Tags:
+    <p><%= t("articles.label.tag") %>
       <% @article.tags.each do |tag| %>
         <%= link_to tag.name, tag %>
       <% end %>
       <br/>
-      Post at: <%= l @article.created_at.localtime.to_date %>
+      <%= t("devise.label.post_at") %> <%= l @article.created_at.localtime.to_date %>
     </p>
     <p><%#= @article.description %></p>    
     <%= sanitize @article.content %>
@@ -16,16 +16,16 @@
     <%= render "comments/comments" %>
     <% if user_signed_in? %>
       <div id="reply_comment_form">
-        <%= render "comments/form", comment_title: "Leave a comment as" %>  
+        <%= render "comments/form", comment_title: t("comments.label.leave_comment") %>  
       </div>
     <% else %>
-        <%= link_to "Sign in", new_user_session_path  %>
-        <%= " to post a comment" %>
+        <%= link_to t("devise.link.sign_in"), new_user_session_path  %>
+        <%= t("comments.label.to_post") %>
     <% end %>
   </div>
   <div class="col-md-12">
     <div class="row well">
-    Similar Article:
+    <%= t("articles.label.similar_article") %>
     <ul>
     <% @simlar_articles.each do |article| %>
       <li>

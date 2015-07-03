@@ -1,5 +1,10 @@
 source "https://rubygems.org"
 
+gem "omniauth-facebook"
+gem "omniauth-twitter"
+gem "omniauth-google-oauth2"
+gem "omniauth-github"
+gem "client_side_validations", github: "DavyJonesLocker/client_side_validations", branch: "4-2-stable"
 gem "ancestry"
 gem "sublimevideo_rails"
 gem "devise"
@@ -26,5 +31,6 @@ group :development, :test do
   gem "web-console", "~> 2.0"
   gem "spring"
   gem "faker"
+  gem "letter_opener"
 end
 

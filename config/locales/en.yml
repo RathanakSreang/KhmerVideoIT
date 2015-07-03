@@ -27,6 +27,71 @@ en:
     success_delete: "Successful delete"
     fail_create: "Fail create"
     fail_update: "Fail update"
+  info:
+    confirm_delete: "Are you sure?"
+  action:
+    create: "Create"
+    update: "Update"
+  link:
+    edit: "Edit"
+    new: "New"
+    delete: "Delete"
+    detail: "Detail"
+    back: "Back"
+    remove: "Remove"    
+  admin:
+    activities:
+    articles:
+    comments:
+    static_pages:
+    tags:
+    users:
+      label:
+        user_profile: "User Profile"
+    videos:
+      labe:
+        duration: ", duration:"
+        minute: "minutes"
+        tag: "Tags: "
+        video_link: "Viedo link:"
+        link_in_video: "Link in this video:"
+        total_comment: "Comments"
+        new_video: "New Video"
+        edit_video: "Edit Video"
+        title: "Title"
+        link: "Link"
+        screenshot: "ScreenShot"
+        description: "Description"
+        tag_count: "Tags count"
+        duration: "Duration"
+        action: "Action"
+        resource_link: "Resources link in video"
+        snippet: "Snippet"
+      link:
+        new_video: "Add new Video"
+        add_more_link: "Add more Link"
+
+  articles:
+    label:
+      tag: "Tags:"
+      post_at: "Post at:"
+      similar_article: "Similar Article:"
+      comment: "comments"
+  comments:
+    label:
+      new_reply_comment_title: "Reply this comment as"
+      new_comment: "New Comment"
+      leave_comment: "Leave a comment as"
+      comment: "Comments"
+      use_markdown: "Use Markdown for formatting. See how use"
+      here: "here."
+      post: "Post"
+      ago: "ago"
+      reply: "Reply"
+      to_reply: " to reply this comment"
+      to_post: " to post a comment"
+    link:
+      sign_in: "Sign in"
   devise:
     label:
       edit: "Edit"
@@ -44,7 +109,15 @@ en:
       email_info: "Currently waiting confirmation for:"
       password_confirmation: "Password confirmation"
       password_lenth: "characters minimum"
+      reset_password: "Send me reset password instructions"
+      forget_pass: "Forgot your password?"
+      change_pass: "Change your password"
+      new_pass: "New password"
+      new_confirm_pass: "Confirm new password"
+      resend_confirm_inst: "Resend confirmation instructions"
+
     link:
+      sign_in: "Sign in"
       login: "Log in"
       sign_up: "Sign up"
       forgot_pass: "Forgot your password?"
@@ -54,6 +127,8 @@ en:
       update: "Update"
       cancel_account: "Cancel my account"
       back: "Back"
+      change_pass: "Change my password"
+      resend_confirm_inst: "Resend confirmation instructions"
   search:
     label:
       filter: "Applied Filters: "

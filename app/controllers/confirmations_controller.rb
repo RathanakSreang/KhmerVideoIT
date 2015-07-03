@@ -1,0 +1,36 @@
+class ConfirmationsController < Devise::ConfirmationsController
+  before_action :check_user, only: :create
+  # GET /resource/confirmation/new
+  def new
+    super
+  end
+
+  # POST /resource/confirmation
+  def create
+    super
+  end
+
+  # GET /resource/confirmation?confirmation_token=abcdef
+  def show
+    super
+  end
+
+  protected
+  
+  def check_user
+    user = User.find_by_email params[:user][:email]
+     unless user && user.provider.blank?
+      flash[:danger] = "Wrong email address"
+      redirect_to new_user_confirmation_path
+     end
+  end
+  # The path used after resending confirmation instructions.
+  # def after_resending_confirmation_instructions_path_for(resource_name)
+  #   super(resource_name)
+  # end
+
+  # The path used after confirmation.
+  # def after_confirmation_path_for(resource_name, resource)
+  #   super(resource_name, resource)
+  # end
+end

@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-10 col-md-offset-1 well">
-    <%= link_to "Back", :back %>
-    <center><u><h4>Edit Video</h4></u></center>
-    <%= render "form", action: "Update" %>
+    <%= link_to t("link.back"), :back %>
+    <center><u><h4><%= t("admin.videos.label.edit_video") %></h4></u></center>
+    <%= render "form", action: t("action.update") %>
   </div>
 </div>

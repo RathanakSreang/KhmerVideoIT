@@ -1,16 +1,16 @@
 <div class="row" id="video-show">
   <div class="col-md-3 screenshot">
     <%= image_tag @video.image, class: "img-responsive" %>
-    <%= link_to "Edit", edit_admin_video_path(@video), class: "btn btn-primary btn-read-video" %>
-    <%= link_to "Delete", admin_video_path(@video), data: {method: :delete, confirm: "Are you sure?"} , class: "btn btn-danger btn-read-video" %>
+    <%= link_to t("link.edit"), edit_admin_video_path(@video), class: "btn btn-primary btn-read-video" %>
+    <%= link_to t("link.delete"), admin_video_path(@video), data: {method: :delete, confirm: t("info.confirm_delete")} , class: "btn btn-danger btn-read-video" %>
   </div>
   <div class="col-md-8 video-info">
     <h2><%= @video.title %></h2>
     <span class="info">
       <%= l @video.created_at.to_date %>
-      , duration:<%= @video.duration %> minutes
+      <%= t("admin.videos.label.duration") %><%= @video.duration %> <%= t("admin.videos.label.minute") %>
       <br/>      
-        Tags: 
+        <%= t("admin.videos.label.tag") %>
         <% @video.tags.each do |tag| %>
           <%= link_to tag.name, [:admin, tag] %>,
         <% end %>      
@@ -18,18 +18,18 @@
     <br>
     <%= @video.description %>
     <br/>
-    Viedo link: <%= link_to @video.file_link, @video.file_link, target: "_blank" %>
+    <%= t("admin.videos.label.video_link") %> <%= link_to @video.file_link, @video.file_link, target: "_blank" %>
   </div>  
 </div>
 <br/>
-<%= link_to "Back", :back %>
+<%= link_to t("link.back"), :back %>
 <div class="row">
   <div class="col-md-12">
     <div class="panel panel-default">
       <div class="panel-body">
         <div class="row">
           <div class="col-md-12">
-            Link in this video:
+            <%= t("admin.videos.label.link_in_video") %>
             <ul>
               <%= render partial: "usefull_links/usefull_link", collection: @video.usefull_links %>
             </ul>
@@ -38,11 +38,8 @@
             <%= render "snippets/snippet", snippet: @video.snippet %>
           </div>
           <div class="col-md-12">
-            Comment
-          </div>
-          <div class="col-md-12">
-            Similar Video
-          </div>
+            <%= t("admin.videos.label.total_comment") %>
+          </div>          
         </div>
       </div>      
     </div>
