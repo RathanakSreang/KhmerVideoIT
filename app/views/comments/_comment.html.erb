@@ -5,17 +5,17 @@
   <div class="media-body">
     <div class="comment-heading">
       <%= link_to comment.user.name, comment.user %>      
-      <%= time_ago_in_words comment.created_at %> ago
+      <%= time_ago_in_words comment.created_at %> <%= t("comments.label.ago") %>
     </div>
     <div class="comment_content">
       <%= markdown comment.content %>
       <% if comment.ancestor_ids.count < 3 %>
         <% if user_signed_in? %>
-          <%= link_to raw("Reply <i class='fa fa-paper-plane-o'></i>"), new_polymorphic_path([@commentable, Comment.new], parent_id: comment), remote: true, class: "btn-reply" %>
+          <%= link_to raw("#{t("comments.label.reply")} <i class='fa fa-paper-plane-o'></i>"), new_polymorphic_path([@commentable, Comment.new], parent_id: comment), remote: true, class: "btn-reply" %>
           <br/><br/>
         <% else %>
-          <%= link_to "Sign in", new_user_session_path  %>
-          <%= " to reply this comment" %>
+          <%= link_to t("comments.link.sign_in"), new_user_session_path  %>
+          <%= t("comments.label.to_reply") %>
           <br/><br/>
         <% end %>
       <% end %>

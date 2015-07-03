@@ -6,7 +6,15 @@
         <%= image_tag @user.avatar.url, calss: "img-round img-responsive user_profile" %>
       </div>
       <div class="col-md-9">
-        <p><%= t("users.label.email") %> <%= @user.email %></p>
+        <% unless @user.provider.present? %>
+          <p><%= t("users.label.email") %> <%= @user.email %></p>
+        <% else %>
+          <p>
+            <%= link_to @user.url do %>
+              <i class="fa fa-<%= @user.provider %>-square fa-3x"></i>  
+            <% end %>
+          </p>
+        <% end %>        
         <% if @user == current_user %>
           <%= link_to t("users.link.edit"), edit_user_registration_path %>
           | <%= link_to t("users.link.sign_out"), sign_out_path %>

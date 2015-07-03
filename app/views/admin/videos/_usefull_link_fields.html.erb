@@ -1,8 +1,8 @@
 <div class="form-group">
-  <%= f.label :title %>
+  <%= f.label t("admin.videos.label.title") %>
   <%= f.text_field :title, class: "form-control" %>
-  <%= f.label :link %>
+  <%= f.label t("admin.videos.label.link") %>
   <%= f.text_field :link, class: "form-control" %>
   <%= f.hidden_field :_destroy %>
-  <%= link_to_remove_fields "Remove", f %>
+  <%= link_to_remove_fields t("link.remove"), f %>
 </div>
