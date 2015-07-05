@@ -1,5 +1,5 @@
 <% if tag %>
-  add a tag <%= link_to tag.name, [:admin, tag] %>  
-<% else %>
-  added a tag which has been removed
+  <%= t("admin.activities.tag.add_tag") %> <%= link_to tag.name, [:admin, tag] %>  
+<% else %>  
+  <%= t("admin.activities.tag.add_remove_tag") %>
 <% end %>

@@ -12,7 +12,7 @@
             <span class="sr-only">Toggle navigation</span>
             <i class="fa fa-user"></i>
         </button>
-        <%= link_to root_path do %>
+        <%= link_to admin_root_path do %>
           <span class="navbar-brand"><%= t("layouts.admin.header.link.root_path") %></span>
         <% end %>
       </div>
@@ -39,7 +39,7 @@
       </div> 
       <div class="collapse navbar-collapse" id="collape-side-bar">
           <ul class="nav navbar-nav side-nav">
-              <li class="<%= "active" if controller?("admin/activities") %>">
+              <li class="<%= "active" if controller?("admin/static_pages")&& action?("dashboard") %> %>">
                 <%= link_to admin_root_path do %>
                   <i class="fa fa-fw fa-dashboard"></i> <%= t("layouts.admin.header.link.dashboard") %>
                 <% end %>
@@ -66,12 +66,22 @@
               </li>
               <li class="<%= "active" if controller?("admin/comments") %>">
                 <%= link_to admin_comments_path do %>
-                  <i class="fa fa-user"></i> <%= t("layouts.admin.header.link.comments") %>
+                  <i class="fa fa-comment"></i> <%= t("layouts.admin.header.link.comments") %>
+                <% end %>
+              </li>
+              <li class="<%= "active" if controller?("admin/activities") %>">
+                <%= link_to admin_activities_path do %>
+                  <i class="fa fa-eye"></i> <%= t("layouts.admin.header.link.activities") %>
                 <% end %>
               </li>
               <li class="<%= "active" if controller?("admin/static_pages") && !action?("dashboard") %>" >
                 <%= link_to admin_about_path do %>
                   <i class="fa fa-info-circle"></i> <%= t("layouts.admin.header.link.about") %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to root_path do %>
+                  <i class="fa fa-arrow-right"></i> <%= t("layouts.admin.header.link.home_page") %>
                 <% end %>
               </li>
           </ul>

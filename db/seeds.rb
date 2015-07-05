@@ -16,6 +16,7 @@ end
   Video.create title: Faker::Lorem.word,
               description: Faker::Lorem.paragraph,
               duration: 10,
+              file_link: "https://www.youtube.com/embed/0KkV7m3PXPY",
               tag_ids: tag_ids,
               remote_image_url: Faker::Avatar.image("screenshot.png", "50x50")
 end
@@ -37,13 +38,20 @@ end
 end
 
 
-user = User.new name: "Rathanak",
+user = User.new name: "RathanakSuper",
                 email: "sreang@yoo.comddddd",
+                password: "1234567890",
+                password_confirmation: "1234567890",
+                role: :super                
+user.skip_confirmation!
+user.save
+user = User.new name: "RathanakAdmin",
+                email: "sreang@yoo.comddddd1",
                 password: "1234567890",
                 password_confirmation: "1234567890",
                 role: :admin
 user.skip_confirmation!
-user.save
+user.save       
 5.times do
   user = User.new name: Faker::Name.name,
               email: Faker::Internet.email,

@@ -1,9 +1,9 @@
 <div class="row">
-  <div class="col-md-4 col-md-offset-4 well">    
-    <h2><b><%= @user.name %><%= t("users.label.profile") %></b></h2>
+  <div class="col-md-6 col-md-offset-3 well">    
+    <legend><h2><b><%= @user.name %><%= t("users.label.profile") %></b></h2></legend>
     <div class="row">
       <div class="col-md-3">
-        <%= image_tag @user.avatar.url, calss: "img-round img-responsive user_profile" %>
+        <%= image_tag @user.avatar.url, calss: "img-round img-responsive user_profile" %>          
       </div>
       <div class="col-md-9">
         <% unless @user.provider.present? %>
@@ -14,10 +14,19 @@
               <i class="fa fa-<%= @user.provider %>-square fa-3x"></i>  
             <% end %>
           </p>
-        <% end %>        
+        <% end %>
+        <span class="text-muted small">
+          <em>
+            <%= t("admin.user.label.created_at") %> <%= l @user.created_at.localtime %><br/>
+          </em>
+        </span>
         <% if @user == current_user %>
+          <% if @user.admin? || @user.super?%>
+            <%= link_to t("users.link.goto_admin"), admin_root_path %>
+          <% end %>
+          <br/>
           <%= link_to t("users.link.edit"), edit_user_registration_path %>
-          | <%= link_to t("users.link.sign_out"), sign_out_path %>
+          | <%= link_to t("users.link.sign_out"), sign_out_path %>        
         <% end %>
       </div>
     </div>    
@@ -34,8 +43,12 @@
           <%= t("users.label.comment_info") %>
           <%= link_to comment.commentable do %>
             <%= comment.commentable.title %>
-          <% end %>          
-            <%= time_ago_in_words comment.created_at %> <%= t("users.label.ago") %>
+          <% end %>
+          <span class="text-muted small">
+            <em>
+              <%= time_ago_in_words comment.created_at %> <%= t("users.label.ago") %>
+            </em>
+          </span>
           </div>
           <div class="comment_content">
             <%= markdown comment.content %>
@@ -43,5 +56,6 @@
         </div>
       </div>
     <% end %>
+    <%= will_paginate @comments %>
   </div>
 </div>

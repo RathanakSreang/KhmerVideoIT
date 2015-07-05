@@ -6,18 +6,22 @@
       </a>
       <div class="media-body">
         <div class="comment-heading"><%= @comment.user.name %>
-        , @comment on         
+        <%= t("admin.comments.label.comment_on") %>
         <%= link_to @comment.commentable do %>
           <%= @comment.commentable.title %>
-        <% end %>          
-          <%= time_ago_in_words @comment.created_at %> ago
+        <% end %>
+        <span class="text-muted small">
+          <em>
+          <%= time_ago_in_words @comment.created_at %> <%= t("admin.comments.label.ago") %>
+          </em>
+        </span>
         </div>
         <div class="comment_content">
           <%= markdown @comment.content %>          
         </div>    
       </div>
       <br/>      
-      <%= link_to "delete", admin_comment_path(@comment), data: {method: :delete, confirm: "Are you sure?"}, class: "btn btn-danger" %>
+      <%= link_to t("link.delete"), admin_comment_path(@comment), data: {method: :delete, confirm: t("info.confirm_delete")}, class: "btn btn-danger" %>
     </div>
   </div>
 </div>

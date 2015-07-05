@@ -33,5 +33,7 @@ module KhmerVideoIT
     config.active_record.raise_in_transactional_callbacks = true
 
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+
+    config.i18n.fallbacks = true
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150702044524) do
+ActiveRecord::Schema.define(version: 20150705163159) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id",        limit: 4
@@ -32,13 +32,23 @@ ActiveRecord::Schema.define(version: 20150702044524) do
     t.datetime "updated_at",           null: false
   end
 
-  create_table "articles", force: :cascade do |t|
-    t.text     "content",     limit: 65535
-    t.integer  "language_id", limit: 4
+  create_table "article_translations", force: :cascade do |t|
+    t.integer  "article_id",  limit: 4,     null: false
+    t.string   "locale",      limit: 255,   null: false
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.string   "title",       limit: 255
+    t.text     "content",     limit: 65535
     t.text     "description", limit: 65535
+  end
+
+  add_index "article_translations", ["article_id"], name: "index_article_translations_on_article_id", using: :btree
+  add_index "article_translations", ["locale"], name: "index_article_translations_on_locale", using: :btree
+
+  create_table "articles", force: :cascade do |t|
+    t.integer  "language_id", limit: 4
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|
@@ -70,30 +80,70 @@ ActiveRecord::Schema.define(version: 20150702044524) do
   add_index "comments", ["ancestry"], name: "index_comments_on_ancestry", using: :btree
   add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type", using: :btree
 
-  create_table "pages", force: :cascade do |t|
-    t.text     "about",      limit: 65535
+  create_table "page_translations", force: :cascade do |t|
+    t.integer  "page_id",    limit: 4,     null: false
+    t.string   "locale",     limit: 255,   null: false
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.text     "about",      limit: 65535
+  end
+
+  add_index "page_translations", ["locale"], name: "index_page_translations_on_locale", using: :btree
+  add_index "page_translations", ["page_id"], name: "index_page_translations_on_page_id", using: :btree
+
+  create_table "pages", force: :cascade do |t|
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.string   "ff_link",    limit: 255
     t.string   "tw_link",    limit: 255
     t.string   "yt_link",    limit: 255
   end
 
-  create_table "snippets", force: :cascade do |t|
-    t.text     "content",    limit: 65535
-    t.integer  "video_id",   limit: 4
+  create_table "snippet_translations", force: :cascade do |t|
+    t.integer  "snippet_id", limit: 4,     null: false
+    t.string   "locale",     limit: 255,   null: false
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.text     "content",    limit: 65535
   end
 
-  create_table "tags", force: :cascade do |t|
-    t.string   "name",       limit: 255
+  add_index "snippet_translations", ["locale"], name: "index_snippet_translations_on_locale", using: :btree
+  add_index "snippet_translations", ["snippet_id"], name: "index_snippet_translations_on_snippet_id", using: :btree
+
+  create_table "snippets", force: :cascade do |t|
+    t.integer  "video_id",   limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "tag_translations", force: :cascade do |t|
+    t.integer  "tag_id",     limit: 4,   null: false
+    t.string   "locale",     limit: 255, null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.string   "name",       limit: 255
   end
 
+  add_index "tag_translations", ["locale"], name: "index_tag_translations_on_locale", using: :btree
+  add_index "tag_translations", ["tag_id"], name: "index_tag_translations_on_tag_id", using: :btree
+
+  create_table "tags", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "usefull_link_translations", force: :cascade do |t|
+    t.integer  "usefull_link_id", limit: 4,   null: false
+    t.string   "locale",          limit: 255, null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.string   "title",           limit: 255
+  end
+
+  add_index "usefull_link_translations", ["locale"], name: "index_usefull_link_translations_on_locale", using: :btree
+  add_index "usefull_link_translations", ["usefull_link_id"], name: "index_usefull_link_translations_on_usefull_link_id", using: :btree
+
   create_table "usefull_links", force: :cascade do |t|
-    t.string   "title",      limit: 255
     t.string   "link",       limit: 255
     t.integer  "video_id",   limit: 4
     t.datetime "created_at",             null: false
@@ -129,14 +179,24 @@ ActiveRecord::Schema.define(version: 20150702044524) do
     t.datetime "updated_at",           null: false
   end
 
-  create_table "videos", force: :cascade do |t|
-    t.string   "title",       limit: 255
-    t.text     "description", limit: 65535
-    t.string   "file_link",   limit: 255
-    t.integer  "duration",    limit: 4
+  create_table "video_translations", force: :cascade do |t|
+    t.integer  "video_id",    limit: 4,     null: false
+    t.string   "locale",      limit: 255,   null: false
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
-    t.string   "image",       limit: 255
+    t.string   "title",       limit: 255
+    t.text     "description", limit: 65535
+  end
+
+  add_index "video_translations", ["locale"], name: "index_video_translations_on_locale", using: :btree
+  add_index "video_translations", ["video_id"], name: "index_video_translations_on_video_id", using: :btree
+
+  create_table "videos", force: :cascade do |t|
+    t.string   "file_link",  limit: 255
+    t.integer  "duration",   limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "image",      limit: 255
   end
 
   add_foreign_key "activities", "users"

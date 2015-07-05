@@ -1,11 +1,11 @@
 <% if comment %>
   <% if comment.parent_id.present? %>
-    reply <%= link_to "commented", [:admin, comment] %>
-    on <%= link_to comment.commentable.title, [:admin, comment.commentable] %>
+    <%= t("admin.activities.comment.reply") %> <%= link_to t("admin.activities.comment.commented"), [:admin, comment] %>
+    <%= t("admin.activities.comment.comment_on") %> <%= link_to comment.commentable.title, [:admin, comment.commentable] %>
   <% else %>
-    post <%= link_to "commented", [:admin, comment] %>
-    on <%= link_to comment.commentable.title, [:admin, comment.commentable] %>
+    <%= t("admin.activities.comment.post") %> <%= link_to t("admin.activities.comment.commented"), [:admin, comment] %>
+    <%= t("admin.activities.comment.comment_on") %> <%= link_to comment.commentable.title, [:admin, comment.commentable] %>
   <% end %>  
-<% else %>
-  added a comment which has been removed
+<% else %>  
+  <%= t("admin.activities.comment.remove_comment") %>
 <% end %>

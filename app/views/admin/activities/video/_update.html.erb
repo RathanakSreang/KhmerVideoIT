@@ -1,5 +1,5 @@
 <% if video %>
-  update a video <%= link_to video.title, [:admin, video] %>  
-<% else %>
-  update a video which has been removed
+  <%= t("admin.activities.video.update_video") %> <%= link_to video.title, [:admin, video] %>  
+<% else %>  
+  <%= t("admin.activities.video.update_remove_video") %>
 <% end %>

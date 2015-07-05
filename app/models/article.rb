@@ -6,6 +6,7 @@ class Article < ActiveRecord::Base
   
   validates :title, :content, presence: true
   
+  translates :title, :content, :description
 
   scope :order_article, ->{
     order("created_at DESC")

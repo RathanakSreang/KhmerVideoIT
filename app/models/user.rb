@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  enum role: [:normal, :admin]
+  enum role: [:normal, :admin, :super]
   before_save :default_values
 
   has_many :comments, dependent: :destroy

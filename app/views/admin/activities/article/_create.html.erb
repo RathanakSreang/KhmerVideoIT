@@ -1,5 +1,5 @@
 <% if article %>
-  add a article <%= link_to article.title, [:admin, article] %>  
-<% else %>
-  added a article which has been removed
+  <%= t("admin.activities.article.add_article") %> <%= link_to article.title, [:admin, article] %>  
+<% else %>  
+  <%= t("admin.activities.article.add_remove_article") %>
 <% end %>

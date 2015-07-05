@@ -2,22 +2,22 @@
   <%= render "shared/error_message", object: f.object %>
   
   <div class="form-group">
-    <%= f.label :tag %>
+    <%= f.label t("admin.articles.label.tag") %>
     <%= f.select(:tag_ids,options_from_collection_for_select(Tag.all, "id", "name", f.object.tag_ids),{},{multiple: true, size: 5, class: "form-control"}) %>
   </div>
 
   <div class="form-group">
-    <%= f.label :title %>
+    <%= f.label t("admin.articles.label.title") %>
     <%= f.text_field :title, autofocus: true, class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :description %>
+    <%= f.label t("admin.articles.label.description") %>
     <%= f.text_area :description, rows: 12, class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :content %>
+    <%= f.label t("admin.articles.label.content") %>
     <%= f.cktext_area :content, rows: 30, class: "form-control ckeditor" %>
   </div>
 

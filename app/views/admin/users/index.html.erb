@@ -1,27 +1,30 @@
-<center><h3><u>User</u></h3></center>
-<%= link_to "Add new User", new_admin_user_path %>
-<div class="col-md-3 pull-right">
-  <%= form_tag admin_users_path, method: "get", class: "", id: "search-form", role: "search" do %>
-  <div class="input-group">
-    <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search Video" %>
-       <div class="input-group-btn">
-          <button type="submit" class="btn btn-default">
-             <i class="fa fa-search fa-lg"></i>
-          </button>
-       </div>            
-  </div>
-<% end %>
+<div class="col-md-12 well">
+  <legend><h3><%= t("admin.user.label.user") %></h3>
+    <div class="col-md-3 pull-right">
+      <%= form_tag admin_users_path, method: "get", class: "", id: "search-form", role: "search" do %>
+      <div class="input-group">
+        <%= text_field_tag :search, params[:search], class: "form-control", placeholder: t("admin.user.label.search") %>
+           <div class="input-group-btn">
+              <button type="submit" class="btn btn-default">
+                 <i class="fa fa-search fa-lg"></i>
+              </button>
+           </div>
+      </div>
+    <% end %>
+    </div>
+  </legend>
+  <%= link_to t("admin.user.link.add_new_user"), new_admin_user_path %>
+  <table class="table">
+    <thead>
+      <th><%= t("admin.user.label.name") %></th>
+      <th><%= t("admin.user.label.email") %></th>
+      <th><%= t("admin.user.label.created_at") %></th>
+      <th><%= t("admin.user.label.role") %></th>    
+      <th><%= t("admin.user.label.action") %></th>
+    </thead>
+    <tbody>
+      <%= render @users %>    
+    </tbody>
+  </table>
+  <%= will_paginate @users %>
 </div>
-<table class="table">
-  <thead>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Created at</th>
-    <th>Role</th>    
-    <th>Action</th>
-  </thead>
-  <tbody>
-    <%= render @users %>    
-  </tbody>
-</table>
-<%= will_paginate @users %>

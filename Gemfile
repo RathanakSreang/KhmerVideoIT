@@ -1,5 +1,6 @@
 source "https://rubygems.org"
 
+gem "globalize"
 gem "omniauth-facebook"
 gem "omniauth-twitter"
 gem "omniauth-google-oauth2"

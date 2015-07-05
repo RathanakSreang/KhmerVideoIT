@@ -21,6 +21,8 @@
 
 en:
   hello: "Hello world"
+  app_title: "Let's Talk IT"
+  app_language: "Language: "
   flash:
     success_create: "Successful create"
     success_update: "Successful update"
@@ -29,6 +31,7 @@ en:
     fail_update: "Fail update"
   info:
     confirm_delete: "Are you sure?"
+    total: "Total: "
   action:
     create: "Create"
     update: "Update"
@@ -38,22 +41,114 @@ en:
     delete: "Delete"
     detail: "Detail"
     back: "Back"
-    remove: "Remove"    
+    remove: "Remove"
+    show: "Show"
+    see_more: "See More"
+    view_detail: "View Details"
+    read_more: "read more."
   admin:
     activities:
+      label:
+        ago: " ago"
+        activity: "Activities"
+        all_activity: "All Activities"
+      article:
+        add_article: "add an article"
+        add_remove_article: "added an article which has been removed"
+        update_article: "update an article"
+        update_remove_article: "update an article which has been removed"
+        destroy: "remove an article"
+      comment:
+        commented: "commented"
+        comment_on: "on"
+        reply: "reply"
+        post: "post"
+        remove_comment: "added a comment which has been removed"
+        destroy: "remove a comment"
+      tag:
+        add_tag: "add a tag"
+        add_remove_tag: "added a tag which has been removed"
+        update_tag: "update a tag"
+        update_remove_tag: "update a tag which has been removed"
+        destroy: "remove a tag"
+      user:
+        add_user: "add an user"
+        add_remove_user: "added an user which has been removed"
+        update_user: "update an user"
+        update_remove_user: "update an user which has been removed"
+        destroy: "remove an user"
+      video:
+        add_video: "add a video"
+        add_remove_video: "added a video which has been removed"
+        update_video: "update a video"
+        update_remove_video: "update a video which has been removed"
+        destroy: "remove a video"
     articles:
+      label:
+        new_article: "New Article"
+        edit_article: "Edit Article"
+        article: "Articles"
+        title: "Title"
+        tag_count: "Tags count"
+        description: "Description"
+        action: "Action"
+        content: "Content"
+        tag: "Tag "
+        created_at: "Created: "
+        search: "Search Article"
+      link:
+        add_new_article: "Add new Article"
     comments:
+      label:
+        comment_on: " comment on"
+        reply_on: " reply on"
+        comment: "Comments"
+        search: "Search Comment"
+        ago: "ago"
+        reply: "reply"
+        post: "post"
     static_pages:
+      label:
+        edit_about: "Edit About page"
+        fb_link: "Facebook link"
+        tw_link: "Twitter link"
+        yt_link: "Youtube link"
+        about: "About"
     tags:
-    users:
+      label:
+        created_at: "Created at:"
+        new_tag: "New Tag"
+        edit_tag: "Edit Tag"
+        tag: "Tags"
+        search: "Search Tag"
+        name: "Name"
+        action: "Action"
+      link:
+        add_new_tag: "Add new Tag"
+    user:
       label:
         user_profile: "User Profile"
+        new_user: "New User"
+        edit_user: "Edit User"
+        user: "Users"
+        name: "Name: "
+        email: "Email: "
+        created_at: "Register on: "
+        role: "Role: "
+        search: "Search User"
+        action: "Action"
+        password: "Password"
+        password_lenth: "characters minimum"
+        password_confirmation: "Password Confirmation"
+      link:
+        add_new_user: "Add New User"
     videos:
-      labe:
+      label:
         duration: ", duration:"
         minute: "minutes"
         tag: "Tags: "
         video_link: "Viedo link:"
+        video: "Videos"
         link_in_video: "Link in this video:"
         total_comment: "Comments"
         new_video: "New Video"
@@ -67,13 +162,14 @@ en:
         action: "Action"
         resource_link: "Resources link in video"
         snippet: "Snippet"
+        search: "Search Videos"
       link:
         new_video: "Add new Video"
         add_more_link: "Add more Link"
 
   articles:
     label:
-      tag: "Tags:"
+      tag: "Tags:"      
       post_at: "Post at:"
       similar_article: "Similar Article:"
       comment: "comments"
@@ -157,10 +253,11 @@ en:
       email: "Email: "
       activity: "Your activity:"
       comment_info: ", comment on"
-      ago: "ago"
+      ago: "ago"      
     link:
       edit: "Edit"
       sign_out: "Sign out"
+      goto_admin: "Admin Page"
   videos:
     label:
       duration: ", duration: "
@@ -170,7 +267,7 @@ en:
       comment_title: "Leave a comment as "
       comment_info: " to post a comment"
     link:
-      read_more: "Read more"
+      read_more: "read more."
       sign_in: "Sign in"
   layouts:
     footer:
@@ -188,7 +285,7 @@ en:
         sign_out: "Sign out"
         root_path_full: "KH IT"
         root_path: "KH"
-        all_video: "All Video"
+        all_video: "Videos"
         articles: "Articles"
         about: "About Us"
     admin:
@@ -205,6 +302,8 @@ en:
           users: "Users"
           comment: "Comments"
           about: "About Page"
+          activities: "Activities"
+          home_pahe: "Home Page"
 
   date:
     formats:

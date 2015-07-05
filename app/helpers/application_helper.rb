@@ -49,5 +49,14 @@ module ApplicationHelper
      comments.map do |comment, sub_comments|
         content_tag(:div, render(comment), :class => "media")       
      end.join.html_safe
-   end
+  end
+
+  def full_title(title)
+    base_title = t("app_title")
+    if title.blank?
+      base_title
+    else
+      "#{base_title} | #{title}"
+    end
+  end
 end

@@ -16,8 +16,11 @@
                     <% else %>
                       <%= t("layouts.header.label.log_as") %> <%= link_to current_user.name, user_path(current_user) %>
                       | <%= link_to t("layouts.header.link.sign_out"), sign_out_path %>
-                    <% end %>
+                    <% end %>                
                   </div>
+              </div>
+              <div class="col-md-12">
+                <%= render "shared/locale_lang" %>
               </div>
               <div class="col-md-12 subscript">
                 <ul class="">

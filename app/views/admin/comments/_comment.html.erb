@@ -5,17 +5,21 @@
   <div class="media-body">
     <div class="comment-heading">
     <%= link_to comment.user.name, [:admin, comment.user] %>
-    , <%= comment.parent_id.present? ? "reply" : "post" %> comment on   
+    , <%= comment.parent_id.present? ? t("admin.comments.label.reply") : t("admin.comments.label.post") %> <%= t("admin.comments.label.comment_on") %>
     <%= link_to comment.commentable do %>
       <%= comment.commentable.title %>
-    <% end %>          
-      <%= time_ago_in_words comment.created_at %> ago
+    <% end %>
+    <span class="text-muted small">
+      <em>
+      <%= time_ago_in_words comment.created_at %> <%= t("admin.comments.label.ago") %>
+      </em>
+    </span>
     </div>
     <div class="comment_content">
       <%= markdown comment.content %>
       <div>
-        <%= link_to "show", admin_comment_path(comment) %>
-        | <%= link_to "delete", admin_comment_path(comment), data: {method: :delete, confirm: "Are you sure?"} %>
+        <%= link_to t("link.show"), admin_comment_path(comment) %>
+        | <%= link_to t("link.delete"), admin_comment_path(comment), data: {method: :delete, confirm: t("info.confirm_delete")} %>
       </div>
     </div>    
   </div>

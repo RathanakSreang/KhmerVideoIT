@@ -1,18 +1,22 @@
 <div class="row">
   <div class="col-md-10 col-md-offset-1 well">
-    <%= link_to "Back", :back %>
+    <%= link_to t("link.back"), :back %>
     <center><h3><u><%= @article.title.capitalize %></u></h3></center>
-    <p>Tags: 
+    <p><%= t("admin.articles.label.tag") %>
     <% @article.tags.each do |tag| %>
         <%= link_to tag.name, [:admin, tag] %>,
     <% end %>
     <br/>
-    Created: <%= l @article.created_at.localtime %>
+    <span class="text-muted small">
+      <em>
+        <%= t("admin.articles.label.created_at") %><%= l @article.created_at.localtime %>
+      </em>
+    </span>
     </p>
     <br/>
     <p><%= @article.description %></p>
-    <%= link_to "edit", edit_admin_article_path(@article), class: "btn btn-primary", "data-no-turbolink" => true %>
-    <%= link_to "delete", admin_article_path(@article), data: {method: :delete, confirm: "Are you sure?"}, class: "btn btn-danger" %>
+    <%= link_to t("link.edit"), edit_admin_article_path(@article), class: "btn btn-primary", "data-no-turbolink" => true %>
+    <%= link_to t("link.delete"), admin_article_path(@article), data: {method: :delete, confirm: t("info.confirm_delete")}, class: "btn btn-danger" %>
     <br/>
     <%= sanitize @article.content %>
   </div>

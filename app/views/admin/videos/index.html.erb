@@ -1,28 +1,31 @@
-<center><h3><u>Video</u></h3></center>
-<%= link_to t("admin.videos.link.new_video"), new_admin_video_path %>
-<div class="col-md-3 pull-right">
-  <%= form_tag(admin_videos_path, :method => "get", class: "", id: "search-form", role: "search") do %>
-  <div class="input-group">
-    <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search Video" %>
-       <div class="input-group-btn">
-          <button type="submit" class="btn btn-default">
-             <i class="fa fa-search fa-lg"></i>
-          </button>
-       </div>            
-  </div>
-<% end %>
+<div class="col-md-12 well">  
+  <legend><h3><%= t("admin.videos.label.video") %></h3>
+    <div class="col-md-3 pull-right">
+      <%= form_tag(admin_videos_path, :method => "get", class: "", id: "search-form", role: "search") do %>
+      <div class="input-group">
+        <%= text_field_tag :search, params[:search], class: "form-control", placeholder: t("admin.videos.label.search") %>
+           <div class="input-group-btn">
+              <button type="submit" class="btn btn-default">
+                 <i class="fa fa-search fa-lg"></i>
+              </button>
+           </div>            
+      </div>
+    <% end %>
+    </div>
+  </legend>
+  <%= link_to t("admin.videos.link.new_video"), new_admin_video_path %>
+  <table class="table">
+    <thead>
+      <th><%= t("admin.videos.label.title") %></th>
+      <th><%= t("admin.videos.label.description") %></th>
+      <th><%= t("admin.videos.label.tag_count") %></th>
+      <th><%= t("admin.videos.label.duration") %></th>
+      <th></th>
+      <th><%= t("admin.videos.label.action") %></th>
+    </thead>
+    <tbody>
+      <%= render @videos %>    
+    </tbody>
+  </table>
+  <%= will_paginate @videos %>
 </div>
-<table class="table">
-  <thead>
-    <th><%= t("admin.videos.label.title") %></th>
-    <th><%= t("admin.videos.label.description") %></th>
-    <th><%= t("admin.videos.label.tag_count") %></th>
-    <th><%= t("admin.videos.label.duration") %></th>
-    <th></th>
-    <th><%= t("admin.videos.label.action") %></th>
-  </thead>
-  <tbody>
-    <%= render @videos %>    
-  </tbody>
-</table>
-<%= will_paginate @videos %>

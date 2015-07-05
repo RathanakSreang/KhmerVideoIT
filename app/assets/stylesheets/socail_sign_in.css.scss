@@ -1,0 +1,42 @@
+.btn-facebook{
+  margin-top: 5px;
+  color: #fff;
+  background-color:#3b5998;
+}
+.btn-facebook:hover{
+  color: #fff;
+  background-color:#496ebc 
+}
+.btn-twitter{
+  margin-top: 5px;
+  color: #fff;
+  background-color:#55acee;
+}
+.btn-twitter:hover{
+  color: #fff;
+  background-color:#59b5fa;
+}
+.btn-google{
+  margin-top: 5px;
+  background-color: #DD4B39;
+  color: #fff;    
+}
+.btn-google:hover{
+  color: #fff;
+  background-color:#ca3523;
+}
+
+.btn-google_oauth2 {
+  @extend .btn-google;
+}
+
+.btn-github {
+  margin-top: 5px;
+  background-color: #4183C4;
+  color: #fff;  
+}
+
+.btn-github:hover {
+  color: #fff;
+  background-color:#4183a0;
+}

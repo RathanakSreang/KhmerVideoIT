@@ -13,30 +13,37 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :name %>
+    <%= f.label t("admin.user.label.name") %>
     <%= f.text_field :name, autofocus: true, class: "form-control" %>
   </div>
+  <% unless @user.provider.present? %>
+    <div class="form-group">
+      <%= f.label t("admin.user.label.email") %>
+      <%= f.email_field :email, class: "form-control" %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :email %>
-    <%= f.email_field :email, class: "form-control" %>
-  </div>
+    <div class="form-group">
+      <%= f.label t("admin.user.label.password") %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> <%= t("admin.user.label.password_length") %>)</em>
+      <% end %>
+      <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+    </div>
 
+    <div class="form-group">
+      <%= f.label t("admin.user.label.password_confirmation") %>
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+    </div>
+    
+  <% end %>
   <div class="form-group">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% if current_user.super? %>
+      <%= f.select :role, options_for_select([:normal, :admin, :super], f.object.role), {}, {class: "form-control"} %>
+    <% elsif @user == current_user %>
+      <%= f.select :role, options_for_select([:normal, :admin], f.object.role), {}, {class: "form-control"} %>
+    <% else %>
+      <%= f.select :role, options_for_select([:normal], f.object.role), {}, {class: "form-control"} %>
     <% end %>
-    <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.select :role, options_for_select([:normal, :admin], f.object.role), {}, {class: "form-control"} %>    
   </div>
 
   <div class="actions">

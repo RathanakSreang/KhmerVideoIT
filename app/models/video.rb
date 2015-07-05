@@ -8,6 +8,8 @@ class Video < ActiveRecord::Base
   validates :title, :file_link, :description, :image, presence: true
   mount_uploader :image, ImageUploader
 
+  translates :title, :description
+  
   accepts_nested_attributes_for :usefull_links, allow_destroy: true
   accepts_nested_attributes_for :snippet, allow_destroy: true
 

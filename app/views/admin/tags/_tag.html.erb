@@ -3,11 +3,15 @@
     <%= tag.name %>
   </td>
   <td>
-    <%= l tag.created_at.localtime %>
+    <span class="text-muted small">
+      <em>
+        <%= l tag.created_at.localtime %>
+      </em>
+    </span>
   </td>
   <td>
-    <%= link_to "detail", admin_tag_path(tag) %>
-    | <%= link_to "edit", edit_admin_tag_path(tag) %>
-    | <%= link_to "delete", admin_tag_path(tag), data: {method: :delete, confirm: "Are you sure?"} %>
+    <%= link_to t("link.detail"), admin_tag_path(tag) %>
+    | <%= link_to t("link.edit"), edit_admin_tag_path(tag) %>
+    | <%= link_to t("link.delete"), admin_tag_path(tag), data: {method: :delete, confirm: t("info.confirm_delete")} %>
   </td>
 </tr>

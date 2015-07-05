@@ -1,14 +1,17 @@
 <div class="row">
   <div class="col-md-12">
-    <center><h3><u><%= @article.title.capitalize %></u></h3></center>
-    <p><%= t("articles.label.tag") %>
-      <% @article.tags.each do |tag| %>
-        <%= link_to tag.name, tag %>
-      <% end %>
-      <br/>
-      <%= t("devise.label.post_at") %> <%= l @article.created_at.localtime.to_date %>
-    </p>
-    <p><%#= @article.description %></p>    
+    <center><h3><%= @article.title.capitalize %></h3></center>
+    <span class="text-muted small">
+      <em>
+        <p><%= t("articles.label.tag") %>
+          <% @article.tags.each do |tag| %>
+            <%= link_to tag.name, tag %>
+          <% end %>
+          <br/>
+          <%= t("articles.label.post_at") %> <%= l @article.created_at.localtime.to_date %>
+        </p>
+      </em>
+    </span>    
     <%= sanitize @article.content %>
   </div>
   <div class="col-md-12">

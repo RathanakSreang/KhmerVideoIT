@@ -5,7 +5,11 @@
   <div class="media-body">
     <div class="comment-heading">
       <%= link_to comment.user.name, comment.user %>      
-      <%= time_ago_in_words comment.created_at %> <%= t("comments.label.ago") %>
+      <span class="text-muted small">
+        <em>
+          <%= time_ago_in_words comment.created_at %> <%= t("comments.label.ago") %>
+        </em>
+      </span>
     </div>
     <div class="comment_content">
       <%= markdown comment.content %>

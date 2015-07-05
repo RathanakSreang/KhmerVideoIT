@@ -6,11 +6,9 @@ class ActivityPresenter < SimpleDelegator
     @activity = activity
   end
 
-  def render_activity
-    div_for activity do
+  def render_activity    
       link_to(activity.user.name, [:admin, activity.user]) + 
-      " " + render_partial + ", " + time_ago_in_words(activity.created_at) + " ago"
-    end
+      " " + render_partial    
   end
 
   def render_partial

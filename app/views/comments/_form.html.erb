@@ -4,7 +4,7 @@
     <%= image_tag current_user.avatar, class: "img-round img-responsive user_profile" %>
   </a>
   <div class="media-body">
-    <div class="comment-heading"><%= comment_title %>, <%= current_user.name %>      
+    <div class="comment-heading"><%= comment_title %>, <%= link_to current_user.name, current_user %>      
     </div>
     <div class="comment_content">
       <%= t("comments.label.use_markdown") %> <a href="javascript:void(0)" class="markdown_link_<%= @comment.parent_id %>"><%= t("comments.label.here") %></a>

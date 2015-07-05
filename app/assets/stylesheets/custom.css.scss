@@ -6,7 +6,7 @@
 
 @media(max-width:767px) {
     .navbar .navbar-form {
-        width: 285px;
+        width: 200px;
         padding-left:0;
         padding-right:0;
     }
@@ -127,11 +127,11 @@ footer {
   }
 }
 
-.fa-facebook, .fa-facebook-square {
+.fa-facebook-square, .facebook {
   color: #3b5998;
 }
 
-.fa-twitter, .fa-twitter-square {
+.fa-twitter-square, .twitter {
   color: #00aced;
 }
 
@@ -139,7 +139,7 @@ footer {
   color: #bb0000;
 }
 
-.fa-github, .fa-github-square {
+.fa-github-square {
   color: #4183C4;
 }
 
@@ -194,4 +194,8 @@ td{
 
 .message {
   color:red;
+}
+
+.huge {
+    font-size: 40px;
 }

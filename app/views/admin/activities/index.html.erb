@@ -1,7 +1,13 @@
 <div class="row">
-  <div class="col-md-8 col-md-offset-2">
+  <div class="col-md-6 col-md-offset-3 well">
+    <legend><%= t("admin.activies.label.all_activity") %></legend>
     <% @activities.each do |activity| %>
-      <%= ActivityPresenter.new(activity, self).render_activity %>      
+      <div class="activity">
+        <%= ActivityPresenter.new(activity, self).render_activity %>
+        
+        <span class="pull-right text-muted small"><em><%= time_ago_in_words activity.created_at %> <%= t("admin.activities.label.ago") %></em>
+        </span>
+      </div>    
     <% end %>
     <%= will_paginate @activities %>
   </div>

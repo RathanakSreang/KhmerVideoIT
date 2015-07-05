@@ -2,18 +2,32 @@
   <td>
     <%= user.name %>
   </td>
-  <td>
-    <%= user.email %>
+  <td>    
+    <% unless user.provider.present? %>
+      <%= user.email %>
+    <% else %>
+      <p>
+        <%= link_to user.url do %>
+          <i class="fa fa-<%= user.provider %>-square fa-2x"></i>  
+        <% end %>
+      </p>
+    <% end %>
   </td>
   <td>
-    <%= l user.created_at.localtime %>
+    <span class="text-muted small">
+      <em>
+        <%= l user.created_at.localtime %>
+      </em>
+    </span>
   </td>
   <td>
     <%=  user.role %>
   </td>
   <td>
-    <%= link_to "detail", admin_user_path(user) %>
-    | <%= link_to "edit", edit_admin_user_path(user) %>
-    | <%= link_to "delete", admin_user_path(user), data: {method: :delete, confirm: "Are you sure?"} %>
+    <%= link_to t("link.detail"), admin_user_path(user) %>
+    <% if current_user.super? || user.normal? || user == current_user %>
+      | <%= link_to t("link.edit"), edit_admin_user_path(user) %>
+      | <%= link_to t("link.delete"), admin_user_path(user), data: {method: :delete, confirm: t("info.confirm_delete")} %>
+    <% end %>
   </td>
 </tr>

@@ -1,0 +1,13 @@
+<span class="pull-right">
+  <%= t("app_language") %>
+  <%# if I18n.locale.to_s != "kh" %>
+    <%= link_to locale: "kh" do %>
+      <%= image_tag "camicon.png" %>
+    <% end %>
+  <%# end %>
+  <%# if I18n.locale.to_s != "en" %>
+    <%= link_to locale: "en" do %>
+      <%= image_tag "englishicon.png" %>
+    <% end %>
+  <%# end %>
+</span>

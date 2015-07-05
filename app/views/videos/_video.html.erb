@@ -1,18 +1,22 @@
 <div class="row video">
   <div class="col-md-3 screenshot">
-    <%= image_tag video.image, class: "img-responsive" %>    
-    <%= link_to t("videos.link.read_more"), video_path(video), class: "btn btn-primary btn-read-video" %>
+    <%= link_to video_path(video) do %>
+      <%= image_tag video.image, class: "img-responsive" %>
+    <% end %>
   </div>
   <div class="col-md-9 video-info">
     <h2>
       <%= link_to video.title, video_path(video) %>
     </h2>
-    <span class="info">
+    <span class="text-muted small">
+      <em>    
       <%= l video.created_at.localtime.to_date %>
       <%= t("videos.label.duration") %><%= video.duration %> <%= t("videos.label.minute") %>
       , <%= video.comments.size %> comments
+      </em>
     </span>
     <br>
     <%= video.description %>
+    <%= link_to t("videos.link.read_more"), video_path(video) %>
   </div>
 </div>

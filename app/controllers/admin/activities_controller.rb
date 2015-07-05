@@ -14,6 +14,6 @@ class Admin::ActivitiesController < ApplicationController
 
   private
   def admin_user
-    redirect_to root_url unless current_user.admin?
+    redirect_to root_url unless current_user.admin? || current_user.super?
   end
 end

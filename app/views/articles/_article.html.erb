@@ -2,15 +2,25 @@
   <div class="col-md-12">
     <h3><%= link_to article.title, article %></h3>
     <p>
-      <%= t("articles.label.post_at") %> <%= l article.created_at.localtime.to_date %>, <%= article.comments.size %> <%= t("articles.label.comment") %></p>
+      <span class="text-muted small">
+        <em>
+          <%= t("articles.label.post_at") %> <%= l article.created_at.localtime.to_date %>, <%= article.comments.size %> <%= t("articles.label.comment") %>
+        </em>
+      </span>
+    </p>
     <p>
-    <p class="acticle-info"><%= t("articles.label.tag") %>
-    <% article.tags.each do |tag| %>
-      <%= link_to tag.name, tag %>
-    <% end %>
+    <p class="acticle-info">
+      <span class="text-muted small">
+        <em>
+          <%= t("articles.label.tag") %>
+          <% article.tags.each do |tag| %>
+            <%= link_to tag.name, tag %>
+          <% end %>
+        </em>
+      </span>
     </p>    
       <%= article.description %>
-      <%= link_to "read more.", article_path(article) %> 
+      <%= link_to t("link.read_more"), article_path(article) %> 
     </p>
   </div>
 </div>

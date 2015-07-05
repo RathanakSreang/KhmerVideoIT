@@ -4,7 +4,14 @@ class Admin::StaticPagesController < ApplicationController
   layout "admin/application"
 
   def dashboard
-    
+    @total_user = User.all.size
+    @total_article = Article.all.size
+    @total_video = Video.all.size
+    @total_tag = Tag.all.size
+    @total_comment = Comment.all.size
+    @comments = Comment.order("created_at DESC").limit 7
+    @total_activity = Activity.all.size
+    @activities = Activity.order("created_at DESC").limit 7
   end
 
   def about
@@ -33,6 +40,6 @@ class Admin::StaticPagesController < ApplicationController
   end
 
   def admin_user
-    redirect_to root_url unless current_user.admin?
+    redirect_to root_url unless current_user.admin? || current_user.super?
   end
 end

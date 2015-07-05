@@ -1,5 +1,5 @@
 <% if user %>
-  add a user <%= link_to user.name, [:admin, user] %>  
-<% else %>
-  added a user which has been removed
+  <%= t("admin.activities.user.add_user") %> <%= link_to user.name, [:admin, user] %>  
+<% else %>  
+  <%= t("admin.activities.user.add_remove_user") %>
 <% end %>
