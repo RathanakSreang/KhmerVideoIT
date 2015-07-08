@@ -5,6 +5,7 @@ class Tag < ActiveRecord::Base
   has_many :videos, through: :video_tags
   has_many :articles, through: :article_tags
   has_many :questions, through: :question_tags
+  belongs_to :user
 
   validates :name, presence: true
 

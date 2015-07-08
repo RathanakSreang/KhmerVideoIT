@@ -18,11 +18,11 @@ class Admin::TagsController < ApplicationController
   end
 
   def new
-    @tag = Tag.new
+    @tag = current_user.tags.new
   end
 
   def create
-    @tag = Tag.new tag_params
+    @tag = current_user.tags.new tag_params
     if @tag.save
       track_activity @tag
       flash[:success] = t "flash.success_create"

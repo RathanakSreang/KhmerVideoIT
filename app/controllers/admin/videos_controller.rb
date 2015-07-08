@@ -16,12 +16,12 @@ class Admin::VideosController < ApplicationController
   end
 
   def new
-    @video = Video.new
+    @video = current_user.videos.new
     @video.build_snippet
   end
 
   def create
-    @video = Video.new video_params
+    @video = current_user.videos.new video_params
     if @video.save
       track_activity @video
       flash[:success] = t "flash.success_create"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150708091058) do
+ActiveRecord::Schema.define(version: 20150708161213) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id",        limit: 4
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20150708091058) do
     t.integer  "language_id", limit: 4
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+    t.integer  "user_id",     limit: 4
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|
@@ -143,8 +144,9 @@ ActiveRecord::Schema.define(version: 20150708091058) do
   add_index "tag_translations", ["tag_id"], name: "index_tag_translations_on_tag_id", using: :btree
 
   create_table "tags", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "user_id",    limit: 4
   end
 
   create_table "usefull_link_translations", force: :cascade do |t|
@@ -212,6 +214,7 @@ ActiveRecord::Schema.define(version: 20150708091058) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.string   "image",      limit: 255
+    t.integer  "user_id",    limit: 4
   end
 
   add_foreign_key "activities", "users"

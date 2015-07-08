@@ -16,11 +16,11 @@ class Admin::ArticlesController < ApplicationController
   end
 
   def new
-    @article = Article.new
+    @article = current_user.articles.new
   end
 
   def create
-    @article = Article.new article_params
+    @article = current_user.articles.new article_params
     if @article.save
       track_activity @article
       flash[:success] = t "flash.success_create"
