@@ -1,0 +1,38 @@
+<table class="table-bordered">
+  <tbody>
+    <tr>
+      <td><%= simple_format "[Link(http://example.com/)]" %></td>
+      <td><%= markdown "[Link(http://example.com/)]" %></td>
+    </tr>
+    <tr>
+      <td><%= simple_format "*Italic*" %></td>
+      <td><%= markdown "*Italic*" %></td>
+    </tr>
+    <tr>
+      <td><%= simple_format "**Bold**" %></td>
+      <td><%= markdown "**Bold**" %></td>
+    </tr>
+    <tr>
+      <td><%= simple_format "* Listed" %></td>
+      <td><%= markdown "* Listed" %></td>
+    </tr>
+    <tr>
+      <td><%= simple_format "> Block quote" %></td>
+      <td><%= markdown "> Block quote" %></td>
+    </tr>
+    <tr>
+      <td><%= simple_format "`Inline code`" %></td>
+      <td><%= markdown "`Inline code`" %></td>
+    </tr>
+    <tr>
+      <td><%= simple_format "
+      ```` java
+System.out.println(\"Hello\");
+      ```" %></td>
+      <td><%= markdown "```` java
+System.out.println(\"Hello\");
+      " %></td>
+    </tr>
+  </tbody>
+</table>
+

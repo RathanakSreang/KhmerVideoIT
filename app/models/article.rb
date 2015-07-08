@@ -13,10 +13,15 @@ class Article < ActiveRecord::Base
   }
   def self.search(query)
     # where(:title, query) -> This would return an exact match of the query
-    where("title like ?", "%#{query}%") 
+    # where("title like ?", "%#{query}%") 
+    with_translations.where("article_translations.title LIKE ?", "%#{query}%")
   end
 
   def simlar_articles
-    tags.order("RAND()").first.articles.order("RAND()").limit(4)
+    if tags.any?
+      tags.order("RAND()").first.articles.order("RAND()").limit(4)
+    else
+      Article.order("RAND()").limit(4)
+    end
   end
 end

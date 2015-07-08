@@ -1,0 +1,16 @@
+<tr>
+  <td>
+    <p><%= truncate question.title, length: 50 %></p>
+  </td>
+  <td>
+    <%= link_to question.user.name, [:admin, question.user] %>
+  </td>
+  <td>
+    <%= question.tags.size %>
+  </td>  
+  <td>
+    <%= link_to t("link.detail"), admin_question_path(question) %>  
+    | <%= link_to t("link.edit"), edit_admin_question_path(question) %>
+    | <%= link_to t("link.delete"), admin_question_path(question), data: {method: :delete, confirm: t("info.confirm_delete")} %>
+  </td>
+</tr>

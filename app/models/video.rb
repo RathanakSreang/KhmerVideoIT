@@ -19,10 +19,16 @@ class Video < ActiveRecord::Base
 
   def self.search(query)
     # where(:title, query) -> This would return an exact match of the query
-    where("title like ?", "%#{query}%") 
+    # where("title like ?", "%#{query}%") 
+    # Video.find_by_title "%#{query}%"
+    with_translations.where("video_translations.title LIKE ?", "%#{query}%")
   end
 
   def simlar_videos
-    tags.order("RAND()").first.videos.order("RAND()").limit(4)
+    if tags.any?
+      tags.order("RAND()").first.videos.order("RAND()").limit(4)
+    else
+      Video.order("RAND()").limit(4)
+    end
   end
 end

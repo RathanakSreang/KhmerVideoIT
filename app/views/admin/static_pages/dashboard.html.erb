@@ -1,164 +1,199 @@
-<div class="row">
-  <div class="col-lg-3 col-md-6">
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <div class="row">
-          <div class="col-xs-3">
-            <i class="fa fa-tags fa-5x"></i>
-          </div>
-          <div class="col-xs-9 text-right">
-            <div class="huge"><%= @total_tag %></div>
-            <div><%= t("admin.tags.label.tag") %></div>
-          </div>
-        </div>
-      </div>      
-      <%= link_to admin_tags_path do %>
-        <div class="panel-footer">
-          <span class="pull-left"><%= t("link.view_detail") %></span>
-          <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-          <div class="clearfix"></div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-  
-  <div class="col-lg-3 col-md-6">
-    <div class="panel panel-danger">
-      <div class="panel-heading">
-        <div class="row">
-          <div class="col-xs-3">
-            <i class="fa fa-video-camera fa-5x"></i>
-          </div>
-          <div class="col-xs-9 text-right">
-            <div class="huge"><%= @total_video %></div>
-            <div><%= t("admin.videos.label.video") %></div>
-          </div>
-        </div>
-      </div>
-      <%= link_to admin_videos_path do %>
-        <div class="panel-footer">
-          <span class="pull-left"><%= t("link.view_detail") %></span>
-          <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-          <div class="clearfix"></div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="col-lg-3 col-md-6">
-    <div class="panel panel-warning">
-      <div class="panel-heading">
-        <div class="row">
-          <div class="col-xs-3">
-            <i class="fa fa-book fa-5x"></i>
-          </div>
-          <div class="col-xs-9 text-right">
-            <div class="huge"><%= @total_article %></div>
-            <div><%= t("admin.articles.label.article") %></div>
-          </div>
-        </div>
-      </div>      
-      <%= link_to admin_articles_path do %>
-        <div class="panel-footer">
-          <span class="pull-left"><%= t("link.view_detail") %></span>
-          <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-          <div class="clearfix"></div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="col-lg-3 col-md-6">
-    <div class="panel panel-success">
-      <div class="panel-heading">
-        <div class="row">
-          <div class="col-xs-3">
-            <i class="fa fa-users fa-5x"></i>
-          </div>
-          <div class="col-xs-9 text-right">
-            <div class="huge"><%= @total_user %></div>
-            <div><%= t("admin.user.label.user") %></div>
-          </div>
-        </div>
-      </div>      
-      <%= link_to  admin_users_path do %>
-        <div class="panel-footer">
-          <span class="pull-left"><%= t("link.view_detail") %></span>
-          <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-          <div class="clearfix"></div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-6">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <i class="fa fa-eye fa-fw"></i> <%= t("admin.activities.label.activity") %>
-      <div class="pull-right"><%= t("info.total") %><%= @total_activity %></div>
-    </div>    
-      <div class="panel-body">
-        <div class="list-group">
-          <% @activities.each do |activity| %>
-            <div class="list-group-item">
-              <%= ActivityPresenter.new(activity, self).render_activity %>
-              <span class="pull-right text-muted small"><em><%= time_ago_in_words activity.created_at %> <%= t("admin.comments.label.ago") %></em>
-              </span>
+<div class="col-md-12">
+  <div class="row">
+    <div class="col-lg-3 col-md-6">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-xs-3">
+              <i class="fa fa-tags fa-5x"></i>
             </div>
-          <% end %>
-          <div class="list-group-item">
-            <%= link_to admin_activities_path do %>
-              .....................................
-            <% end %>
+            <div class="col-xs-9 text-right">
+              <div class="huge"><%= @total_tag %></div>
+              <div><%= t("admin.tags.label.tag") %></div>
+            </div>
           </div>
         </div>      
+        <%= link_to admin_tags_path do %>
+          <div class="panel-footer">
+            <span class="pull-left"><%= t("link.view_detail") %></span>
+            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+            <div class="clearfix"></div>
+          </div>
+        <% end %>
+      </div>
     </div>
-    <%= link_to admin_activities_path do %>
-      <div class="panel-footer">
-        <span class="pull-left"><%= t("link.see_more") %></span>
-        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-        <div class="clearfix"></div>
-      </div>
-    <% end %>
-  </div>
-</div>
-
-  <div class="col-md-6">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <i class="fa fa-comment fa-fw"></i> <%= t("admin.comments.label.comment") %>
-        <div class="pull-right"><%= t("info.total") %><%= @total_comment %></div>
-      </div>
-      <div class="panel-body">
-        <div class="list-group">
-          <% @comments.each do |comment| %>
-            <div class="list-group-item">
-              <%= link_to comment.user.name, comment.user %>
-              <%= comment.parent_id.blank? ? t("admin.comments.label.comment_on") : t("admin.comments.label.reply_on") %>
-              <%= comment.commentable_type.downcase %>
-              <%= link_to comment.commentable.title, comment.commentable %>
-
-              <span class="pull-right text-muted small"><em><%= time_ago_in_words comment.created_at %> <%= t("admin.comments.label.ago") %></em>
-              </span>
+    
+    <div class="col-lg-3 col-md-6">
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-xs-3">
+              <i class="fa fa-video-camera fa-5x"></i>
             </div>
-          <% end %>
-          <div class="list-group-item">
-          <%= link_to admin_comments_path do %>
-            .....................................
-          <% end %>
+            <div class="col-xs-9 text-right">
+              <div class="huge"><%= @total_video %></div>
+              <div><%= t("admin.videos.label.video") %></div>
+            </div>
           </div>
         </div>
+        <%= link_to admin_videos_path do %>
+          <div class="panel-footer">
+            <span class="pull-left"><%= t("link.view_detail") %></span>
+            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+            <div class="clearfix"></div>
+          </div>
+        <% end %>
       </div>
-      <%= link_to admin_comments_path do %>
-        <div class="panel-footer">
-          <span class="pull-left"><%= t("link.see_more") %></span>
-          <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-          <div class="clearfix"></div>
-        </div>
-      <% end %>
+    </div>
+
+    <div class="col-lg-3 col-md-6">
+      <div class="panel panel-warning">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-xs-3">
+              <i class="fa fa-book fa-5x"></i>
+            </div>
+            <div class="col-xs-9 text-right">
+              <div class="huge"><%= @total_article %></div>
+              <div><%= t("admin.articles.label.article") %></div>
+            </div>
+          </div>
+        </div>      
+        <%= link_to admin_articles_path do %>
+          <div class="panel-footer">
+            <span class="pull-left"><%= t("link.view_detail") %></span>
+            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+            <div class="clearfix"></div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-xs-3">
+              <i class="fa fa-users fa-5x"></i>
+            </div>
+            <div class="col-xs-9 text-right">
+              <div class="huge"><%= @total_user %></div>
+              <div><%= t("admin.user.label.user") %></div>
+            </div>
+          </div>
+        </div>      
+        <%= link_to  admin_users_path do %>
+          <div class="panel-footer">
+            <span class="pull-left"><%= t("link.view_detail") %></span>
+            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+            <div class="clearfix"></div>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
 
+  <div class="row">
+    <div class="col-md-7">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <i class="fa fa-eye fa-fw"></i> <%= t("admin.activities.label.activity") %>
+          <div class="pull-right"><%= t("info.total") %><%= @total_activity %></div>
+        </div>    
+          <div class="panel-body">
+            <div class="list-group">
+              <% @activities.each do |activity| %>
+                <div class="list-group-item">
+                  <%= ActivityPresenter.new(activity, self).render_activity %>
+                  <span class="pull-right text-muted small"><em><%= time_ago_in_words activity.created_at %> <%= t("admin.comments.label.ago") %></em>
+                  </span>
+                </div>
+              <% end %>
+              <div class="list-group-item">
+                <%= link_to admin_activities_path do %>
+                  .....................................
+                <% end %>
+              </div>
+            </div>      
+        </div>
+        <%= link_to admin_activities_path do %>
+          <div class="panel-footer">
+            <span class="pull-left"><%= t("link.see_more") %></span>
+            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+            <div class="clearfix"></div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-md-5">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <i class="fa fa-comment fa-fw"></i> <%= t("admin.comments.label.comment") %>
+          <div class="pull-right"><%= t("info.total") %><%= @total_comment %></div>
+        </div>
+        <div class="panel-body">
+          <div class="list-group">
+            <% @comments.each do |comment| %>
+              <div class="list-group-item">
+                <%= link_to comment.user.name, comment.user %>
+                <%= comment.parent_id.blank? ? t("admin.comments.label.comment_on") : t("admin.comments.label.reply_on") %>
+                <%= comment.commentable_type.downcase %>
+                <%= link_to comment.commentable.title, comment.commentable %>
+
+                <span class="pull-right text-muted small"><em><%= time_ago_in_words comment.created_at %> <%= t("admin.comments.label.ago") %></em>
+                </span>
+              </div>
+            <% end %>
+            <div class="list-group-item">
+            <%= link_to admin_comments_path do %>
+              .....................................
+            <% end %>
+            </div>
+          </div>
+        </div>
+        <%= link_to admin_comments_path do %>
+          <div class="panel-footer">
+            <span class="pull-left"><%= t("link.see_more") %></span>
+            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+            <div class="clearfix"></div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <i class="fa fa-question-circle"></i> <%= t("admin.questions.label.question") %>
+          <div class="pull-right"><%= t("info.total") %><%= @total_question %></div>
+        </div>    
+          <div class="panel-body">
+            <div class="list-group">
+              <% @questions.each do |question| %>
+                <div class="list-group-item">
+                  <%= link_to question.user.name, [:admin, question.user] %>
+                  <%= t("admin.questions.label.has_ask") %>
+                  <%= link_to question.title, [:admin, question] %>
+                  <span class="pull-right text-muted small"><em><%= time_ago_in_words question.created_at %> <%= t("admin.comments.label.ago") %></em>
+                  </span>
+                </div>
+              <% end %>
+              <div class="list-group-item">
+                <%= link_to admin_questions_path do %>
+                  .....................................
+                <% end %>
+              </div>
+            </div>      
+        </div>
+        <%= link_to admin_questions_path do %>
+          <div class="panel-footer">
+            <span class="pull-left"><%= t("link.see_more") %></span>
+            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+            <div class="clearfix"></div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div> 

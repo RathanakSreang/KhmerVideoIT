@@ -1,2 +1,16 @@
-<%= render @questions %>
-<%= will_paginate @questions %>
+<div class="col-md-12">
+  <%= link_to t("question.link.ask_question"), new_question_path, class: "pull-right btn btn-info" %>
+</div>
+<% if params[:search].present? %>
+  <b><%= t("search.label.filter") %></b> <%= params[:search] %>
+  <% unless @questions && @questions.any? %>
+    <p><%= t("search.label.question_no_found") %>  <%= link_to t("search.link.all_question"), questions_path %></p>
+  <% else %>
+    <legend><%= t("search.label.question") %></legend>
+    <%= render @questions %>
+    <%= will_paginate @questions %>
+  <% end %>
+<% else %>
+  <%= render @questions %>
+  <%= will_paginate @questions %>
+<% end %>

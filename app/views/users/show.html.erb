@@ -32,30 +32,25 @@
     </div>    
   </div>
   <div class="col-md-12">
-    <h3><%= t("users.label.activity") %></h3>
-    <% @comments.each do |comment| %>
-      <div class="media">
-        <a class="pull-left" href="#">    
-          <%= image_tag @user.avatar, class: "img-round img-responsive user_profile" %>
-        </a>
-        <div class="media-body">
-          <div class="comment-heading"><%= @user.name %>
-          <%= t("users.label.comment_info") %>
-          <%= link_to comment.commentable do %>
-            <%= comment.commentable.title %>
-          <% end %>
-          <span class="text-muted small">
-            <em>
-              <%= time_ago_in_words comment.created_at %> <%= t("users.label.ago") %>
-            </em>
-          </span>
-          </div>
-          <div class="comment_content">
-            <%= markdown comment.content %>
-          </div>    
-        </div>
+    <div>
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active">        
+          <%= link_to t("users.label.comment"), {action: "comment"}, id: "comment", remote: true %>
+        </li>
+        <li role="presentation">
+          <%= link_to t("users.label.question"), {action: "question"}, id: "question", remote: true %>
+        </li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="user_info_tab">
+          <%= render partial: "user_comment" %>
+        </div>        
       </div>
-    <% end %>
-    <%= will_paginate @comments %>
+
+    </div>
+
   </div>
 </div>

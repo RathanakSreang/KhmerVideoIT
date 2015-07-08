@@ -11,7 +11,7 @@ class Admin::TagsController < ApplicationController
 
   def index
     if params[:search]
-      @tags = Tags.search(params[:search]).order("created_at DESC").paginate page: params[:page], per_page: 7
+      @tags = Tag.search(params[:search]).order("created_at DESC").paginate page: params[:page], per_page: 7
     else
       @tags = Tag.order("created_at DESC").paginate page: params[:page], per_page: 7
     end    

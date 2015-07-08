@@ -25,13 +25,13 @@ class CommentsController < ApplicationController
     params.require(:comment).permit :id, :content, :parent_id
   end
 
-  def load_commentable
-    resource, id = request.path.split("/")[1, 2]
-    @commentable = resource.singularize.classify.constantize.find id
-  end
-
   # def load_commentable
-  #   klass = [Article, Video].detect{|c| params["#{c.name.underscore}_id"]}
-  #   @commentable = klass.find params["#{klass.name.underscore}_id"]
+  #   locale, resource, id = request.path.split("/")[0, 1, 2]
+  #   @commentable = resource.singularize.classify.constantize.find id
   # end
+
+  def load_commentable
+    klass = [Article, Video, Question].detect{|c| params["#{c.name.underscore}_id"]}
+    @commentable = klass.find params["#{klass.name.underscore}_id"]
+  end
 end

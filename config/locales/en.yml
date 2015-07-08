@@ -46,6 +46,7 @@ en:
     see_more: "See More"
     view_detail: "View Details"
     read_more: "read more."
+    sign_in: "Sign in"
   admin:
     activities:
       label:
@@ -83,6 +84,12 @@ en:
         update_video: "update a video"
         update_remove_video: "update a video which has been removed"
         destroy: "remove a video"
+      question:
+        add_question: "add a question"
+        add_remove_question: "added a question which has been removed"
+        update_question: "update a question"
+        update_remove_question: "update a question which has been removed"
+        destroy: "remove a question"
     articles:
       label:
         new_article: "New Article"
@@ -107,6 +114,14 @@ en:
         ago: "ago"
         reply: "reply"
         post: "post"
+    questions:
+      label:
+        question: "Questions"
+        search: "Search questions"
+        title: "Title"
+        ask_by: "Ask by"
+        has_ask: "has ask about "
+        tag_count: "Tag count"        
     static_pages:
       label:
         edit_about: "Edit About page"
@@ -229,8 +244,10 @@ en:
     label:
       filter: "Applied Filters: "
       video: "Videos"
+      question: "Questions"
       article: "Articles"
       article_no_found: "No article found. "
+      question_no_found: "No question found. "
       video_no_found: "No video found. "
     link:
       all_video: "See all videos"
@@ -242,6 +259,7 @@ en:
     label:
       recent_video: "Recent Video"
       recent_article: "Recent Article"
+      recent_question: "Recent Question"
   tags:
     label:
       videos: "Videos: "
@@ -251,7 +269,8 @@ en:
     label:
       profile: "'s Profile"
       email: "Email: "
-      activity: "Your activity:"
+      comment: "My comments:"
+      question: "My questions:"
       comment_info: ", comment on"
       ago: "ago"      
     link:
@@ -278,7 +297,10 @@ en:
       label:
         or: "OR"
         log_as: "Log in as:"
-        search_holder: "Search Articles, Videos"
+        search_all_holder: "Search Articles, Videos, Questions"
+        search_question: "Search Questions"
+        search_video: "Search Videos"
+        search_article: "Search Articles"
       link:
         sign_in: "Sign in"
         sign_up: "Sign up here"
@@ -302,6 +324,7 @@ en:
           videos: "Videos"
           users: "Users"
           comment: "Comments"
+          question: "Questions"
           about: "About Page"
           activities: "Activities"
           home_pahe: "Home Page"
@@ -316,3 +339,14 @@ en:
   question:
     label:
       new_question: "New Question"
+      edit_question: "Edit Question"
+      comment_title: "Post your answer"
+      comment_info: "Sign in to post you answer"
+      ask_by: "Ask by:"
+      about: "about:"
+      similar_question: "Similar questions"
+      ago: "ago"
+      answers: "answers"
+      tags: "tags: "
+    link:
+      ask_question: "ask question"

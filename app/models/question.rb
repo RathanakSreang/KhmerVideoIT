@@ -9,4 +9,12 @@ class Question < ActiveRecord::Base
   def self.search(query)    
     where("content like ?", "%#{query}%") 
   end
+
+  def simlar_questions
+    if tags.any?
+      tags.order("RAND()").first.questions.order("RAND()").limit(4)
+    else
+      Question.order("RAND()").limit(4)
+    end
+  end
 end

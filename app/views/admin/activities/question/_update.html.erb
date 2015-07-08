@@ -1,0 +1,5 @@
+<% if question %>
+  <%= t("admin.activities.question.update_question") %> <%= link_to question.title, [:admin, question] %>  
+<% else %>  
+  <%= t("admin.activities.question.update_remove_question") %>
+<% end %>

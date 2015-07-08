@@ -12,7 +12,8 @@ class Tag < ActiveRecord::Base
 
   def self.search(query)
     # where(:title, query) -> This would return an exact match of the query
-    where("name like ?", "%#{query}%") 
+    # where("name like ?", "%#{query}%")
+    with_translations.where("tag_translations.name LIKE ?", "%#{query}%")
   end
   
 end

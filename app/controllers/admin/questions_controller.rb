@@ -1,15 +1,13 @@
-class QuestionsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+class Admin::QuestionsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :admin_user
   before_action :load_question, only: [:show, :edit, :update]
+  layout "admin/application"
 
   def show
-    @commentable = @question
-    @comments = @commentable.comments
-    @comment = Comment.new
-    @simlar_questions = @question.simlar_questions
   end
 
-  def index    
+  def index
     if params[:search]
       @questions = Question.search(params[:search])
             .order("created_at DESC").paginate page: params[:page], per_page: 7
@@ -19,30 +17,14 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def new
-    @question = current_user.questions.new
-  end
-
-  def create
-    @question = current_user.questions.new question_params
-    if @question.save
-      flash[:success] = t "flash.success_create"
-      track_activity @question
-      redirect_to @question
-    else
-      flash.now[:danger] = t "flash.fail_create"
-      render "new"
-    end
-  end
-
-  def edit    
+  def edit
   end
 
   def update
     if @question.update_attributes question_params
       flash[:success] = t "flash.success_update"
       track_activity @question
-      redirect_to @question
+      redirect_to [:admin, @question]
     else
       flash.now[:danger] = t "flash.fail_update"
       render "edit"
@@ -54,7 +36,7 @@ class QuestionsController < ApplicationController
     track_activity @question
     @question.destroy
     flash[:success] = t "flash.success_delete"
-    redirect_to questions_path
+    redirect_to admin_questions_path
   end
 
   private
@@ -64,5 +46,9 @@ class QuestionsController < ApplicationController
 
   def question_params
     params.require(:question).permit :id, :title, :content, tag_ids:[]
+  end
+
+  def admin_user
+    redirect_to root_url unless current_user.admin? || current_user.super?
   end
 end

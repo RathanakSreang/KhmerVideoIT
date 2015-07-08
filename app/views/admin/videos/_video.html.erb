@@ -1,9 +1,9 @@
 <tr>
   <td>
-    <%= video.title %>
+    <p><%= truncate video.title, length: 20 %></p>
   </td>
   <td>
-    <%= truncate video.description, length: 20 %>
+    <p><%= truncate video.description, length: 20 %></p>
   </td>
   <td>
     <%= video.tags.size %>

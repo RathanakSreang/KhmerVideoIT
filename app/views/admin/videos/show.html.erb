@@ -5,7 +5,7 @@
     <%= link_to t("link.delete"), admin_video_path(@video), data: {method: :delete, confirm: t("info.confirm_delete")} , class: "btn btn-danger btn-read-video" %>
   </div>
   <div class="col-md-8 video-info">
-    <h2><%= @video.title %></h2>
+    <h2 class="comment-text"><%= @video.title %></h2>
     <span class="info">
       <%= l @video.created_at.to_date %>
       <%= t("admin.videos.label.duration") %><%= @video.duration %> <%= t("admin.videos.label.minute") %>
@@ -16,7 +16,7 @@
         <% end %>      
     </span>
     <br>
-    <%= @video.description %>
+    <p><%= @video.description %></p>
     <br/>
     <%= t("admin.videos.label.video_link") %> <%= link_to @video.file_link, @video.file_link, target: "_blank" %>
   </div>  

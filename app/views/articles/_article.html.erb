@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row article">
   <div class="col-md-12">
     <h3><%= link_to article.title, article %></h3>
     <p>
@@ -19,7 +19,7 @@
         </em>
       </span>
     </p>    
-      <%= article.description %>
+      <p><%= article.description %></p>
       <%= link_to t("link.read_more"), article_path(article) %> 
     </p>
   </div>

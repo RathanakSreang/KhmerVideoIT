@@ -59,6 +59,11 @@
                   <i class="fa fa-video-camera"></i> <%= t("layouts.admin.header.link.videos") %>
                 <% end %>
               </li>
+              <li class="<%= "active" if controller?("admin/questions") %>">
+                <%= link_to admin_questions_path do %>
+                  <i class="fa fa-question-circle"></i> <%= t("layouts.admin.header.link.question") %>
+                <% end %>
+              </li>
               <li class="<%= "active" if controller?("admin/users") %>">
                 <%= link_to admin_users_path do %>
                   <i class="fa fa-user"></i> <%= t("layouts.admin.header.link.users") %>

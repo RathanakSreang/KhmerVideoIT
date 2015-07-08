@@ -59,4 +59,18 @@ module ApplicationHelper
       "#{base_title} | #{title}"
     end
   end
+
+  def search_item_path
+    return videos_path if controller?("videos")
+    return articles_path if controller?("articles")
+    return questions_path if controller?("questions")
+    return searchs_path
+  end
+
+  def search_placeholder
+    return t("layouts.header.label.search_video") if controller?("videos")
+    return t("layouts.header.label.search_article") if controller?("articles")
+    return t("layouts.header.label.search_question") if controller?("questions")
+    return t("layouts.header.label.search_all_holder")
+  end
 end

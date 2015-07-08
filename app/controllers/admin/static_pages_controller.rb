@@ -12,6 +12,8 @@ class Admin::StaticPagesController < ApplicationController
     @comments = Comment.order("created_at DESC").limit 7
     @total_activity = Activity.all.size
     @activities = Activity.order("created_at DESC").limit 7
+    @total_question = Question.all.size
+    @questions = Question.order("created_at DESC").limit 7
   end
 
   def about

@@ -1,12 +1,12 @@
 <tr>
   <td>
-    <%= article.title %>
+    <p><%= truncate article.title length: 20 %></p>
   </td>
   <td>
     <%= article.tags.size %>
   </td>
   <td>
-    <%= truncate article.description, length: 20 %>
+    <%= truncate article.description, length: 30 %>
   </td>
   <td>
     <%= link_to t("link.detail"), admin_article_path(article) %>

@@ -1,2 +1,13 @@
-<%= render @videos %>
-<%= will_paginate @videos %>
+<% if params[:search].present? %>
+  <b><%= t("search.label.filter") %></b> <%= params[:search] %>
+  <% unless @videos && @videos.any? %>
+    <p><%= t("search.label.video_no_found") %>  <%= link_to t("search.link.all_video"), videos_path %></p>
+  <% else %>
+    <legend><%= t("search.label.video") %></legend>
+    <%= render @videos %>
+    <%= will_paginate @videos %>
+  <% end %>
+<% else %>
+  <%= render @videos %>
+  <%= will_paginate @videos %>
+<% end %>
