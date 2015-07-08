@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-md-12">
+    <h3><%= @question.title %></h3>
+    Created_at: <%= @question.created_at %>
+    comment count
+    <%= markdown @question.content %>
+  </div>
+   <div class="col-md-12">
+    <br/>
+    <%= render "comments/comments" %>
+    <% if user_signed_in? %>
+      <div id="reply_comment_form">
+        <%= render "comments/form", comment_title: t("videos.label.comment_title") %>  
+      </div>
+    <% else %>
+        <%= link_to t("videos.link.sign_in"), new_user_session_path  %>
+        <%= t("videos.label.comment_info") %>
+    <% end %>            
+  </div>
+</div>

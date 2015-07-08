@@ -25,6 +25,9 @@ Rails.application.routes.draw do
       resources :comments, only: [:show, :index, :destroy]
     end
 
+    resources :questions do
+      resources :comments
+    end
     resources :tags, only: [:show]
     resources :users, only: [:show]
     resources :searchs, only: [:index]

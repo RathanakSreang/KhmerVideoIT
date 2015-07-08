@@ -1,0 +1,15 @@
+<div class="row">  
+  <div class="col-md-12">
+    <h2>
+      <%= link_to question.title, question_path(question) %>
+    </h2>
+    <span class="text-muted small">
+      <em>    
+      <%= l question.created_at.localtime.to_date %>, <%= question.comments.size %> <%= t("comments.label.comment") %>
+      </em>
+    </span>
+    <br>
+    <%#= question.content %>
+    <%= link_to t("link.read_more"), question_path(question) %>
+  </div>
+</div>
