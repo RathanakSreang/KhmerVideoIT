@@ -75,6 +75,9 @@
             </li>            
             <li class="<%= "active" if controller?("articles")&&action?("index") %>">
                <%= link_to t("layouts.header.link.articles"), articles_path %></li>
+            <li class="<%= "active" if controller?("questions")&&action?("index") %>" >
+               <%= link_to t("layouts.header.link.question"), questions_path %>
+            </li>
             <li class="<%= "active" if controller?("static_pages")&&action?("about") %>" >
                <%= link_to t("layouts.header.link.about"), about_path %>
             </li>

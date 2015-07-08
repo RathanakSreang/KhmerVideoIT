@@ -288,6 +288,7 @@ en:
         all_video: "Videos"
         articles: "Articles"
         about: "About Us"
+        question: "Questions"
     admin:
       header:
         link:
@@ -311,3 +312,7 @@ en:
   time:
     formats:
       default: "%a %d/%b/%Y %I:%M:%S %p"
+  
+  question:
+    label:
+      new_question: "New Question"
