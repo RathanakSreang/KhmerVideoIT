@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
 gem "friendly_id"
+gem "social-share-button"
 gem "chosen-rails"
 gem "exception_notification"
 gem "globalize"
