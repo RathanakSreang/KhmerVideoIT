@@ -19,30 +19,33 @@
         <div class="col-md-4 col-sm-12 col-xs-12">
           <!-- <img src="dddd"> -->
           <div class="image-logo">            
-            <%= image_tag "logo_#{locale}.png", class: "img-responsive" %>
+            <%#= image_tag "logo_#{locale}.png", class: "img-responsive" %>
           </div>
         </div>
 
         <div class="col-md-8">
             <div class="row">
               <div class="col-md-12 subscript">
+                <% @page = Page.first %>
+                <% if @page %>
                 <ul class="">
                   <li>
-                    <%= link_to Page.first.ff_link do %>
+                    <%= link_to @page.ff_link do %>
                       <i class="fa fa-facebook-square fa-2x"></i>
                     <% end %>
                   </li>
                   <li>
-                    <%= link_to Page.first.tw_link do %>
+                    <%= link_to @page.tw_link do %>
                       <i class="fa fa-twitter-square fa-2x"></i>
                     <% end %>
                   </li>
                   <li>
-                    <%= link_to Page.first.yt_link do %>
+                    <%= link_to @page.yt_link do %>
                       <i class="fa fa-youtube-square fa-2x"></i>
                     <% end %>
                   </li>
-                </ul>                                                      
+                </ul>
+                <% end %>                                                     
               </div>  
               </div>
           </div>
