@@ -6,6 +6,7 @@ class Video < ActiveRecord::Base
   has_many :tags, through: :video_tags
   
   validates :title, :file_link, :description, :image, presence: true
+  validates :duration, numericality: { only_integer: true }
   mount_uploader :image, ImageUploader
 
   translates :title, :description

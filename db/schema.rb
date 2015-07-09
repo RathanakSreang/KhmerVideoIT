@@ -207,11 +207,12 @@ ActiveRecord::Schema.define(version: 20150708091058) do
   add_index "video_translations", ["video_id"], name: "index_video_translations_on_video_id", using: :btree
 
   create_table "videos", force: :cascade do |t|
-    t.string   "file_link",  limit: 255
-    t.integer  "duration",   limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.string   "image",      limit: 255
+    t.string   "file_link",   limit: 255
+    t.integer  "duration",    limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "image",       limit: 255
+    t.integer  "tutorial_id", limit: 4
   end
 
   add_foreign_key "activities", "users"
