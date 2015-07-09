@@ -5,7 +5,7 @@
     </h3>
     <span class="text-muted small">
       <em>
-      <%= t("question.label.ask_by") %> <%= link_to question.user.name, question.user %>
+      <%= t("question.label.ask_by") %> <%= (link_to question.user.name, question.user) if question.user %>
       <br/>    
       <%= l question.created_at.localtime.to_date %>, <%= question.comments.size %> <%= t("question.label.answers") %>
         <br/>

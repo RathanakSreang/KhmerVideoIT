@@ -4,6 +4,8 @@
     <p>
       <span class="text-muted small">
         <em>
+          <%= t("label.post_by") %> <%= (link_to article.user.name, article.user) if article.user %>
+          <br/>
           <%= t("articles.label.post_at") %> <%= l article.created_at.localtime.to_date %>, <%= article.comments.size %> <%= t("articles.label.comment") %>
         </em>
       </span>

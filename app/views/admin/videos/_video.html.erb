@@ -6,7 +6,7 @@
     <p><%= truncate video.description, length: 20 %></p>
   </td>
   <td>
-    <%= video.tags.size %>
+    <%= (link_to video.user.name, video.user) if video.user %>
   </td>
   <td>
     <%= video.duration %>

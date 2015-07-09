@@ -4,6 +4,7 @@ class Video < ActiveRecord::Base
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :video_tags, dependent: :destroy
   has_many :tags, through: :video_tags
+  belongs_to :user
   
   validates :title, :file_link, :description, :image, presence: true
   validates :duration, numericality: { only_integer: true }

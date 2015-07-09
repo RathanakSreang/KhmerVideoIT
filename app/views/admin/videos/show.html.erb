@@ -7,6 +7,7 @@
   <div class="col-md-8 video-info">
     <h2 class="comment-text"><%= @video.title %></h2>
     <span class="info">
+      <%= t("admin.videos.label.author") %> <%= (link_to @video.user.name, @video.user) if @video.user %><br/>
       <%= l @video.created_at.to_date %>
       <%= t("admin.videos.label.duration") %><%= @video.duration %> <%= t("admin.videos.label.minute") %>
       <br/>      
@@ -35,7 +36,9 @@
             </ul>
           </div>
           <div class="col-md-12">
-            <%= render "snippets/snippet", snippet: @video.snippet %>
+            <% if @video.snippet %>
+              <%= render "snippets/snippet", snippet: @video.snippet %>
+            <% end %>
           </div>
           <div class="col-md-12">
             <%= t("admin.videos.label.total_comment") %>

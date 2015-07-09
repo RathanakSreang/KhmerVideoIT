@@ -3,6 +3,9 @@
     <p><%= truncate tag.name, length: 50 %></p>
   </td>
   <td>
+    <p><%= (link_to tag.user.name, [:admin, tag.user]) if tag.user %></p>
+  </td>
+  <td>
     <span class="text-muted small">
       <em>
         <%= l tag.created_at.localtime %>

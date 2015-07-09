@@ -17,7 +17,7 @@
   }
 
   .admin-head {
-    margin-top: 80px;  
+    margin-top: 65px;  
   }
 
   .image-logo {    
@@ -27,7 +27,7 @@
 }
 @media(min-width:768px) {
 
-    .navbar .navbar-form {
+  .navbar .navbar-form {
         width: 250px;
     }
 
@@ -37,7 +37,7 @@
   }
 
   .admin-head {
-    margin-top: 80px;
+    margin-top: 60px;
     margin-left: 220px;  
   }
 
@@ -214,3 +214,6 @@ h1, h2, h3, h4, h5, h6, a, p {
   word-wrap: break-word;
 }
 
+.clear_float {
+  clear: both;
+}
