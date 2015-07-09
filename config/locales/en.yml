@@ -35,6 +35,8 @@ en:
   action:
     create: "Create"
     update: "Update"
+  label:
+    post_by: "Post by:"
   link:
     edit: "Edit"
     new: "New"
@@ -95,6 +97,7 @@ en:
         new_article: "New Article"
         edit_article: "Edit Article"
         article: "Articles"
+        author: "Author"
         title: "Title"
         tag_count: "Tags count"
         description: "Description"
@@ -132,6 +135,7 @@ en:
     tags:
       label:
         created_at: "Created at:"
+        created_by: "Created by:"
         new_tag: "New Tag"
         edit_tag: "Edit Tag"
         tag: "Tags"
@@ -173,6 +177,7 @@ en:
         screenshot: "ScreenShot"
         description: "Description"
         tag_count: "Tags count"
+        author: "Author "
         duration: "Duration"
         action: "Action"
         resource_link: "Resources link in video"
@@ -347,6 +352,6 @@ en:
       similar_question: "Similar questions"
       ago: "ago"
       answers: "answers"
-      tags: "tags: "
+      tags: "Tags: "
     link:
       ask_question: "ask question"

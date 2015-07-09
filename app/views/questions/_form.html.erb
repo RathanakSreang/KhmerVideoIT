@@ -19,7 +19,7 @@
 
   <div class="form-group">
     <%= f.label :tag %>
-    <%= f.select(:tag_ids,options_from_collection_for_select(Tag.all, "id", "name", f.object.tag_ids),{},{multiple: true, size: 5, class: "form-control"}) %>
+    <%= f.collection_select :tag_ids, Tag.with_translations.order(:name), "id", "name",{},{multiple: true, size: 5, class: "form-control tags_choosen"} %>
   </div>
 
   <div class="action">

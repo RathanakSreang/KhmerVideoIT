@@ -3,12 +3,14 @@
     <center><h3><%= @article.title.capitalize %></h3></center>
     <span class="text-muted small">
       <em>
+        <%= t("label.post_by") %> <%= (link_to @article.user.name, @article.user) if @article.user %>
+        <br/>
+        <%= t("articles.label.post_at") %> <%= l @article.created_at.localtime.to_date %>
+        <br/>
         <p><%= t("articles.label.tag") %>
           <% @article.tags.each do |tag| %>
             <%= link_to tag.name, tag %>
           <% end %>
-          <br/>
-          <%= t("articles.label.post_at") %> <%= l @article.created_at.localtime.to_date %>
         </p>
       </em>
     </span>    

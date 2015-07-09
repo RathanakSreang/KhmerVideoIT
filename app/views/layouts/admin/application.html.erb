@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= csrf_meta_tags %>
     <%= render "layouts/shim" %>
+    <%= favicon_link_tag "icon-logo.jpg" %>
   </head>
   <body>
     <%= render "layouts/admin/header" %>
@@ -20,7 +21,9 @@
         <div class="col-md-12">
           <%= render "shared/locale_lang" %>
         </div>
-        <%= yield %>
+        <div class="clear_float">
+          <%= yield %>
+        </div>        
       </div>
     </div>
   </body>

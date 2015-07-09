@@ -1,9 +1,9 @@
 <tr>
   <td>
-    <p><%= truncate article.title length: 20 %></p>
+    <p><%= truncate article.title, length: 20 %></p>
   </td>
   <td>
-    <%= article.tags.size %>
+    <%= (link_to article.user.name , [:admin, article.user]) if article.user %>
   </td>
   <td>
     <%= truncate article.description, length: 30 %>

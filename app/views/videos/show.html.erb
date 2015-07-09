@@ -9,13 +9,15 @@
     <h2><%= @video.title %></h2>
     <span class="text-muted small">
       <em>
-          <%= l @video.created_at.localtime.to_date %>
-          <%= t("videos.label.duration") %><%= @video.duration %> <%= t("videos.label.minute") %>
-          <br/>      
-          <%= t("videos.label.tags") %>
-          <% @video.tags.each do |tag| %>
-            <%= link_to tag.name, tag %>
-          <% end %>        
+        <%= t("label.post_by") %> <%= (link_to @video.user.name, @video.user) if @video.user %>
+        <br/>
+        <%= l @video.created_at.localtime.to_date %>
+        <%= t("videos.label.duration") %><%= @video.duration %> <%= t("videos.label.minute") %>
+        <br/>      
+        <%= t("videos.label.tags") %>
+        <% @video.tags.each do |tag| %>
+          <%= link_to tag.name, tag %>
+        <% end %>        
       </em>
     </span>
     <br>

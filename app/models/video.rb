@@ -7,6 +7,7 @@ class Video < ActiveRecord::Base
   belongs_to :user
   
   validates :title, :file_link, :description, :image, presence: true
+  validates :duration, numericality: { only_integer: true }
   mount_uploader :image, ImageUploader
 
   translates :title, :description
