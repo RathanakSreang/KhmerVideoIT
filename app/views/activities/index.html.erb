@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 well">
+    <legend><%= t("activity.label.all_activit") %></legend>
+    <% if @activities %>
+      <% @activities.each do |activity| %>
+      <% comment = activity.trackable %>
+        <div class="activity">        
+          <% if comment %>
+            <% if comment.parent_id.present? %>
+              <%= link_to comment.user.name, comment.user %>
+               <%= t("activity.label.reply_on") %>
+               <%= comment.commentable_type.downcase %>
+               <%= link_to comment.commentable.title, comment.commentable %>
+            <% else %>            
+              <%= link_to comment.user.name, comment.user %>
+              <%= t("activity.label.post_on") %>
+              <%= comment.commentable_type.downcase %>
+              <%= link_to "#{comment.commentable.title}", comment.commentable %>
+            <% end %>  
+          <% else %>  
+            <%= t("activity.label.removed") %>
+          <% end %>
+          <span class="pull-right text-muted small"><em><%= time_ago_in_words activity.created_at %> <%= t("admin.activities.label.ago") %></em>
+          </span>
+        </div>    
+      <% end %>
+      <%= will_paginate @activities %>
+    <% end %>
+  </div>
+</div>

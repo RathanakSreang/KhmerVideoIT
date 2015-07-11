@@ -8,6 +8,9 @@ class User < ActiveRecord::Base
   has_many :videos, dependent: :destroy
   has_many :tags, dependent: :destroy
   has_many :activities
+  has_many :notice_activities, class_name: "Activity",
+            foreign_key: "user_tracked_id"
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -62,5 +65,20 @@ class User < ActiveRecord::Base
 
   def email_required?
     super && provider.blank?
+  end
+
+  def notify
+    notice_activities.unread_activity(id)
+  end
+
+  def all_notify
+    notice_activities.all_activity(id)
+  end
+
+  def finish_read_notify
+    notify.each do |notice|
+      notice.read = true
+      notice.save
+    end
   end
 end
