@@ -6,8 +6,11 @@
               <% unless user_signed_in? %> 
                <%= link_to t("layouts.header.link.sign_in"), new_user_session_path %>
                <%= t("layouts.header.label.or") %>
-               <%= link_to link_to t("layouts.header.link.sign_up"), new_user_registration_path %>
-              <% else %>
+               <%= link_to t("layouts.header.link.sign_up"), new_user_registration_path %>
+              <% else %>                
+                <%= link_to user_activities_path(current_user) do %>
+                  <i class="fa fa-bell-o"><sup><%= current_user.notify.size if current_user.notify.size > 0 %></sup></i>
+                <% end %>                
                 <%= t("layouts.header.label.log_as") %> <%= link_to current_user.name, user_path(current_user) %>
                 | <%= link_to t("layouts.header.link.sign_out"), sign_out_path %>
               <% end %>                

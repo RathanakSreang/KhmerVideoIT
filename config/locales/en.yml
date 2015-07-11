@@ -275,6 +275,7 @@ en:
       profile: "'s Profile"
       email: "Email: "
       comment: "My comments:"
+      notification: "Notification"
       question: "My questions:"
       comment_info: ", comment on"
       ago: "ago"      
@@ -355,3 +356,9 @@ en:
       tags: "Tags: "
     link:
       ask_question: "ask question"
+  activity:
+    label:
+      all_activit: "All of your Activity"
+      reply_on: "reply a comment your comment on"
+      post_on: "post comment on your"
+      removed: "activity has been remove."

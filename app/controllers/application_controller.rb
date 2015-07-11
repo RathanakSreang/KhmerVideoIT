@@ -15,7 +15,17 @@ class ApplicationController < ActionController::Base
   end
 
   def track_activity trackable, action = params[:action]
-    current_user.activities.create! action: action, trackable: trackable
+    tracking = current_user.activities.new action: action, trackable: trackable
+    if trackable.class.to_s == "Comment"
+      if trackable.parent
+        tracking.user_tracked_id = trackable.parent.user.id
+      else
+        tracking.user_tracked_id = trackable.commentable.user.id
+      end    
+    end
+    tracking.save!
+    # current_user.activities.create! action: action, trackable: trackable,
+    # user_tracked_id: (trackable.class.to_s != "User" ? trackable.user.id : "")
   end
 
   def set_locale

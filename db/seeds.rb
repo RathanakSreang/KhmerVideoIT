@@ -5,15 +5,40 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+user1 = User.new name: "RathanakSuper",
+                email: "sreang@yoo.comddddd",
+                password: "1234567890",
+                password_confirmation: "1234567890",
+                role: :super                
+user1.skip_confirmation!
+user1.save
+user = User.new name: "RathanakAdmin",
+                email: "sreang@yoo.comddddd1",
+                password: "1234567890",
+                password_confirmation: "1234567890",
+                role: :admin
+user.skip_confirmation!
+user.save       
+5.times do
+  user = User.new name: Faker::Name.name,
+              email: Faker::Internet.email,
+              remote_avatar_url: Faker::Avatar.image("avater.png", "64x64"),
+              password: "1234567890",
+              password_confirmation: "1234567890"
+  user.skip_confirmation!
+  user.save
+end
+
 Page.create about: Faker::Lorem.paragraph(10)
 
+
 5.times do
-  Tag.create name: Faker::Name.name
+  user1.tags.create name: Faker::Name.name
 end
 
 10.times do
   tag_ids = Tag.pluck :id
-  Video.create title: Faker::Lorem.word,
+  user1.videos.create title: Faker::Lorem.word,
               description: Faker::Lorem.paragraph,
               duration: 10,
               file_link: "https://www.youtube.com/embed/0KkV7m3PXPY",
@@ -32,32 +57,7 @@ end
 
 5.times do
   tag_ids = Tag.pluck :id
-  Article.create title: Faker::Lorem.sentence,
+  user1.articles.create title: Faker::Lorem.sentence,
                   content: Faker::Lorem.paragraph(10),
                   tag_ids: tag_ids
-end
-
-
-user = User.new name: "RathanakSuper",
-                email: "sreang@yoo.comddddd",
-                password: "1234567890",
-                password_confirmation: "1234567890",
-                role: :super                
-user.skip_confirmation!
-user.save
-user = User.new name: "RathanakAdmin",
-                email: "sreang@yoo.comddddd1",
-                password: "1234567890",
-                password_confirmation: "1234567890",
-                role: :admin
-user.skip_confirmation!
-user.save       
-5.times do
-  user = User.new name: Faker::Name.name,
-              email: Faker::Internet.email,
-              remote_avatar_url: Faker::Avatar.image("avater.png", "64x64"),
-              password: "1234567890",
-              password_confirmation: "1234567890"
-  user.skip_confirmation!
-  user.save
 end

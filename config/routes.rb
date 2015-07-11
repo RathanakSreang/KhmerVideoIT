@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     end
     resources :tags, only: [:show]
     resources :users, only: [:show] do
+      resources :activities, only: :index
       member do
         get "question"
         get "comment"
@@ -49,6 +50,6 @@ Rails.application.routes.draw do
 
   # get "*path", to: redirect("/#{I18n.default_locale}/%{path}")
   # get "", to: redirect("/#{I18n.default_locale}/")
-  get "*path", to: redirect("/kh/%{path}")
+  # get "*path", to: redirect("/kh/%{path}")
   get "", to: redirect("/kh/")
 end
