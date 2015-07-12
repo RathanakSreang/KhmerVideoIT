@@ -1,4 +1,5 @@
-class Video < ActiveRecord::Base  
+class Video < ActiveRecord::Base
+  after_create :check_language
   has_many :usefull_links, dependent: :destroy , inverse_of: :video
   has_one :snippet, dependent: :destroy
   has_many :comments, as: :commentable, dependent: :destroy
@@ -31,6 +32,11 @@ class Video < ActiveRecord::Base
       tags.order("RAND()").first.videos.order("RAND()").limit(4)
     else
       Video.order("RAND()").limit(4)
+    end
+  end
+
+  def check_language
+    unless I18n.locale == :en
     end
   end
 end

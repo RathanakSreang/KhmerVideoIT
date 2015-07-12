@@ -1,4 +1,5 @@
 class Tag < ActiveRecord::Base
+  # after_create :check_language
   has_many :video_tags, dependent: :destroy
   has_many :article_tags, dependent: :destroy
   has_many :question_tags, dependent: :destroy
@@ -17,4 +18,10 @@ class Tag < ActiveRecord::Base
     with_translations.where("tag_translations.name LIKE ?", "%#{query}%")
   end
   
+  # def check_language
+  #   unless I18n.locale == :en
+  #     self.with_translations("en").name = name
+  #     self.save
+  #   end
+  # end
 end

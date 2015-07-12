@@ -17,7 +17,10 @@
   }
 
   .admin-head {
-    margin-top: 65px;  
+    margin-top: 65px;
+    min-height: 600px;
+    background: #FFF;
+    color: #222;
   }
 
   .image-logo {    
@@ -37,8 +40,12 @@
   }
 
   .admin-head {
-    margin-top: 60px;
-    margin-left: 220px;  
+    margin-top: 50px;
+    padding-top: 5px;
+    margin-left: 220px;
+    min-height: 600px;
+    background: #FFF;
+    color: #222;
   }
 
   .image-logo {    
@@ -119,10 +126,6 @@ footer {
   .form-control {
     color: $state-danger-text;
   }
-}
-
-.similar-video {
-  margin-bottom: 15px;
 }
 
 .subscript {
@@ -216,4 +219,57 @@ h1, h2, h3, h4, h5, h6, a, p {
 
 .clear_float {
   clear: both;
+}
+
+.user-page-nav {
+  border-bottom: 4px #00A9D4 solid;
+  border-top: 2px #00965A solid;
+}
+
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+  color: #fff;
+  background-color: #00A9D4;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+  color: #FFF;
+  background-color: #F39532;
+}
+
+body {
+  background: #222;
+  color: white;
+  overflow-x: hidden;
+}
+.logo {
+  background: #FFF;
+  color: black;
+}
+
+.application {
+  min-height: 600px;
+  background: #eee;
+  color: #222;
+  margin-top: -20px;
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 20px;
+}
+
+.white-container {
+  padding: 10px;
+  background: #FFF;
+  margin-bottom: 20px;
+}
+
+.similar-video {
+  margin-bottom: 15px;  
+}
+
+.new-question {
+  margin-bottom: 10px;
+  padding: 0;
 }

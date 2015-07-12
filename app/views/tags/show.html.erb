@@ -3,9 +3,9 @@
     <h3><%= t("tags.label.all_in_tag") %> <%= @tag.name %>:</h3>
   </div>
   <div class="col-md-12">
-    <% if @videos.any? %>
-      <legend><%= t("tags.label.videos") %></legend>
-      <%= render @videos %>      
+    <% if @questions.any? %>
+      <legend><%= t("tags.label.questions") %></legend>
+      <%= render @questions %>      
     <% end %>
   </div>
   <div class="col-md-12">
@@ -14,4 +14,24 @@
       <%= render @articles %>      
     <% end %>
   </div>
+  <div class="col-md-12">
+    <% if @videos.any? %>
+      <legend><%= t("tags.label.videos") %></legend>
+      <%= render @videos %>      
+    <% end %>
+  </div>
+  
+  <% if @videos.total_entries > @questions.total_entries %>
+    <% if  @videos.total_entries > @articles.total_entries %>
+      <%= will_paginate @videos %>
+    <% else %>
+      <%= will_paginate @articles %>
+    <% end %>
+  <% else %>
+    <% if @questions.total_entries > @articles.total_entries %>
+      <%= will_paginate @questios %>
+    <% else %>
+      <%= will_paginate @articles %>
+    <% end %>
+  <% end %>  
 </div>

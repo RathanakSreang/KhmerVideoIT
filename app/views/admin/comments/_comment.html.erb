@@ -7,7 +7,7 @@
     <%= link_to comment.user.name, [:admin, comment.user] %>
     , <%= comment.parent_id.present? ? t("admin.comments.label.reply") : t("admin.comments.label.post") %> <%= t("admin.comments.label.comment_on") %>
     <%= link_to comment.commentable do %>
-      <p><%= comment.commentable.title %></p>
+      <%= comment.commentable.title %>
     <% end %>
     <span class="text-muted small">
       <em>

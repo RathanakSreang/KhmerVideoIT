@@ -1,10 +1,8 @@
-<div class="row">
-  <div class="col-md-6 col-md-offset-3 well">
-    <legend><%= t("activity.label.all_activit") %></legend>
+<div class="row">    
     <% if @activities %>
       <% @activities.each do |activity| %>
       <% comment = activity.trackable %>
-        <div class="activity">        
+        <div class="col-md-12 white-container">        
           <% if comment %>
             <% if comment.parent_id.present? %>
               <%= link_to comment.user.name, comment.user %>
@@ -21,10 +19,9 @@
             <%= t("activity.label.removed") %>
           <% end %>
           <span class="pull-right text-muted small"><em><%= time_ago_in_words activity.created_at %> <%= t("admin.activities.label.ago") %></em>
-          </span>
-        </div>    
+          </span>        
+        </div>
       <% end %>
       <%= will_paginate @activities %>
-    <% end %>
-  </div>
+    <% end %>  
 </div>
