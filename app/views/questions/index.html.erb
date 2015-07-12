@@ -1,6 +1,7 @@
-<div class="col-md-12">
+<div class="col-md-12 new-question">
   <%= link_to t("question.link.ask_question"), new_question_path, class: "pull-right btn btn-info" %>
 </div>
+
 <% if params[:search].present? %>
   <b><%= t("search.label.filter") %></b> <%= params[:search] %>
   <% unless @questions && @questions.any? %>

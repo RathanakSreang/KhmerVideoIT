@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-6 col-md-offset-3 well">    
+  <div class="col-md-6 white-container">
     <legend><h2><b><%= @user.name %><%= t("users.label.profile") %></b></h2></legend>
     <div class="row">
       <div class="col-md-3">
@@ -31,26 +31,23 @@
       </div>
     </div>    
   </div>
-  <div class="col-md-12">
-    <div>
+  <div class="col-md-12 white-container">    
       <!-- Nav tabs -->
-      <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active">        
-          <%= link_to t("users.label.comment"), {action: "comment"}, id: "comment", remote: true %>
-        </li>
-        <li role="presentation">
-          <%= link_to t("users.label.question"), {action: "question"}, id: "question", remote: true %>
-        </li>        
-      </ul>
-
+    <ul class="nav nav-tabs " role="tablist">
+      <li role="presentation" class="active">        
+        <%= link_to t("users.label.comment"), {action: "comment"}, id: "comment", remote: true %>
+      </li>
+      <li role="presentation">
+        <%= link_to t("users.label.question"), {action: "question"}, id: "question", remote: true %>
+      </li>
+    </ul>      
+  </div>
+  <div class="col-md-12">  
       <!-- Tab panes -->
-      <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="user_info_tab">
-          <%= render partial: "user_comment" %>
-        </div>        
-      </div>
-
-    </div>
-
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="user_info_tab">
+        <%= render partial: "user_comment" %>
+      </div>        
+    </div>  
   </div>
 </div>

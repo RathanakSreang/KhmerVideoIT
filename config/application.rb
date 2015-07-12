@@ -23,8 +23,8 @@ module KhmerVideoIT
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
-    # config.time_zone = 'Central Time (US & Canada)'
-
+    config.time_zone = "Bangkok"
+    # config.time_zone = Time.zone
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
@@ -34,6 +34,8 @@ module KhmerVideoIT
 
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
 
-    config.i18n.fallbacks = true
+    # config.i18n.fallbacks = true
+    Globalize.fallbacks = {:en => [:en, :kh], :kh => [:kh, :en]}
+    # config.i18n.fallbacks = {:en, :kh}
   end
 end

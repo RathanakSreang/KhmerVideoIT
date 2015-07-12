@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-12 white-container">
     <center><h3><%= @article.title.capitalize %></h3></center>
     <span class="text-muted small">
       <em>
@@ -16,7 +16,7 @@
     </span>    
     <%= sanitize @article.content %>
   </div>
-  <div class="col-md-12">
+  <div class="col-md-12 white-container">
     <br/>
     <%= render "comments/comments" %>
     <% if user_signed_in? %>

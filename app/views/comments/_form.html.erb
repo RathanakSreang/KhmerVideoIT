@@ -1,8 +1,8 @@
 <!-- Comments Form -->
-<div class="media">
-  <a class="pull-left" href="#">
+<div class="media">  
+  <%= link_to current_user, class: "pull-left" do %>
     <%= image_tag current_user.avatar, class: "img-round img-responsive user_profile" %>
-  </a>
+  <% end %>
   <div class="media-body">
     <div class="comment-heading"><%= comment_title %>, <%= link_to current_user.name, current_user %>      
     </div>
