@@ -273,3 +273,42 @@ body {
   margin-bottom: 10px;
   padding: 0;
 }
+
+.panel {
+  margin-bottom: 15px;  
+  ul {
+    // list-style: none;
+    padding-left: 15px;
+  }
+} 
+
+.panel-question {
+  border-color: #009659;
+  .panel-head-question {
+    color: #FFFFFF;
+    background-color: #009659;
+    border-color: #009659;
+  }
+}
+
+.panel-video {
+  border-color: #F39532;
+  .panel-head-video {
+    color: #FFFFFF;
+    background-color: #F39532;
+    border-color: #F39532;
+  }
+}
+
+.panel-tag {
+  border-color: #00A9D4;
+  .panel-head-tag {
+    color: #FFFFFF;
+    background-color: #00A9D4;
+    border-color: #00A9D4;
+  }
+}
+
+.btn-top {
+  margin-top: 5px;
+}

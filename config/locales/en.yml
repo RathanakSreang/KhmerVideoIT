@@ -362,3 +362,12 @@ en:
       reply_on: "reply a comment your comment on"
       post_on: "post comment on your"
       removed: "activity has been remove."
+
+  side_menu:
+    label:
+      login: "Log in"
+      new_user: "Not have account?"
+      random_tag: "Random Tags"
+      latest_video: "Latest Videos"
+      latest_question: "Latest Questions"
+      latest_article: "Latest Articles"

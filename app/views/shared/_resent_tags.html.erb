@@ -1,0 +1,75 @@
+<% unless user_signed_in? || controller?("registrations") || controller?("sessions") %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= t("side_menu.label.login") %>      
+    </div>
+    <div class="panel-body">
+      <%= render "shared/socail_sign_in", show: false %>
+      <br/>
+      <%= render "shared/sign_in" %>
+      <%= t("side_menu.label.new_user") %> <%= link_to t("layouts.header.link.sign_up"), new_user_registration_path %>
+    </div>
+  </div>
+<% end %>
+<div class="panel panel-tag">
+  <div class="panel-heading panel-head-tag">
+    <%= t("side_menu.label.random_tag") %>
+  </div>
+  <div class="panel-body">
+    <ul>
+    <% @random_tags.each do |tag| %>
+      <li>
+        <%= link_to tag.name, tag %>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+</div>
+<% if @latest_videos %>
+  <div class="panel panel-video">
+    <div class="panel-heading panel-head-video">      
+      <%= t("side_menu.label.latest_video") %>
+    </div>
+    <div class="panel-body">
+      <ul>
+      <% @latest_videos.each do |video| %>
+        <li>
+          <%= link_to video.title, video %>
+        </li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
+<% if @latest_articles %>
+  <div class="panel panel-primary">
+    <div class="panel-heading">      
+      <%= t("side_menu.label.latest_article") %>
+    </div>
+    <div class="panel-body">
+      <ul>
+      <% @latest_articles.each do |article| %>
+        <li>
+          <%= link_to article.title, article %>
+        </li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
+<% if @latest_question %>
+  <div class="panel panel-question">
+    <div class="panel-heading panel-head-question">      
+      <%= t("side_menu.label.latest_question") %>
+    </div>
+    <div class="panel-body">      
+      <ul>
+      <% @latest_question.each do |question| %>
+        <li>
+          <%= link_to question.title, question %>
+        </li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>

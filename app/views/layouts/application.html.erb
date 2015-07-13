@@ -20,8 +20,10 @@
           <% end %>    
           <%= yield %>
         </div>      
-        <div class="col-md-3">
-          
+        <div class="col-md-3">        
+          <% side_bar %>
+          <%= render "shared/resent_tags" %>
+          <%#= yield :side_menu %>
         </div>      
     </div>
     </div>

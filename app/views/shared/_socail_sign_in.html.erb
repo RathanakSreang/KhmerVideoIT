@@ -1,18 +1,15 @@
 <center>
   <%= link_to user_omniauth_authorize_url(:facebook), class: "btn-facebook btn" do %>          
-    <i class="fa fa-facebook"></i> Facebook
+    <i class="fa fa-facebook"></i> <%= show ? "Facebook" : "" %>
   <% end %>
   <%= link_to user_omniauth_authorize_url(:twitter), class: "btn btn-twitter" do %>
-    <i class="fa fa-twitter"></i> Twitter
+    <i class="fa fa-twitter"></i> <%= show ? "Twitter" : "" %>
   <% end %>
   <%= link_to user_omniauth_authorize_url(:github), class: "btn btn-github" do %>
-    <i class="fa fa-github"></i> Github
+    <i class="fa fa-github"></i> <%= show ? "Github" : "" %>
   <% end %>
   <%= link_to user_omniauth_authorize_url(:google_oauth2), class: "btn btn-google_oauth2" do %>
-    <i class="fa fa-google"></i> Google
+    <i class="fa fa-google"></i> <%= show ? "Google" : "" %>
   <% end %>
-  <br/>
-  <br/>
-  OR
-  <br/>
+
 </center>

@@ -1,11 +1,13 @@
 <div class="row">
-  <div class="col-md-6 white-container">
+  <div class="col-md-12 white-container">
     <legend><h2><b><%= @user.name %><%= t("users.label.profile") %></b></h2></legend>
     <div class="row">
-      <div class="col-md-3">
-        <%= image_tag @user.avatar.url, calss: "img-round img-responsive user_profile" %>          
+      <div class="col-md-2">
+        <div class="pull-right">
+          <%= image_tag @user.avatar.url, calss: "img-round img-responsive user_profile" %>
+        </div>
       </div>
-      <div class="col-md-9">
+      <div class="col-md-10">
         <% unless @user.provider.present? %>
           <p><%= t("users.label.email") %> <%= @user.email %></p>
         <% else %>
