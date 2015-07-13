@@ -1,0 +1,11 @@
+<%= form_for(User.new, url: user_session_path, class:"form", id: "") do |f| %>
+
+  <%= render "shared/error_message", object: f.object %>
+  <div class="form-group">
+    <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: t("devise.label.email") %>  
+    <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: t("devise.label.password") %>
+    <div class="actions btn-top">
+      <%= f.submit t("devise.link.login"), class: "btn btn-primary" %>
+    </div>
+  </div>  
+<% end %>

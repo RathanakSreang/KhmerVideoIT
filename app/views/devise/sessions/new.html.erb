@@ -4,8 +4,8 @@
       <div class="col-md-10 col-md-offset-1 well">
         <h2><legend><%= t("devise.label.login") %></legend></h2>
         
-        <%= render "shared/socail_sign_in" %>
-
+        <%= render "shared/socail_sign_in", show: true %>
+        <hr/>
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <%= render "shared/error_message", object: f.object %>
           <div class="form-group">
