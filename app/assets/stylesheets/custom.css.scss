@@ -1,5 +1,8 @@
 @import "bootstrap";
 @import "font-awesome";
+$question-color: #009659;
+$video-color: #F39532;
+$article-color: #337ab7;
 .navbar {
   border-radius: 0px;
 }
@@ -223,7 +226,7 @@ h1, h2, h3, h4, h5, h6, a, p {
 
 .user-page-nav {
   border-bottom: 4px #00A9D4 solid;
-  border-top: 2px #00965A solid;
+  border-top: 2px #FAFFBD solid;
 }
 
 .navbar-inverse .navbar-nav > .active > a,
@@ -235,7 +238,49 @@ h1, h2, h3, h4, h5, h6, a, p {
 
 .navbar-inverse .navbar-nav > li > a:hover {
   color: #FFF;
-  background-color: #F39532;
+  background-color: #00A9D4;
+}
+
+.navbar-inverse .navbar-nav > li.video-menu > a:hover {
+  color: #FFF;
+  background-color: $video-color;
+}
+.navbar-inverse .navbar-nav > li.article-menu > a:hover {
+  color: #FFF;
+  background-color: $article-color;
+}
+.navbar-inverse .navbar-nav > li.question-menu > a:hover {
+  color: #FFF;
+  background-color: $question-color;
+}
+.user-page-nav-videos {  
+  border-bottom: 4px $video-color solid;
+  .navbar-nav > .active > a,
+  .navbar-nav > .active > a:hover,
+  .navbar-nav > .active > a:focus {
+    color: #fff;
+    background-color: $video-color;
+  }
+}
+
+.user-page-nav-articles {  
+  border-bottom: 4px $article-color solid;
+  .navbar-nav > .active > a,
+  .navbar-nav > .active > a:hover,
+  .navbar-nav > .active > a:focus {
+    color: #fff;
+    background-color: $article-color;
+  }
+}
+
+.user-page-nav-questions {  
+  border-bottom: 4px $question-color solid;
+  .navbar-nav > .active > a,
+  .navbar-nav > .active > a:hover,
+  .navbar-nav > .active > a:focus {
+    color: #fff;
+    background-color: $question-color;
+  }
 }
 
 body {
@@ -283,20 +328,20 @@ body {
 } 
 
 .panel-question {
-  border-color: #009659;
+  border-color: $question-color;
   .panel-head-question {
     color: #FFFFFF;
-    background-color: #009659;
-    border-color: #009659;
+    background-color: $question-color;
+    border-color: $question-color;
   }
 }
 
 .panel-video {
-  border-color: #F39532;
+  border-color: $video-color;
   .panel-head-video {
     color: #FFFFFF;
-    background-color: #F39532;
-    border-color: #F39532;
+    background-color: $video-color;
+    border-color: $video-color;
   }
 }
 

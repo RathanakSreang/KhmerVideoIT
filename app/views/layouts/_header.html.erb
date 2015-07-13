@@ -56,7 +56,7 @@
       </div>
    </div>
 </div>
-<div class="navbar navbar-inverse user-page-nav">
+<div class="navbar navbar-inverse user-page-nav user-page-nav-<%= params[:controller] %>">
   <div>
    <div class="container">
       <div class="navbar-header">
@@ -80,12 +80,12 @@
       </div>
       <div class="navbar-collapse collapse">
          <ul class="nav navbar-nav navbar-right">
-            <li class="<%= "active" if controller?("videos") %>">
+            <li class="video-menu <%= "active" if controller?("videos") %>">
                <%= link_to t("layouts.header.link.all_video"), videos_path %>
             </li>            
-            <li class="<%= "active" if controller?("articles") %>">
+            <li class="article-menu <%= "active" if controller?("articles") %>">
                <%= link_to t("layouts.header.link.articles"), articles_path %></li>
-            <li class="<%= "active" if controller?("questions") %>" >
+            <li class="question-menu <%= "active" if controller?("questions") %>" >
                <%= link_to t("layouts.header.link.question"), questions_path %>
             </li>
             <li class="<%= "active" if controller?("static_pages")&&action?("about") %>" >
