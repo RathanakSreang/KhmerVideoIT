@@ -48,7 +48,7 @@ class Admin::TagsController < ApplicationController
   end
 
   def destroy
-    @tag = Tag.find params[:id]
+    @tag = Tag.friendly.find params[:id]
     @tag.destroy
     track_activity @tag
     flash[:success] = t "flash.success_delete"
@@ -57,7 +57,7 @@ class Admin::TagsController < ApplicationController
 
   private
   def load_tag
-    @tag = Tag.find params[:id]
+    @tag = Tag.friendly.find params[:id]
   end
 
   def tag_params

@@ -1,4 +1,6 @@
 class Tag < ActiveRecord::Base
+  extend FriendlyId
+  
   # after_create :check_language
   has_many :video_tags, dependent: :destroy
   has_many :article_tags, dependent: :destroy
@@ -10,6 +12,7 @@ class Tag < ActiveRecord::Base
 
   validates :name, presence: true
 
+  friendly_id :name, use: :slugged
   translates :name
 
   def self.search(query)

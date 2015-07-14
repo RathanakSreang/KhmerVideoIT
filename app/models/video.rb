@@ -1,4 +1,5 @@
 class Video < ActiveRecord::Base
+  extend FriendlyId
   after_create :check_language
   has_many :usefull_links, dependent: :destroy , inverse_of: :video
   has_one :snippet, dependent: :destroy
@@ -7,14 +8,25 @@ class Video < ActiveRecord::Base
   has_many :tags, through: :video_tags
   belongs_to :user
   
-  validates :title, :file_link, :description, :image, presence: true
-  validates :duration, numericality: { only_integer: true }
+  URL_FORMATS = {
+      regular: /^(https?:\/\/)?(www\.)?youtube.com\/watch\?(.*\&)?v=(?<id>[^&]+)/,
+      shortened: /^(https?:\/\/)?(www\.)?youtu.be\/(?<id>[^&]+)/,
+      embed: /^(https?:\/\/)?(www\.)?youtube.com\/embed\/(?<id>[^&]+)/,
+      embed_as3: /^(https?:\/\/)?(www\.)?youtube.com\/v\/(?<id>[^?]+)/,
+      chromeless_as3: /^(https?:\/\/)?(www\.)?youtube.com\/apiplayer\?video_id=(?<id>[^&]+)/
+  }
+
+  INVALID_CHARS = /[^a-zA-Z0-9\:\/\?\=\&\$\-\_\.\+\!\*\'\(\)\,]/
+  YT_LINK_FORMAT = /\A.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/i
+  validates :file_link, presence: true, format: YT_LINK_FORMAT
+  validates :title, :description, :image, presence: true
+  validates :duration, numericality: { only_integer: true, greater_than: 0 }
   mount_uploader :image, ImageUploader
 
   translates :title, :description
-  
+  friendly_id :title, use: :slugged
   accepts_nested_attributes_for :usefull_links, allow_destroy: true
-  accepts_nested_attributes_for :snippet, allow_destroy: true
+  accepts_nested_attributes_for :snippet, allow_destroy: true  
 
   scope :order_video, ->{
     order("created_at DESC")
@@ -37,6 +49,19 @@ class Video < ActiveRecord::Base
 
   def check_language
     unless I18n.locale == :en
+    end
+  end
+
+  def has_invalid_chars?(youtube_url)
+    !INVALID_CHARS.match(youtube_url).nil?
+  end
+
+  def extract_video_id
+    return nil if has_invalid_chars?(file_link)
+
+    URL_FORMATS.values.each do |format_regex|
+      match = format_regex.match(file_link)
+      return match[:id] if match
     end
   end
 end

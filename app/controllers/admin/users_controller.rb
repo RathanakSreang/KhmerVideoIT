@@ -48,7 +48,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find params[:id]
+    @user = User.friendly.find params[:id]
     @user.destroy
     track_activity @user
     flash[:success] = t "flash.success_delete"
@@ -62,7 +62,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def load_user
-    @user = User.find params[:id]
+    @user = User.friendly.find params[:id]
   end
 
   def admin_user

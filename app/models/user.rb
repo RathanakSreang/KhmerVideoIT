@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  extend FriendlyId
+
   enum role: [:normal, :admin, :super]
   before_save :default_values
 
@@ -16,6 +18,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :validatable, :confirmable, :omniauthable
   validates :name, :email, presence: true, if: :provider?
+  friendly_id :name, use: :slugged
+  
   validates_uniqueness_of :email
   validates_length_of :password, minimum: 8, allow_blank: true, if: :provider?
   validates_confirmation_of :password,

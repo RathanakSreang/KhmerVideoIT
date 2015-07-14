@@ -1,6 +1,6 @@
 class VideosController < ApplicationController
   def show
-    @video = Video.find params[:id]
+    @video = Video.friendly.find params[:id]
     @commentable = @video
     @comments = @commentable.comments
     @comment = Comment.new

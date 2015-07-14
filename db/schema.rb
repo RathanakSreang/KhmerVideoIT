@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150711065222) do
+ActiveRecord::Schema.define(version: 20150714170144) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id",         limit: 4
@@ -49,10 +49,13 @@ ActiveRecord::Schema.define(version: 20150711065222) do
 
   create_table "articles", force: :cascade do |t|
     t.integer  "language_id", limit: 4
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.integer  "user_id",     limit: 4
+    t.string   "slug",        limit: 255
   end
+
+  add_index "articles", ["slug"], name: "index_articles_on_slug", unique: true, using: :btree
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",    limit: 255, null: false
@@ -82,6 +85,19 @@ ActiveRecord::Schema.define(version: 20150711065222) do
 
   add_index "comments", ["ancestry"], name: "index_comments_on_ancestry", using: :btree
   add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type", using: :btree
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",           limit: 255, null: false
+    t.integer  "sluggable_id",   limit: 4,   null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope",          limit: 255
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "page_translations", force: :cascade do |t|
     t.integer  "page_id",    limit: 4,     null: false
@@ -115,7 +131,10 @@ ActiveRecord::Schema.define(version: 20150711065222) do
     t.integer  "user_id",    limit: 4
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.string   "slug",       limit: 255
   end
+
+  add_index "questions", ["slug"], name: "index_questions_on_slug", unique: true, using: :btree
 
   create_table "snippet_translations", force: :cascade do |t|
     t.integer  "snippet_id", limit: 4,     null: false
@@ -146,10 +165,13 @@ ActiveRecord::Schema.define(version: 20150711065222) do
   add_index "tag_translations", ["tag_id"], name: "index_tag_translations_on_tag_id", using: :btree
 
   create_table "tags", force: :cascade do |t|
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.integer  "user_id",    limit: 4
+    t.string   "slug",       limit: 255
   end
+
+  add_index "tags", ["slug"], name: "index_tags_on_slug", unique: true, using: :btree
 
   create_table "usefull_link_translations", force: :cascade do |t|
     t.integer  "usefull_link_id", limit: 4,   null: false
@@ -186,10 +208,12 @@ ActiveRecord::Schema.define(version: 20150711065222) do
     t.string   "uid",                    limit: 255
     t.string   "provider",               limit: 255
     t.string   "url",                    limit: 255
+    t.string   "slug",                   limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["slug"], name: "index_users_on_slug", unique: true, using: :btree
 
   create_table "video_tags", force: :cascade do |t|
     t.integer  "video_id",   limit: 4
@@ -217,7 +241,10 @@ ActiveRecord::Schema.define(version: 20150711065222) do
     t.datetime "updated_at",             null: false
     t.string   "image",      limit: 255
     t.integer  "user_id",    limit: 4
+    t.string   "slug",       limit: 255
   end
+
+  add_index "videos", ["slug"], name: "index_videos_on_slug", unique: true, using: :btree
 
   add_foreign_key "activities", "users"
 end

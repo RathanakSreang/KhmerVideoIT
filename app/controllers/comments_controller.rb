@@ -32,6 +32,6 @@ class CommentsController < ApplicationController
 
   def load_commentable
     klass = [Article, Video, Question].detect{|c| params["#{c.name.underscore}_id"]}
-    @commentable = klass.find params["#{klass.name.underscore}_id"]
+    @commentable = klass.friendly.find params["#{klass.name.underscore}_id"]
   end
 end

@@ -1,9 +1,16 @@
-<div class="row" id="video-show">
+<div class="row" id="video-show">  
+  <div class="col-md-10 col-md-offset-1">
+    <div class="embed-responsive embed-responsive-16by9 video_wrapper">
+      <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/<%= @video.extract_video_id %>" allowfullscreen>
+      </iframe>
+    </div>    
+  </div>
+
   <div class="col-md-3 screenshot">
     <%= image_tag @video.image, class: "img-responsive" %>
     <%= link_to t("link.edit"), edit_admin_video_path(@video), class: "btn btn-primary btn-read-video" %>
     <%= link_to t("link.delete"), admin_video_path(@video), data: {method: :delete, confirm: t("info.confirm_delete")} , class: "btn btn-danger btn-read-video" %>
-  </div>
+  </div>  
   <div class="col-md-8 video-info">
     <h2 class="comment-text"><%= @video.title %></h2>
     <span class="info">
@@ -14,16 +21,14 @@
         <%= t("admin.videos.label.tag") %>
         <% @video.tags.each do |tag| %>
           <%= link_to tag.name, [:admin, tag] %>,
-        <% end %>      
+        <% end %>
+      <br/>
+      <%= t("admin.videos.label.video_link") %> <%= link_to @video.file_link, @video.file_link, target: "_blank" %>
     </span>
     <br>
-    <p><%= @video.description %></p>
-    <br/>
-    <%= t("admin.videos.label.video_link") %> <%= link_to @video.file_link, @video.file_link, target: "_blank" %>
+    <p><%= @video.description %></p>    
   </div>  
 </div>
-<br/>
-<%= link_to t("link.back"), :back %>
 <div class="row">
   <div class="col-md-12">
     <div class="panel panel-default">
