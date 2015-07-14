@@ -4,7 +4,7 @@ class Admin::VideosController < ApplicationController
   layout "admin/application"
 
   def show
-    @video = Video.find params[:id]
+    @video = Video.friendly.find params[:id]
   end
 
   def index    
@@ -33,11 +33,11 @@ class Admin::VideosController < ApplicationController
   end
 
   def edit
-    @video = Video.find params[:id]
+    @video = Video.friendly.find params[:id]
   end
 
   def update
-    @video = Video.find params[:id]
+    @video = Video.friendly.find params[:id]
     if @video.update_attributes video_params      
       flash[:success] = t "flash.success_update"
       track_activity @video
@@ -49,7 +49,7 @@ class Admin::VideosController < ApplicationController
   end
 
   def destroy
-    @video = Video.find params[:id]
+    @video = Video.friendly.find params[:id]
     @video.destroy
     track_activity @video
     flash[:success] = t "flash.success_delete"

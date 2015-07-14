@@ -46,7 +46,7 @@ class Admin::ArticlesController < ApplicationController
   end
 
   def destroy
-    @article = Article.find params[:id]
+    @article = Article.friendly.find params[:id]
     @article.destroy
     track_activity @article
     flash[:success] = t "flash.success_delete"
@@ -59,7 +59,7 @@ class Admin::ArticlesController < ApplicationController
   end
 
   def load_article
-    @article = Article.find params[:id]
+    @article = Article.friendly.find params[:id]
   end
 
   def admin_user

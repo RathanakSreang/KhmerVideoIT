@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, skip: [:session, :password, :registration],
+  devise_for :users, skip: [:session, :registration],
               controllers: { omniauth_callbacks: "omniauth_callbacks" }
 
   scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
@@ -48,8 +48,9 @@ Rails.application.routes.draw do
     get "about" => "static_pages#about"
   end 
 
-  # get "*path", to: redirect("/#{I18n.default_locale}/%{path}")
+  # get "*path", to: redirect("/#{I18n.default_locale}/%{path}")  
   # get "", to: redirect("/#{I18n.default_locale}/")
-  get "*path", to: redirect("/kh/%{path}")
+  get "*path", to: redirect("/kh/%{path}"),
+    constraints: lambda { |req| !req.path.starts_with?("/kh/") && !req.path.starts_with?("/en/")}
   get "", to: redirect("/kh/")
 end

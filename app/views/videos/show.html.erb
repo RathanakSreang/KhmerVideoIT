@@ -1,9 +1,9 @@
 <div class="row">
   <div class="col-md-12 white-container" id="video-show">
     <div class="embed-responsive embed-responsive-16by9 video_wrapper">
-      <iframe class="embed-responsive-item" src="<%= @video.file_link %>" allowfullscreen>        
-      </iframe>     
-    </div>    
+      <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/<%= @video.extract_video_id %>" allowfullscreen>
+      </iframe>
+    </div>
   </div>  
   <div class="col-md-12 video-info white-container">
     <h2><%= @video.title %></h2>

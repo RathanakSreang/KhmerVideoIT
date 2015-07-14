@@ -1,4 +1,5 @@
-class Article < ActiveRecord::Base  
+class Article < ActiveRecord::Base
+  extend FriendlyId
   has_many :comments, as: :commentable, dependent: :destroy
   belongs_to :user
   has_many :article_tags, dependent: :destroy
@@ -6,6 +7,7 @@ class Article < ActiveRecord::Base
   
   validates :title, :content, presence: true
   
+  friendly_id :title, use: :slugged
   translates :title, :content, :description
 
   scope :order_article, ->{

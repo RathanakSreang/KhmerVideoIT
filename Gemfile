@@ -1,5 +1,6 @@
 source "https://rubygems.org"
 
+gem "friendly_id"
 gem "chosen-rails"
 gem "exception_notification"
 gem "globalize"

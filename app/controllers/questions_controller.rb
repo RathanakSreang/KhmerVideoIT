@@ -50,7 +50,7 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    @question = Question.find params[:id]
+    @question = Question.friendly.find params[:id]
     track_activity @question
     @question.destroy
     flash[:success] = t "flash.success_delete"
@@ -59,7 +59,7 @@ class QuestionsController < ApplicationController
 
   private
   def load_question
-    @question = Question.find params[:id]
+    @question = Question.friendly.find params[:id]
   end
 
   def question_params
