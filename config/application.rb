@@ -37,5 +37,7 @@ module KhmerVideoIT
     # config.i18n.fallbacks = true
     Globalize.fallbacks = {:en => [:en, :kh], :kh => [:kh, :en]}
     # config.i18n.fallbacks = {:en, :kh}
+
+    config.exceptions_app = self.routes
   end
 end

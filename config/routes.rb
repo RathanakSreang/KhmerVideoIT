@@ -50,7 +50,12 @@ Rails.application.routes.draw do
 
   # get "*path", to: redirect("/#{I18n.default_locale}/%{path}")  
   # get "", to: redirect("/#{I18n.default_locale}/")
+  match "errors/500", to: "errors#500", via: :all
+  match "errors/404", to: "errors#404", via: :all
+  match "errors/422", to: "errors#422", via: :all
+  match "(errors)/:status", to: "errors#show", constraints: {status: /\d{3}/}, via: :all
+
   get "*path", to: redirect("/kh/%{path}"),
-    constraints: lambda { |req| !req.path.starts_with?("/kh/") && !req.path.starts_with?("/en/")}
+    constraints: lambda {|req| !req.path.starts_with?("/kh/") && !req.path.starts_with?("/en/")}
   get "", to: redirect("/kh/")
 end
