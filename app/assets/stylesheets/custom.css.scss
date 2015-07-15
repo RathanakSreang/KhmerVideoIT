@@ -9,7 +9,7 @@ $article-color: #337ab7;
 
 @media(max-width:767px) {
     .navbar .navbar-form {
-        width: 200px;
+        width: 65%;
         padding-left:0;
         padding-right:0;
     }
@@ -34,7 +34,11 @@ $article-color: #337ab7;
 @media(min-width:768px) {
 
   .navbar .navbar-form {
-        width: 250px;
+        width: 75%;
+      input[type=text]:focus {
+        width: 240px;
+        // background-color: green;
+      }
     }
 
   .logo {
@@ -132,7 +136,6 @@ footer {
 }
 
 .subscript {
-  margin-top: 50px;
   ul {
     list-style: none;
     li {
