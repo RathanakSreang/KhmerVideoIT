@@ -41,7 +41,7 @@ end
   user1.videos.create title: Faker::Lorem.word,
               description: Faker::Lorem.paragraph,
               duration: 10,
-              file_link: "https://www.youtube.com/embed/0KkV7m3PXPY",
+              file_link: "https://www.youtube.com/watch?v=kBdZ9_yGLjg",
               tag_ids: tag_ids,
               remote_image_url: Faker::Avatar.image("screenshot.png", "50x50")
 end

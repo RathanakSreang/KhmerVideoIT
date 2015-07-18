@@ -1,6 +1,6 @@
 class VideosController < ApplicationController
   def show
-    @video = Video.friendly.find params[:id]
+    @video = Video.status_show.friendly.find params[:id]
     @commentable = @video
     @comments = @commentable.comments
     @comment = Comment.new
@@ -9,10 +9,10 @@ class VideosController < ApplicationController
 
   def index      
     if params[:search]
-      @videos = Video.search(params[:search])
+      @videos = Video.status_show.search(params[:search])
             .order("created_at DESC").paginate page: params[:page], per_page: 7
     else
-      @videos = Video.order("created_at DESC")
+      @videos = Video.status_show.order("created_at DESC")
             .paginate page: params[:page], per_page: 7
     end
   end

@@ -1,6 +1,7 @@
 class Video < ActiveRecord::Base
   extend FriendlyId
-  after_create :check_language
+  enum status: [:show, :hide]
+  before_save :default_values
   has_many :usefull_links, dependent: :destroy , inverse_of: :video
   has_one :snippet, dependent: :destroy
   has_many :comments, as: :commentable, dependent: :destroy
@@ -20,7 +21,7 @@ class Video < ActiveRecord::Base
   # YT_LINK_FORMAT = /\A.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/i
   YT_LINK_FORMAT = /\A(?:https?:\/\/)?(?:www\.)?youtu(?:\.be|be\.com)\/(?:watch\?v=)?([\w-]{10,})/
   validates :file_link, presence: true, format: YT_LINK_FORMAT
-  validates :title, :description, :image, presence: true
+  validates :title, :description, presence: true
   validates :duration, numericality: { only_integer: true, greater_than: 0 }
   mount_uploader :image, ImageUploader
 
@@ -40,16 +41,15 @@ class Video < ActiveRecord::Base
     with_translations.where("video_translations.title LIKE ?", "%#{query}%")
   end
 
+  def self.status_show
+    where status: 0
+  end
+
   def simlar_videos
     if tags.any?
       tags.order("RAND()").first.videos.order("RAND()").limit(4)
     else
       Video.order("RAND()").limit(4)
-    end
-  end
-
-  def check_language
-    unless I18n.locale == :en
     end
   end
 
@@ -64,5 +64,10 @@ class Video < ActiveRecord::Base
       match = format_regex.match(file_link)
       return match[:id] if match
     end
+  end
+
+  def default_values
+    self.status ||= :show
+    self.publish_date ||= Date.current
   end
 end

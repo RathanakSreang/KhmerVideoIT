@@ -6,13 +6,14 @@
       <em>
         <%= t("admin.articles.link.author") %> <%= (link_to @article.user.name, [:admin, @article.user]) if @article.user %>
         <br/>
-        <%= t("admin.articles.label.created_at") %><%= l @article.created_at.localtime %>
+        <%= t("admin.articles.label.published on") %> <%= l @article.publish_date.localtime %>
 
         <p><%= t("admin.articles.label.tag") %>
         <% @article.tags.each do |tag| %>
             <%= link_to tag.name, [:admin, tag] %>,
         <% end %>
         <br/>
+        <%= t("admin.article.label.status") %>: <%= @article.status %>
       </em>
     </span>
     </p>

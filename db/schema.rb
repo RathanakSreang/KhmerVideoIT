@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150714170144) do
+ActiveRecord::Schema.define(version: 20150718035035) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id",         limit: 4
@@ -48,11 +48,13 @@ ActiveRecord::Schema.define(version: 20150714170144) do
   add_index "article_translations", ["locale"], name: "index_article_translations_on_locale", using: :btree
 
   create_table "articles", force: :cascade do |t|
-    t.integer  "language_id", limit: 4
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.integer  "user_id",     limit: 4
-    t.string   "slug",        limit: 255
+    t.integer  "language_id",  limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "user_id",      limit: 4
+    t.string   "slug",         limit: 255
+    t.integer  "status",       limit: 4
+    t.datetime "publish_date"
   end
 
   add_index "articles", ["slug"], name: "index_articles_on_slug", unique: true, using: :btree
@@ -235,13 +237,15 @@ ActiveRecord::Schema.define(version: 20150714170144) do
   add_index "video_translations", ["video_id"], name: "index_video_translations_on_video_id", using: :btree
 
   create_table "videos", force: :cascade do |t|
-    t.string   "file_link",  limit: 255
-    t.integer  "duration",   limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.string   "image",      limit: 255
-    t.integer  "user_id",    limit: 4
-    t.string   "slug",       limit: 255
+    t.string   "file_link",    limit: 255
+    t.integer  "duration",     limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "image",        limit: 255
+    t.integer  "user_id",      limit: 4
+    t.string   "slug",         limit: 255
+    t.integer  "status",       limit: 4
+    t.datetime "publish_date"
   end
 
   add_index "videos", ["slug"], name: "index_videos_on_slug", unique: true, using: :btree
