@@ -99,6 +99,8 @@ en:
         article: "Articles"
         author: "Author"
         title: "Title"
+        published_on: "Publish on"
+        status: "Status"
         tag_count: "Tags count"
         description: "Description"
         action: "Action"
@@ -106,6 +108,8 @@ en:
         tag: "Tag "
         created_at: "Created: "
         search: "Search Article"
+        show: "Show"
+        hide: "Hide"
       link:
         add_new_article: "Add new Article"
     comments:
@@ -183,6 +187,9 @@ en:
         resource_link: "Resources link in video"
         snippet: "Snippet"
         search: "Search Videos"
+        status: "Status"
+        show: "Show"
+        hide: "Hide"
       link:
         new_video: "Add new Video"
         add_more_link: "Add more Link"
@@ -329,11 +336,11 @@ en:
           articles: "Articles"
           videos: "Videos"
           users: "Users"
-          comment: "Comments"
+          comments: "Comments"
           question: "Questions"
           about: "About Page"
           activities: "Activities"
-          home_pahe: "Home Page"
+          home_page: "Home Page"
 
   date:
     formats:

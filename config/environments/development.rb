@@ -10,7 +10,7 @@ Rails.application.configure do
   config.eager_load = false
 
   # Show full error reports and disable caching.
-  config.consider_all_requests_local       = false
+  config.consider_all_requests_local       = true#false
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
@@ -37,14 +37,14 @@ Rails.application.configure do
   config.assets.raise_runtime_errors = true
 
   # Raises error for missing translations
-  # config.action_view.raise_on_missing_translations = true
+  config.action_view.raise_on_missing_translations = true
 
-  Rails.application.config.middleware.use ExceptionNotification::Rack,
-  :email => {
-    :email_prefix => "[PREFIX] ",
-    :sender_address => %{"notifier" <notifier@example.com>},
-    :exception_recipients => %w{exceptions@example.com}
-  }
+  # Rails.application.config.middleware.use ExceptionNotification::Rack,
+  # :email => {
+  #   :email_prefix => "[PREFIX] ",
+  #   :sender_address => %{"notifier" <notifier@example.com>},
+  #   :exception_recipients => %w{exceptions@example.com}
+  # }
 
   config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.default_url_options = { host: "localhost", port: 3000 }  

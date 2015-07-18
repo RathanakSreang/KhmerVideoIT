@@ -17,10 +17,10 @@
   <table class="table">
     <thead>
       <th><%= Article.human_attribute_name(:title) %></th>
-      <th><%= t("admin.articles.link.author") %></th>
+      <th><%= t("admin.articles.label.author") %></th>
       <th><%= Article.human_attribute_name(:description) %></th>
       <th><%= Article.human_attribute_name(:status) %></th>
-      <th><%= t("admin.articles.link.action") %></th>
+      <th><%= t("admin.articles.label.action") %></th>
     </thead>
     <tbody>
       <%= render @articles %>    
