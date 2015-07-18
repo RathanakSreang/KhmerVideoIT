@@ -1,10 +1,9 @@
-<%= form_for [:admin, @tag] do |f| %>
+<%= form_for [:admin, @tag], validate: true do |f| %>
 
   <%= render "shared/error_message", object: f.object %>
 
-  <div class="form-group">
-    <%= f.label t("admin.tags.label.name") %>
-    <%= f.text_field :name, autofocus: true, class: "form-control" %>
+  <div class="form-group">    
+    <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: Tag.human_attribute_name(:name) %>
   </div>
   <div class="actions">
     <%= f.submit action, class: "btn btn-primary" %>

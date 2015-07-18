@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-12 white-container">
+  <div class="col-md-12 white-container question-detail">
     <center><h3><%= @article.title.capitalize %></h3></center>
     <span class="text-muted small">
       <em>
@@ -16,7 +16,7 @@
     </span>    
     <%= sanitize @article.content %>
   </div>
-  <div class="col-md-12 white-container">
+  <div class="col-md-12 white-container question-detail">
     <br/>
     <%= render "comments/comments" %>
     <% if user_signed_in? %>
@@ -29,7 +29,7 @@
     <% end %>
   </div>
   <div class="col-md-12">
-    <div class="row well">
+    <div class="row well question-detail">
     <%= t("articles.label.similar_article") %>
     <ul>
     <% @simlar_articles.each do |article| %>

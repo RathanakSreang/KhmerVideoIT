@@ -2,7 +2,7 @@ class ActivitiesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    user = User.find params[:user_id] 
+    user = User.friendly.find params[:user_id] 
     return @activities if user != current_user
     if current_user.notify.size >0
       current_user.finish_read_notify

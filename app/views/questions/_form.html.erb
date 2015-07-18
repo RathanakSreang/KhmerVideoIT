@@ -1,20 +1,17 @@
-<%= form_for @question do |f| %>
+<%= form_for @question, validate: true do |f| %>
   <%= render "shared/error_message", object: f.object %>
-  <div class="form-group">
-    <%= f.label :title %>
-    <%= f.text_field :title, class: "form-control" %>
+  <div class="form-group">    
+    <%= f.text_field :title, class: "form-control", placeholder: Question.human_attribute_name(:title) %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :content %>
-    <br/>
+  <div class="form-group">    
     <%= t("comments.label.use_markdown") %>
     <a href="javascript:void(0)" class="markdown_link"><%= t("comments.label.here") %></a>
     <div class="markdown_examples">
       <%= render "markdown_sample" %>
     </div>
     <br/>
-    <%= f.text_area :content, rows:15, class: "form-control" %>
+    <%= f.text_area :content, rows:15, class: "form-control", placeholder: Question.human_attribute_name(:content) %>
   </div>
 
   <div class="form-group">

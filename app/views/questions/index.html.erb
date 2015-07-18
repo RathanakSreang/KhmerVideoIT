@@ -3,11 +3,10 @@
 </div>
 
 <% if params[:search].present? %>
-  <b><%= t("search.label.filter") %></b> <%= params[:search] %>
+  <b><%= t("search.label.filter") %> <%= params[:search] %></b>
   <% unless @questions && @questions.any? %>
     <p><%= t("search.label.question_no_found") %>  <%= link_to t("search.link.all_question"), questions_path %></p>
-  <% else %>
-    <legend><%= t("search.label.question") %></legend>
+  <% else %>    
     <%= render @questions %>
     <%= will_paginate @questions %>
   <% end %>

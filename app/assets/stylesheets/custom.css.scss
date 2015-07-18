@@ -79,11 +79,6 @@ footer {
   color: #555;
 }
 
-.video, .question, .article {
-  padding-bottom: 18px;
-  border-bottom: solid 1px #e5e5e5;
-  margin-bottom: 20px;
-}
 .screenshot {
   float: left;
   width: 205px;
@@ -359,4 +354,66 @@ body {
 
 .btn-top {
   margin-top: 5px;
+}
+
+//error page
+.error-page-404 {
+  border-top: 5px #f45145 solid;
+  background-color: #FFF;
+  .error-404-title {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    h1 {
+      font-size: 47px;
+    }
+    color: #f45145;
+  }
+  .error-content {
+    color: #656e7f;
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+}
+
+.video-show {  
+  border-top: 1px $video-color solid;
+  background: #FFF url(video.png) no-repeat left top;  
+}
+
+.question-show {  
+  border-top: 1px $question-color solid;
+  background: #FFF url(question.png) no-repeat left top;  
+}
+.article-show {  
+  border-top: 1px $article-color solid;
+  background: #FFF url(article.png) no-repeat left top;  
+}
+.activity-show {  
+  border-top: 1px #00A9D4 solid;
+  background: #FFF url(activity.png) no-repeat left top;  
+}
+
+.activity-show, .article-show, .question-show, .video-show {
+  padding: 1.25em 1em 1.25em 40px;
+  box-shadow: 3px 3px 3px #888888;
+  @extend .white-container;
+  h3 {
+    margin-top: -10px;
+    text-indent: 15px;
+  }
+}
+
+.video-detail {
+  border-top: 2px $video-color solid;
+  box-shadow: 3px 3px 3px #888888;
+}
+
+.question-detail {
+  border-top: 2px $article-color solid;
+  box-shadow: 3px 3px 3px #888888;
+}
+
+.article-detail {
+  border-top: 1px $question-color solid;
+  box-shadow: 3px 3px 3px #888888;
 }

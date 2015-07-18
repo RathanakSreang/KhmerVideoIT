@@ -1,20 +1,17 @@
 <b><%= t("search.label.filter") %></b> <%= params[:search] %>
 <% unless @videos && @videos.any? %>
   <p><%= t("search.label.video_no_found") %>  <%= link_to t("search.link.all_video"), videos_path %></p>
-<% else %>
-  <legend><%= t("search.label.video") %></legend>
+<% else %>  
   <%= render @videos %>
 <% end %>
 <% unless @articles && @articles.any? %>
   <p><%= t("search.label.article_no_found") %>  <%= link_to t("search.link.all_article"), articles_path %></p>
 <% else %>
-  <legend><%= t("search.label.article") %></legend>
   <%= render @articles %>
 <% end %>
 <% unless @questions && @questions.any? %>
   <p><%= t("search.label.question_no_found") %>  <%= link_to t("search.link.all_question"), questions_path %></p>
-<% else %>
-  <legend><%= t("search.label.question") %></legend>
+<% else %>  
   <%= render @questions %>
 <% end %>
 
