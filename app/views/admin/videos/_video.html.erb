@@ -12,10 +12,11 @@
     <%= video.duration %>
   </td>
   <td>
-    <%= link_to t("link.detail"), admin_video_path(video) %>
+    <%= video.status %>
   </td>
   <td>
-    <%= link_to t("link.edit"), edit_admin_video_path(video) %>
+    <%= link_to t("link.detail"), admin_video_path(video) %>
+    | <%= link_to t("link.edit"), edit_admin_video_path(video) %>
     | <%= link_to t("link.delete"), admin_video_path(video), data: {method: :delete, confirm: t("info.confirm_delete")} %>
   </td>
 </tr>

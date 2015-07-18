@@ -15,7 +15,7 @@
     <h2 class="comment-text"><%= @video.title %></h2>
     <span class="info">
       <%= t("admin.videos.label.author") %> <%= (link_to @video.user.name, @video.user) if @video.user %><br/>
-      <%= l @video.created_at.to_date %>
+      <%= l @video.publish_date.to_date %>
       <%= t("admin.videos.label.duration") %><%= @video.duration %> <%= t("admin.videos.label.minute") %>
       <br/>      
         <%= t("admin.videos.label.tag") %>
@@ -24,6 +24,8 @@
         <% end %>
       <br/>
       <%= t("admin.videos.label.video_link") %> <%= link_to @video.file_link, @video.file_link, target: "_blank" %>
+      <br/>
+      <%= t("admin.video.label.status") %>: <%= @video.status %>
     </span>
     <br>
     <p><%= @video.description %></p>    
