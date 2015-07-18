@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-12 white-container">    
+  <div class="col-md-12 white-container article-detail">    
     <legend><h3><%= @question.title %></h3></legend>    
     <%= markdown @question.content %>
     <% if @question.user == current_user %>
@@ -20,7 +20,7 @@
       </em>
     </span>
   </div>
-   <div class="col-md-12 white-container">
+   <div class="col-md-12 white-container article-detail">
     <br/>
     <%= render "comments/comments" %>
     <% if user_signed_in? %>
@@ -33,7 +33,7 @@
     <% end %>            
   </div>  
   <div class="col-md-12">
-    <div class="row well">
+    <div class="row well article-detail">
     <%= t("question.label.similar_question") %>
     <ul>
     <% @simlar_questions.each do |question| %>

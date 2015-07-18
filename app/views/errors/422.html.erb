@@ -1,3 +1,19 @@
-<%= I18n.locale %>
-This is error page
-The change you wanted was rejected (422)
+<% if I18n.locale == :en %>
+  <div class="col-md-10 col-md-offset-1 error-page-404">
+    <div class="col-md-10 col-md-offset-1 error-404-title">
+      <center><h1>Oops! The change you wanted was rejected.</h1></center>
+    </div>
+    <div class="col-md-12 error-content">
+      <p>It looks like you was not allow to view this location. Maybe try one of other links or a search?</p>
+    </div>
+  </div>
+<% else %>
+  <div class="col-md-10 col-md-offset-1 error-page-404">
+    <div class="col-md-10 col-md-offset-1 error-404-title">
+      <center><h1>Oops! The change you wanted was rejected.</h1></center>
+    </div>
+    <div class="col-md-12 error-content">
+      <p>It looks like you was not allow to view this location. Maybe try one of other links or a search?</p>
+    </div>
+  </div>
+<% end %>

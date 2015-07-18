@@ -1,4 +1,4 @@
-<%= form_for [:admin, @video] do |f| %>
+<%= form_for [:admin, @video], validate: true do |f| %>
 
   <%= render "shared/error_message", object: f.object %>
   <div class="row">
@@ -14,9 +14,8 @@
         <%= f.hidden_field :image_cache %>
       </div>
       
-      <div class="form-group">
-        <%= f.label :file, t("admin.videos.label.video_link") %>
-        <%= f.text_field :file_link, class: "form-control" %>        
+      <div class="form-group">        
+        <%= f.text_field :file_link, class: "form-control", placeholder: Video.human_attribute_name(:file_link), autofocus: true %>
       </div>
 
       <div class="form-group">
@@ -24,19 +23,16 @@
         <%= f.collection_select :tag_ids, Tag.with_translations.order(:name), "id", "name",{},{multiple: true, size: 5, class: "form-control tags_choosen"} %>        
       </div>
       
-      <div class="form-group">
-        <%= f.label t("admin.videos.label.title") %>
-        <%= f.text_field :title, class: "form-control", autofocus: true %>
+      <div class="form-group">        
+        <%= f.text_field :title, class: "form-control", placeholder: Video.human_attribute_name(:title) %>
       </div>
 
-      <div class="form-group">
-        <%= f.label t("admin.videos.label.description") %>
-        <%= f.text_area :description, rows:5, class: "form-control" %>
+      <div class="form-group">        
+        <%= f.text_area :description, rows:5, class: "form-control", placeholder: Video.human_attribute_name(:descriptionk) %>
       </div>
 
-      <div class="form-group">
-        <%= f.label t("admin.videos.label.duration") %>
-        <%= f.number_field :duration, class: "form-control" %>
+      <div class="form-group">        
+        <%= f.number_field :duration, class: "form-control", placeholder: Video.human_attribute_name(:duration) %>
       </div>
         
       <div class="well">
@@ -51,9 +47,8 @@
     </div>      
   </div>
   <div class="form-group">
-    <%= f.fields_for :snippet do |builder| %>
-      <%= builder.label t("admin.videos.label.snippet") %>
-      <%= builder.text_area :content, rows: 25, class: "form-control" %>
+    <%= f.fields_for :snippet do |builder| %>      
+      <%= builder.text_area :content, rows: 25, class: "form-control", placeholder: Snippet.human_attribute_name(:content) %>
     <% end %>
   </div>      
   <div class="form-group">        

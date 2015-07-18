@@ -17,7 +17,8 @@ class Video < ActiveRecord::Base
   }
 
   INVALID_CHARS = /[^a-zA-Z0-9\:\/\?\=\&\$\-\_\.\+\!\*\'\(\)\,]/
-  YT_LINK_FORMAT = /\A.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/i
+  # YT_LINK_FORMAT = /\A.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/i
+  YT_LINK_FORMAT = /\A(?:https?:\/\/)?(?:www\.)?youtu(?:\.be|be\.com)\/(?:watch\?v=)?([\w-]{10,})/
   validates :file_link, presence: true, format: YT_LINK_FORMAT
   validates :title, :description, :image, presence: true
   validates :duration, numericality: { only_integer: true, greater_than: 0 }

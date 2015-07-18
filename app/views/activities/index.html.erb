@@ -1,8 +1,8 @@
-<div class="row">    
+<!-- <div class="row">     -->
     <% if @activities %>
       <% @activities.each do |activity| %>
       <% comment = activity.trackable %>
-        <div class="col-md-12 white-container">        
+        <div class="col-md-12 activity-show">        
           <% if comment %>
             <% if comment.parent_id.present? %>
               <%= link_to comment.user.name, comment.user %>
@@ -24,4 +24,4 @@
       <% end %>
       <%= will_paginate @activities %>
     <% end %>  
-</div>
+<!-- </div> -->

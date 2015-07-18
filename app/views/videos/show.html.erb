@@ -1,11 +1,11 @@
 <div class="row">
-  <div class="col-md-12 white-container" id="video-show">
+  <div class="col-md-12 white-container video-detail" id="video-show">
     <div class="embed-responsive embed-responsive-16by9 video_wrapper">
       <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/<%= @video.extract_video_id %>" allowfullscreen>
       </iframe>
     </div>
   </div>  
-  <div class="col-md-12 video-info white-container">
+  <div class="col-md-12 video-info white-container video-detail">
     <h2><%= @video.title %></h2>
     <span class="text-muted small">
       <em>
@@ -24,7 +24,7 @@
     <%= @video.description %>
   </div>  
 
-  <div class="col-md-12 white-container">
+  <div class="col-md-12 white-container video-detail">
     <div class="panel panel-default">
       <div class="panel-body">
         <div class="row">
@@ -53,7 +53,7 @@
       </div>      
     </div>
   </div>  
-  <div class="well col-md-12 ">    
+  <div class="well col-md-12 video-detail">    
     <% @simlar_videos.each do |video| %>
       <div class="col-xs-6 col-sm-3 similar-video">
         <%= link_to video do %>

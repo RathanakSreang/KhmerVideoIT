@@ -16,7 +16,7 @@
   <%= link_to t("admin.tags.link.add_new_tag"), new_admin_tag_path %>
   <table class="table">
     <thead>
-      <th><%= t("admin.tags.label.name") %></th>
+      <th><%= Tag.human_attribute_name(:name) %></th>
       <th><%= t("admin.tags.label.created_by") %></th>
       <th><%= t("admin.tags.label.created_at") %></th>
       <th><%= t("admin.tags.label.action") %></th>
