@@ -1,0 +1,29 @@
+kh:
+  will_paginate:
+    previous_label: "ទៅក្រោយ"
+    next_label: "ទៅមុខ"
+  activerecord:
+    attributes:
+      tag:
+        name: "ឈ្មោះ"
+      article:
+        title: "ចំណងជើង"
+        description: "សង្ខេប"
+        status: "ស្ថានភាព"        
+        publish_date: "ថ្ងៃបង្ហាញ"
+        content: "មាតិការ"
+      video:
+        file_link: "តំណរទៅកាន់វីដេអូ"
+        title: "ចំណងជើង"
+        description: "សង្ខេប"
+        status: "ស្ថានភាព"        
+        publish_date: "ថ្ងៃបង្ហាញ"        
+        duration: "រយះពេល"
+      snippet:
+        content: "កូដ snippet"
+      usefull_link:
+        link: "តំណរ"
+        title: "ចំណងជើង"
+      question:
+        title: "ចំណងជើង"
+        content: "មាតិការ"

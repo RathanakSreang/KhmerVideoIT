@@ -10,7 +10,7 @@
     <span class="text-muted small">
       <em>        
         <%= t("question.label.ask_by") %> <%= (link_to @question.user.name, @question.user) if @question.user %>
-        <%= t("question.label.about") %> <%= time_ago_in_words @question.created_at %> <%= t("question.label.ago") %>, 
+        <%= t("question.label.about") %> <%= time_ago_in_words @question.created_at %>, 
         <%= @question.comments.size %> <%= t("question.label.answers") %>
         <br/>      
         <%= t("question.label.tags") %>

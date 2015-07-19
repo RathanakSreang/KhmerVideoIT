@@ -15,7 +15,7 @@
     <div class="form-inline">
       <%= f.date_select :publish_date, {start_year: Time.now.year, end_year: 5.year.ago.year,
         order: [:day, :month, :year], validate: false,
-        prompt: { day: "Day", month: "Month", year: "Year" }},
+        prompt: { day: t("label.day"), month: t("label.month"), year: t("label.year") }},
         {class: "form-control selectwidthauto"} %>
     </div>
   </div>  

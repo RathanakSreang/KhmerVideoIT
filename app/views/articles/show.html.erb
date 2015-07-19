@@ -5,7 +5,7 @@
       <em>
         <%= t("label.post_by") %> <%= (link_to @article.user.name, @article.user) if @article.user %>
         <br/>
-        <%= t("articles.label.post_at") %> <%= l @article.publish_date.localtime.to_date %>
+        <%= l @article.publish_date.localtime.to_date %>
         <br/>
         <p><%= t("articles.label.tag") %>
           <% @article.tags.each do |tag| %>

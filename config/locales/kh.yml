@@ -1,409 +1,352 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 kh:
-  hello: "Hello world"
-  app_title: "Let's Talk IT"
-  app_language: "Language: "
+  app_title: "តោះ និយាយ អាយធី"
+  app_language: "ភាសា៖ "
   flash:
-    success_create: "Successful create"
-    success_update: "Successful update"
-    success_delete: "Successful delete"
-    fail_create: "Fail create"
-    fail_update: "Fail update"
+    success_create: "បង្កើតបានជោគជ័យ"
+    success_update: "កែប្រែបានជោគជ័យ"
+    success_delete: "លុបបានជោគជ័យ"
+    fail_create: "បង្កើតមិនបានជោគជ័យ"
+    fail_update: "កែប្រែមិនបានជោគជ័យ"
   info:
-    confirm_delete: "Are you sure?"
-    total: "Total: "
+    confirm_delete: "តើអ្នកប្រាកដចិត្ត?"
+    total: "សរុប "
   action:
-    create: "Create"
-    update: "Update"
+    create: "បង្កើត"
+    update: "កែប្រែ"
+  label:
+    post_by: "ប្រែ​សម្រួល៖ "
+    day: "ថ្ងៃ"
+    month: "ខែ"
+    year: "ឆ្នាំ"
   link:
-    edit: "Edit"
-    new: "New"
-    delete: "Delete"
-    detail: "Detail"
-    back: "Back"
-    remove: "Remove"
-    show: "Show"
-    see_more: "See More"
-    view_detail: "View Details"
-    read_more: "read more."
+    edit: "កែប្រែ"
+    new: "ថ្មី"
+    delete: "លុប"
+    detail: "ពត៌មានលំអិត"
+    back: "ត្រឡបក្រោយ"
+    remove: "លុបចេញ"
+    show: "បង្ហាញ"
+    see_more: "មើលបន្ថែម"
+    view_detail: "មើល​ពត៌មានលំអិត"
+    read_more: "អានបន្ត"
+    sign_in: "ចូលគណនី"
   admin:
     activities:
       label:
-        ago: " ago"
-        activity: "Activities"
-        all_activity: "All Activities"
+        ago: " កន្លងទៅ"
+        activity: "សកម្មភាព"
+        all_activity: "សកម្មភាពទាំងអស់"
       article:
-        add_article: "add an article"
-        add_remove_article: "added an article which has been removed"
-        update_article: "update an article"
-        update_remove_article: "update an article which has been removed"
-        destroy: "remove an article"
+        add_article: "បង្កើត​ អត្ថបទ"
+        add_remove_article: "បង្កើតអត្ថបទដែលទើបត្រូវបានលុបចេញ"
+        update_article: "កែប្រែ អត្ថបទ"
+        update_remove_article: "កែប្រែអត្ថបទដែលបានត្រូវបានលុបចេញ"
+        destroy: "លុប​អត្ថបទ"
       comment:
-        commented: "commented"
-        comment_on: "on"
-        reply: "reply"
-        post: "post"
-        remove_comment: "added a comment which has been removed"
-        destroy: "remove a comment"
+        commented: "បញ្ចេញមតិ"
+        comment_on: "ទៅលើ"
+        reply: "ឆ្លើយតបទៅលើ"
+        post: "បង្ហាញ"
+        remove_comment: "បញ្ចេញមតិដែលទើបត្រូវបានលុបចេញ"
+        destroy: "លុប មតិយោបល់"
       tag:
-        add_tag: "add a tag"
-        add_remove_tag: "added a tag which has been removed"
-        update_tag: "update a tag"
-        update_remove_tag: "update a tag which has been removed"
-        destroy: "remove a tag"
+        add_tag: "បង្កើត ក្រុម"
+        add_remove_tag: "បង្កើតក្រុមដែលទើបត្រូវបានលុបចេញ"
+        update_tag: "កែប្រែ ក្រុម"
+        update_remove_tag: "កែប្រែក្រុមដែលទើបត្រូវបានលុបចេញ"
+        destroy: "លុបក្រុម"
       user:
-        add_user: "add an user"
-        add_remove_user: "added an user which has been removed"
-        update_user: "update an user"
-        update_remove_user: "update an user which has been removed"
-        destroy: "remove an user"
+        add_user: "បង្កើតអ្នកប្រើប្រាស់"
+        add_remove_user: "បង្កើតអ្នកប្រើប្រាស់ដែលទើបត្រូវបានលុបចេញ"
+        update_user: "កែប្រែអ្នកប្រើប្រាស់"
+        update_remove_user: "កែប្រែអអ្នកប្រើប្រាស់ដែលទើបត្រូវបានលុបចេញ"
+        destroy: "លុបអ្នកប្រើប្រាស់"
       video:
-        add_video: "add a video"
-        add_remove_video: "added a video which has been removed"
-        update_video: "update a video"
-        update_remove_video: "update a video which has been removed"
-        destroy: "remove a video"
+        add_video: "បន្ថែមវីដេអូ"
+        add_remove_video: "បង្កើតវីឌីអូដែលទើបត្រូវបានលុបចេញ"
+        update_video: "កែប្រែ វីដេអូ"
+        update_remove_video: "កែប្រែវីឌីអូដែលទើបត្រូវបានលុបចេញ"
+        destroy: "លុប វីដេអូ"
+      question:
+        add_question: "បន្ថែមសំនួរ"
+        add_remove_question: "បង្កើតសំនួរដែលទើបត្រូវបានលុបចេញ"
+        update_question: "កែប្រែសំនួរ"
+        update_remove_question: "កែប្រែសំនួរដែលទើបត្រូវបានលុបចេញ"
+        destroy: "លុបសំនួរ"
     articles:
       label:
-        new_article: "New Article"
-        edit_article: "Edit Article"
-        article: "Articles"
-        title: "Title"
-        tag_count: "Tags count"
-        description: "Description"
-        action: "Action"
-        content: "Content"
-        tag: "Tag "
-        created_at: "Created: "
-        search: "Search Article"
+        new_article: "អត្ថបទ ថ្មី"
+        edit_article: "កែប្រែ អត្ថបទ"
+        article: "អត្ថបទ"
+        author: "អ្នកនិពន្ន"
+        title: "ចំណងជើង"
+        published_on: "ដាក់ផ្សាយនៅ"
+        status: "ស្ថានភាព"
+        tag_count: "ចំនួនក្រុម"
+        description: "សង្ខេប"
+        action: "សកម្មភាព"
+        content: "ពត័មាន"
+        tag: "ក្រុម "
+        created_at: "បង្កើតនៅ "
+        search: "ស្វែងរក អត្ថបទ"
+        show: "បង្ហាញ"
+        hide: "លាក់"
       link:
-        add_new_article: "Add new Article"
+        add_new_article: "បន្ថែមអត្ថបទថ្មី"
     comments:
       label:
-        comment_on: " comment on"
-        reply_on: " reply on"
-        comment: "Comments"
-        search: "Search Comment"
-        ago: "ago"
-        reply: "reply"
-        post: "post"
+        comment_on: " មតិយោបល់ ទៅលើ"
+        reply_on: " ឆ្លើយតប ទៅលើ"
+        comment: "មតិយោបល់"
+        search: "ស្វែងរក មតិយោបល់"
+        ago: "កន្លងទៅ"
+        reply: "ឆ្លើយតប"
+        post: "បង្ហោះ"
+    questions:
+      label:
+        question: "សំនួរ"
+        search: "ស្វែងរក សំនួរ"
+        title: "ចំណងជើង"
+        ask_by: "សួរដោយ"
+        has_ask: "បានសូរអំពី "
+        tag_count: "ចំនូនក្រុម"        
     static_pages:
       label:
-        edit_about: "Edit About page"
+        edit_about: "កែប្រែ ទំព័រអំពីយើង"
         fb_link: "Facebook link"
         tw_link: "Twitter link"
         yt_link: "Youtube link"
-        about: "About"
+        about: "អំពីយើង"
     tags:
       label:
-        created_at: "Created at:"
-        new_tag: "New Tag"
-        edit_tag: "Edit Tag"
-        tag: "Tags"
-        search: "Search Tag"
-        name: "Name"
-        action: "Action"
+        created_at: "បង្កើតនៅ"
+        created_by: "បង្កើតដោយ"
+        new_tag: "ក្រុមថ្មី"
+        edit_tag: "កែប្រែ ក្រុម"
+        tag: "ក្រុម"
+        search: "ស្វែងរកក្រុម"
+        name: "ឈ្មោះ"
+        action: "សកម្មភាព"
       link:
-        add_new_tag: "Add new Tag"
+        add_new_tag: "បន្ថែមក្រុមថ្មី"
     user:
       label:
-        user_profile: "User Profile"
-        new_user: "New User"
-        edit_user: "Edit User"
-        user: "Users"
-        name: "Name: "
-        email: "Email: "
-        created_at: "Register on: "
-        role: "Role: "
-        search: "Search User"
-        action: "Action"
-        password: "Password"
-        password_lenth: "characters minimum"
-        password_confirmation: "Password Confirmation"
+        user_profile: "ពត៍មានអំពីអ្នកប្រើប្រាស់"
+        new_user: "អ្នកប្រើប្រាស់ថ្មី"
+        edit_user: "កែប្រែ អ្នកប្រើប្រាស់"
+        user: "អ្នកប្រើប្រាស់"
+        name: "ឈ្មោះ "
+        email: "អ៊ីម៉ែល "
+        created_at: "ចុះឈ្មោះនៅ "
+        role: "ទួនាទី "
+        search: "ស្វែងរក អ្នកប្រើប្រាស់"
+        action: "សកម្មភាព"
+        password: "លេខសំងាត់"
+        password_lenth: "តួរអក្សតិចបំផុត"
+        password_confirmation: "បញ្ជាក់លេខសំងាត់"
       link:
-        add_new_user: "Add New User"
+        add_new_user: "បន្ថែមអ្នកប្រើប្រាស់"
     videos:
       label:
-        duration: ", duration:"
-        minute: "minutes"
-        tag: "Tags: "
-        video_link: "Viedo link:"
-        video: "Videos"
-        link_in_video: "Link in this video:"
-        total_comment: "Comments"
-        new_video: "New Video"
-        edit_video: "Edit Video"
-        title: "Title"
-        link: "Link"
-        screenshot: "ScreenShot"
-        description: "Description"
-        tag_count: "Tags count"
-        duration: "Duration"
-        action: "Action"
-        resource_link: "Resources link in video"
+        duration: ", រយះពេល"
+        minute: "នាទី"
+        tag: "ក្រុម"
+        video_link: "តំណរវីដេអូ"
+        video: "វីដេអូ"
+        link_in_video: "តំណរក្នុងវីដេអូនេះ"
+        total_comment: "មតិយោបល់់"
+        new_video: "វីដេអូថ្មី"
+        edit_video: "កែប្រែ​វីដេអូ"
+        title: "ចំណងជើង"
+        link: "តំណ"
+        screenshot: "រូបភាព"
+        description: "សង្ខេប"
+        tag_count: "ចំនួនក្រុម"
+        author: "អ្នកនិពន្ន "
+        duration: "រយះពេល"
+        action: "សកម្មភាព"
+        resource_link: "ប្រភពតំណរនៅក្នុងវីដេអូ"
         snippet: "Snippet"
-        search: "Search Videos"
+        search: "ស្វែងរកវីដេអូ"
+        status: "ស្ថានភាព"
+        show: "បង្ហាញ"
+        hide: "លាក់"
       link:
-        new_video: "Add new Video"
-        add_more_link: "Add more Link"
+        new_video: "បន្ថែមវីដេអូ"
+        add_more_link: "បន្ថែមតំណរ"
 
   articles:
     label:
-      tag: "Tags:"      
-      post_at: "Post at:"
-      similar_article: "Similar Article:"
-      comment: "comments"
+      tag: "ក្រុម"      
+      post_at: "ដាក់បង្ហាញនៅ"
+      similar_article: "អត្ថបទស្រដៀង"
+      comment: "មតិយោបល់"
   comments:
     label:
-      new_reply_comment_title: "Reply this comment as"
-      new_comment: "New Comment"
-      leave_comment: "Leave a comment as"
-      comment: "Comments"
-      use_markdown: "Use Markdown for formatting. See how use"
-      here: "here."
-      post: "Post"
-      ago: "ago"
-      reply: "Reply"
-      to_reply: " to reply this comment"
-      to_post: " to post a comment"
+      new_reply_comment_title: "ឆ្លើយតបមិតដោយ"
+      new_comment: "មតិយោបល់ថ្មី"
+      leave_comment: "បញ្ចេញមតិដោយ"
+      comment: "មតិយោបល់"
+      use_markdown: "ប្រើប្រាស់ Markdown សម្រាប់ការកំណត់ទំរង។ មើលរបៀបប្រើប្រាស់"
+      here: "ទីនេះ"
+      post: "ដាក់បង្ហាញ"
+      ago: "កន្លងទៅ"
+      reply: "ឆ្លើយតប"
+      to_reply: " ដើម្បីឆ្លើយតបមតិ"
+      to_post: " ដើម្បីបញ្ចេញមតិ"
     link:
-      sign_in: "Sign in"
+      sign_in: "ចូលគណនី"
   devise:
     label:
-      edit: "Edit"
-      login: "Log in"
-      name: "Name"
-      sign_up: "Sign up"
-      email: "Email"
-      password: "Password"
-      unhappy: "Unhappy?"
-      cancel_confirm: "Are you sure?"
-      cancel_account: "Cancel my account"
-      current_password: "Current password"
-      current_password_info: "we need your current password to confirm your changes"
-      password_info: "leave blank if you don't want to change it"
-      email_info: "Currently waiting confirmation for:"
-      password_confirmation: "Password confirmation"
-      password_lenth: "characters minimum"
-      reset_password: "Send me reset password instructions"
-      forget_pass: "Forgot your password?"
-      change_pass: "Change your password"
-      new_pass: "New password"
-      new_confirm_pass: "Confirm new password"
-      resend_confirm_inst: "Resend confirmation instructions"
+      edit: "កែប្រែ"
+      login: "ចូលគណនី"
+      name: "ឈ្មោះ"
+      sign_up: "ចុះឈ្មោះ"
+      email: "អ៊ីម៉ែល"
+      password: "លេសសំងាត់"
+      unhappy: "មិនសប្បាយចិត្ត?"
+      cancel_confirm: "តើអ្នកប្រាកដចិត្ត?"
+      cancel_account: "បោះបង់គណនីរបស់ខ្ញុំ"
+      current_password: "លេខសំងាត់"
+      current_password_info: "យើងត្រូវការលេខសំងាក់របស់អ្នកដើម្បីធ្វើការកែប្រែ"
+      password_info: "ទុកចន្លោះប្រសិនបើអ្នកមិនផ្លាសផ្តូរ"
+      email_info: "បច្ចុប្បន្ននេះការរង់ចាំការអះអាងដើម្បី"
+      password_confirmation: "លេខសំងាត់បញ្ជាក់"
+      password_lenth: "តួរអក្សតិចបំផុត"
+      reset_password: "ផ្ញើរទៅខ្មុំនូវសេចក្តីណែនាំនៃការដាក់លេខសំងាត់ថ្មី"
+      forget_pass: "ភ្លេចលេខសំងាត់?"
+      change_pass: "ផ្ដូរលេខសំងាត់"
+      new_pass: "លេខសំងាត់ថ្មី"
+      new_confirm_pass: "បញ្ជាក់លេខសំងាត់ថ្មី"
+      resend_confirm_inst: "ផ្ញើការណែរនាំម្ដងទៀត"
 
     link:
-      sign_in: "Sign in"
-      login: "Log in"
-      sign_up: "Sign up"
-      forgot_pass: "Forgot your password?"
-      confirm: "Didn't receive confirmation instructions?"
-      re_confirm: "Didn't receive unlock instructions?"
-      sign_in_with: "Sign in with "
-      update: "Update"
-      cancel_account: "Cancel my account"
-      back: "Back"
-      change_pass: "Change my password"
-      resend_confirm_inst: "Resend confirmation instructions"
+      sign_in: "ចូលគណនី"
+      login: "ចូលគណនី"
+      sign_up: "ចុះឈ្មោះ"
+      forgot_pass: "ភ្លេចលេខសំងាត់?"
+      confirm: "មិនទាន់ទទួលបានការណែរនាំ?" 
+      sign_in_with: "ចុះឈ្មោះជាមួយ"
+      update: "កែប្រែ"
+      cancel_account: "បោះបង់គណនីរបស់ខ្ញុំ"
+      back: "ត្រឡបក្រោយ"
+      change_pass: "ផ្តូរលេខសំងាត់"
+      resend_confirm_inst: "បញ្ជួនការណែនាំម្តងទៀត"
   search:
     label:
-      filter: "Applied Filters: "
-      video: "Videos"
-      article: "Articles"
-      article_no_found: "No article found. "
-      video_no_found: "No video found. "
+      filter: "ការស្វែងរកទៅលើ៖ "
+      video: "វីដេអូ"
+      question: "សំនួរ"
+      article: "អត្ថបទ"
+      article_no_found: "រកសអត្ថបទមិនឃើញ "
+      question_no_found: "រកសំនួរមិនឃើញ "
+      video_no_found: "រកវីដេអូមិនឃើញ "
     link:
-      all_video: "See all videos"
-      all_article: "See all articles"
+      all_video: "មើលវីដេអូទាំងអស់"
+      all_article: "មើលអត្ថបទទាំងអស់"
   sheared:
     label:
-      error: "Error"
+      error: "កំហុស"
   static_page:
     label:
-      recent_video: "Recent Video"
-      recent_article: "Recent Article"
+      recent_video: "វីដេអូថ្មី"
+      recent_article: "អត្ថបទថ្មី"
+      recent_question: "សំនួរថ្មី"
   tags:
     label:
-      videos: "Videos: "
-      articles: "Articles: "
-      all_in_tag: "All in tag's"
+      videos: "វីដេអូ"
+      articles: "អត្ថបទ"
+      all_in_tag: "ក្រុមទាំងអស់"
   users:
     label:
-      profile: "'s Profile"
-      email: "Email: "
-      activity: "Your activity:"
-      comment_info: ", comment on"
-      ago: "ago"      
+      profile: "​ពត័មាន"
+      email: "អ៊ីម៉ែល "
+      comment: "មតិរបស់ខ្ញុំ"
+      notification: "ការជូនដំណឹង"
+      question: "សំនួររបស់ខ្ញុំ"
+      comment_info: ", បញ្ចេញមតិទៅលើ"
+      ago: "កន្លងទៅ"      
     link:
-      edit: "Edit"
-      sign_out: "Sign out"
-      goto_admin: "Admin Page"
+      edit: "កែប្រែ"
+      sign_out: "ចាកចេញ"
+      goto_admin: "ទៅទំព័ររបស់អ្នកគ្រប់គ្រងទំព័រ"
   videos:
     label:
-      duration: ", duration: "
-      minute: " minutes"
-      tags: "Tags: "
-      more_link: "Link in this video: "
-      comment_title: "Leave a comment as "
-      comment_info: " to post a comment"
+      duration: ", រយះពេល "
+      minute: " នាទី"
+      tags: "ក្រុម"
+      more_link: "តំណរក្នុងវីដែអូនេះ "
+      comment_title: "បញ្ចេញមតិដោយ"
+      comment_info: " ដើម្បីបញ្ចេញមិន"
     link:
-      read_more: "read more."
-      sign_in: "Sign in"
+      read_more: "អានបន្ត"
+      sign_in: "ចូលគណនី"
   layouts:
     footer:
-      copy_right: "©2015 Kh I -"
-      policy: "Privacy Policy"
-      host: "Hosted by"
+      copy_right: "©២០១៥ ខ្មែរ I -"
+      policy: "ភាពឯកជន គោលការណ៍"
+      host: "បង្ហោះដោយ"
     header:
       label:
-        or: "OR"
-        log_as: "Log in as:"
-        search_all_holder: "Search Articles, Videos, Questions"
-        search_question: "Search Questions"
-        search_video: "Search Videos"
-        search_article: "Search Articles"
+        or: "ឬ"
+        log_as: "ចូលប្រើប្រាស់ដោយ:"
+        search_all_holder: "ស្វែងរក អត្ថបទ, វីដេអូ, សំនួរ"
+        search_question: "ស្វែងរក សំនួរ"
+        search_video: "ស្វែងរក វីដេអូ"
+        search_article: "ស្វែងរកអត្ថបទ"
       link:
-        sign_in: "Sign in"
-        sign_up: "Sign up here"
-        sign_out: "Sign out"
-        root_path_full: "KH IT"
-        root_path: "KH"
-        all_video: "Videos"
-        articles: "Articles"
-        about: "About Us"
+        sign_in: "ចូលគណនី"
+        sign_up: "ចុះឈ្មោះនៅទីនេះ"
+        sign_out: "ចាកចេញ"
+        root_path_full: "ត ត"
+        root_path: "ខម"
+        all_video: "វីដេអូ"
+        articles: "អត្ថបទ"
+        about: "អំពីយើង"
+        question: "សំនួរ"
     admin:
       header:
         link:
-          root_path: "KH IT"
-          welcome: "Welcome! "
-          profile: "Profile"
-          sign_out: "Sign Out"
-          dashboard: "Dashboard"
-          tag: "Tags"
-          articles: "Articles"
-          videos: "Videos"
-          users: "Users"
-          comment: "Comments"
-          about: "About Page"
-          activities: "Activities"
-          home_pahe: "Home Page"
+          root_path: "ខម ត"
+          welcome: "សូមស្ចាគមន៍​ ! "
+          profile: "ពត៍មាន"
+          sign_out: "ចាកចេញ"
+          dashboard: "ផ្ទាំងគ្រប់គ្រង"
+          tag: "ក្រុម"
+          articles: "អត្ថបទ"
+          videos: "វីដេអូ"
+          users: "អ្នកប្រើប្រាស់"
+          comments: "មតិយោបល់"
+          question: "សំនួរ"
+          about: "អំពីយើង"
+          activities: "សកម្មភាព"
+          home_page: "ទំព័រដើម"
+  question:
+    label:
+      new_question: "សំនួរថ្មី"
+      edit_question: "កែប្រែសំនួរ"
+      comment_title: "បង្ហាញចំលើយរបស់លោកអ្នក"
+      comment_info: "ចុះឈ្មោះដើម្បីបង្ហាញចំលើយរបស់លោកអ្នក"
+      ask_by: "សួរដោយ"
+      about: "អំពី"
+      similar_question: "សំនួរស្រដៀងគ្នា"
+      ago: "កន្លងទៅ"
+      answers: "ចំលើយ"
+      tags: "ក្រុម "
+    link:
+      ask_question: "សួរសំនួរ"
+  activity:
+    label:
+      all_activit: "រាលសកម្មភាពរបស់អ្នក"
+      reply_on: "ឆ្លើយតបលើមតិរបស់អ្នក"
+      post_on: "បញ្ចេញមតិទៅលើ"
+      removed: "សកម្មភាពបានលុបចេញ។"
 
-  date:
-    formats:
-      default: "%a %d/%b/%Y"
-  time:
-    formats:
-      default: "%a %d/%b/%Y %I:%M:%S %p"
-  date:
-    abbr_day_names:
-    - អទ
-    - ច
-    - អ
-    - ពុ
-    - ព្រ
-    - សុ
-    - សៅ
-    abbr_month_names:
-    - 
-    - មករា
-    - កុម្ភៈ
-    - មិនា
-    - មេសា
-    - ឧសភា
-    - មិថុនា
-    - កក្កដា
-    - សីហា
-    - កញ្ញា
-    - តុលា
-    - វិច្ឆិកា
-    - ធ្នូ
-    day_names:
-    - ថ្ងៃចន្ទ
-    - ថ្ងៃអង្គារ
-    - ថ្ងៃពុធ
-    - ថ្ងៃព្រហស្បតិ៍
-    - ថ្ងៃសុក្រ
-    - ថ្ងៃសៅរ៍
-    - ថ្ងៃអាទិត្យ
-    formats:
-      default: ”ថ្ងៃទី%e %B %Y"
-      long: "“%d %B %Y”"
-      short: "“%d %b”"
-    month_names:
-    - 
-    - ខែមករា
-    - ខែកុម្ភៈ
-    - ខែមិនា
-    - ខែមេសា
-    - ខែឧសភា
-    - ខែមិថុនា
-    - ខែកក្កដា
-    - ខែសីហា
-    - ខែកញ្ញា
-    - ខែតុលា
-    - ខែវិច្ឆិកា
-    - ខែធ្នូ
-    order:
-    - :day
-    - :month
-    - :year
-  errors:
-    format: "%{attribute} %{message}"
-    messages:
-      accepted: ត្រូវតែព្រម
-      blank: មិនអាចរំលង
-      present: ត្រូវតែរំលង
-      confirmation: ផ្ទៀងផ្ទាត់មិនត្រូវនឹង %{attribute}
-      empty: មិនអាចរំលង
-      equal_to: ត្រូវតែស្មើ %{count}
-      even: ត្រូវតែជាចំនួនគត់
-      exclusion: មិនអនុញ្ញាតឱ្យប្រើ
-      greater_than: ត្រូវតែច្រើនជាង %{count}
-      greater_than_or_equal_to: ត្រូវតែច្រើនជាងឬស្មើ %{count}
-      inclusion: មិនបាននៅក្នុងរាយការណ៍
-      invalid: មិនត្រឹមត្រូវ
-      less_than: ត្រូវតែតិចជាង %{count}
-      less_than_or_equal_to: ត្រូវតែតិចជាងឬស្មើ %{count}
-      not_a_number: មិនមែនជាលេខទេ
-      not_an_integer: ត្រូវតែជាចំនួនពេញ
-      odd: ត្រូវតែជាចំនួនសេស
-      record_invalid: 'មិនមានសុពលភាព: %{errors}'
-      restrict_dependent_destroy:
-        one: មិនអាចលុបបានទេពីព្រោះមាន %{record} នៅឡើយ
-        many: មិនអាចលុបបានទេពីព្រោះមាន %{record} នៅឡើយ
-      taken: មានរួចហើយ
-      too_long:
-        one: វែងពេក (អតិបរមា 1 អក្សរ)
-        other: វែងពេក (អតិបរមា %{count} អក្សរ)
-      too_short:
-        one: ខ្លីពេក (អប្បរមា 1 អក្សរ)
-        other: ខ្លីពេក (អប្បរមា %{count} អក្សរ)
-      wrong_length:
-        one: ប្រវែងមិនត្រូវ (គួរតែមាន 1 អក្សរ)
-        other: ប្រវែងមិនត្រូវ (គួរតែមាន %{count} អក្សរ)
-      other_than: ត្រូវតែខុសពី %{count}
-    template:
-      body: 'សូមពិនិត្យមើលកំហុសនៅខាងក្រោម:'
-      header:
-        one: មានកំហុស1ដែលបានបញ្ឈប់ %{model} នេះពីការរក្សាទុក
-        other: មានកំហុស%{count}ដែលបានបញ្ឈប់ %{model} នេះពីការរក្សាទុក'
+  side_menu:
+    label:
+      login: "ចូលគណនី"
+      new_user: "មិនទាន់មានគណនី?"
+      random_tag: "ក្រុម"
+      latest_video: "វីដេអូថ្មី"
+      latest_question: "សំនួរថ្មី"
+      latest_article: "អត្ថបទថ្មី"

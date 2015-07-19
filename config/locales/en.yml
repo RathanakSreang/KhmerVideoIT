@@ -37,6 +37,9 @@ en:
     update: "Update"
   label:
     post_by: "Post by:"
+    day: "Day"
+    month: "Month"
+    year: "Year"
   link:
     edit: "Edit"
     new: "New"
