@@ -5,7 +5,7 @@
       <div class="activity">
         <%= ActivityPresenter.new(activity, self).render_activity %>
         
-        <span class="pull-right text-muted small"><em><%= time_ago_in_words activity.created_at %> <%= t("admin.activities.label.ago") %></em>
+        <span class="pull-right text-muted small"><em><%= time_ago_in_words activity.created_at %></em>
         </span>
       </div>    
     <% end %>
