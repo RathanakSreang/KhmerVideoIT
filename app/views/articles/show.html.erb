@@ -13,7 +13,8 @@
           <% end %>
         </p>
       </em>
-    </span>    
+    </span>
+    <%= social_share_button_tag(@article.title, :popup => "true", :image => "https://raw.github.com/vkulpa/social-share-button/master/lib/assets/images/sprites/social-share-button/tumblr.png", :'data-type' => 'photo') %>
     <%= sanitize @article.content %>
   </div>
   <div class="col-md-12 white-container question-detail">

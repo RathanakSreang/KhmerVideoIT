@@ -17,6 +17,7 @@
 //= require chosen-jquery
 //= require ckeditor/init
 //= require rails.validations
+// = require social-share-button
 //= require_tree .
 function add_fields(link, assoc, content) {
   var new_id = new Date().getTime();
