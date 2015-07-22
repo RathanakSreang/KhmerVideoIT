@@ -1,5 +1,6 @@
 source "https://rubygems.org"
 
+gem "unicorn"
 gem "friendly_id"
 gem "social-share-button"
 gem "chosen-rails"
