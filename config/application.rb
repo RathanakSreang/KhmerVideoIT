@@ -32,12 +32,12 @@ module KhmerVideoIT
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
-    config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
-
     # config.i18n.fallbacks = true
     Globalize.fallbacks = {:en => [:en, :kh], :kh => [:kh, :en]}
     # config.i18n.fallbacks = {:en, :kh}
 
     config.exceptions_app = self.routes
+    config.assets.paths << Rails.root.join("assets", "fonts")
+    config.assets.precompile += %w( .svg .eot .woff .ttf .otf)
   end
 end

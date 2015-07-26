@@ -11,8 +11,11 @@
       <i class="fa fa-youtube-square fa-3x"></i>
     <% end %>  
     <br/>
-    <%= sanitize @page.about %>
-    <br/>
-    <%= link_to t("link.edit"), admin_edit_about_path, class: "btn btn-primary", "data-no-turbolink" => true %>
+    <div class="style-markdown">
+      <%= markdown @page.about %>
+    </div>    
+    <br/>    
+    <%= link_to t("link.edit"), admin_edit_about_path, class: "btn btn-primary" %>
   </div>
 </div>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js" data-no-turbolink ></script>

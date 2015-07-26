@@ -1,5 +1,22 @@
 <div class="row">
-  <div class="col-md-12 white-container">
-    <%= sanitize @page.about %>
+  <div class="col-md-12 white-container about-show">
+    <div class="style-markdown">
+      <%= markdown @page.about %>
+    </div>
   </div>
+  <% @users.each do |user| %>
+    <div class="col-md-12 white-container about-show">
+      <div class="media">
+        <%= link_to user, class: "pull-left" do %>
+          <%= image_tag user.avatar, class: "img-circle img-responsive" %>
+        <% end %>
+        <div class="media-body">          
+          <%= User.human_attribute_name(:name) %>: <%= link_to user.name, user %>
+          <br/>
+          <%= User.human_attribute_name(:email) %>: <%= user.email %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js" data-no-turbolink ></script>

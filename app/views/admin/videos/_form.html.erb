@@ -56,6 +56,12 @@
     </div>      
   </div>
   <div class="form-group">
+    <%= t("comments.label.use_markdown") %>
+    <a href="javascript:void(0)" class="markdown_link"><%= t("comments.label.here") %></a>
+    <div class="markdown_examples">
+      <%= render "shared/markdown_sample" %>
+    </div>
+    <br/>
     <%= f.fields_for :snippet do |builder| %>      
       <%= builder.text_area :content, rows: 25, class: "form-control", placeholder: Snippet.human_attribute_name(:content) %>
     <% end %>
@@ -72,3 +78,13 @@
     <%= f.submit action, class: "btn btn-primary" %>
   </div>
 <% end %>
+<script type="text/javascript">
+  $(".markdown_examples").hide();
+  $(".markdown_link").click(function(){
+    if($(".markdown_examples").is(":visible")){
+      $(".markdown_examples").hide();
+    }else{
+      $(".markdown_examples").show();
+    }    
+  });
+</script>

@@ -1,6 +1,10 @@
 <div class="row">
   <div class="col-md-12 white-container question-detail">
     <center><h3><%= @article.title.capitalize %></h3></center>
+    <div class="style-markdown">
+      <%= markdown @article.content %>
+    </div>
+    <hr/>
     <span class="text-muted small">
       <em>
         <%= t("label.post_by") %> <%= (link_to @article.user.name, @article.user) if @article.user %>
@@ -15,7 +19,6 @@
       </em>
     </span>
     <%= social_share_button_tag(@article.title, :popup => "true", :image => "https://raw.github.com/vkulpa/social-share-button/master/lib/assets/images/sprites/social-share-button/tumblr.png", :'data-type' => 'photo') %>
-    <%= sanitize @article.content %>
   </div>
   <div class="col-md-12 white-container question-detail">
     <br/>
@@ -44,3 +47,4 @@
     </div>
   </div>
 </div>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
