@@ -9,19 +9,22 @@
         <%= t("admin.articles.label.published_on") %> <%= l @article.publish_date.localtime %>
 
         <p><%= t("admin.articles.label.tag") %>
-        <% @article.tags.each do |tag| %>
+          <% @article.tags.each do |tag| %>
             <%= link_to tag.name, [:admin, tag] %>,
-        <% end %>
-        <br/>
-        <%= t("admin.articles.label.status") %>: <%= @article.status %>
+          <% end %>
+          <br/>
+          <%= t("admin.articles.label.status") %>: <%= @article.status %>
+        </p>
       </em>
     </span>
-    </p>
     <br/>
     <p><%= @article.description %></p>
-    <%= link_to t("link.edit"), edit_admin_article_path(@article), class: "btn btn-primary", "data-no-turbolink" => true %>
+    <%= link_to t("link.edit"), edit_admin_article_path(@article), class: "btn btn-primary" %>
     <%= link_to t("link.delete"), admin_article_path(@article), data: {method: :delete, confirm: t("info.confirm_delete")}, class: "btn btn-danger" %>
-    <br/>
-    <%= sanitize @article.content %>
+    <hr/>    
+    <div class="style-markdown">
+      <%= markdown @article.content %>
+    </div>
   </div>
 </div>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js" data-no-turbolink ></script>

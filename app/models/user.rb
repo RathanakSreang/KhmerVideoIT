@@ -31,6 +31,10 @@ class User < ActiveRecord::Base
     where("email like ?", "%#{query}%") 
   end
 
+  def self.all_admin
+    where("role = 1 OR role = 2")
+  end
+
   def default_values
     self.role ||= :normal
   end

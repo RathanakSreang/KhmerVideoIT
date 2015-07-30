@@ -10,6 +10,7 @@ class StaticPagesController < ApplicationController
 
   def about
     @page = Page.first
+    @users = User.all_admin.order(:created_at)
     @page = Page.new unless @page
   end
 

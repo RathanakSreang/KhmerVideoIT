@@ -13,7 +13,7 @@
     <% end %>
     </div>
   </legend> 
-  <%= link_to t("admin.articles.link.add_new_article"), new_admin_article_path, "data-no-turbolink" => true %>
+  <%= link_to t("admin.articles.link.add_new_article"), new_admin_article_path %>
   <table class="table">
     <thead>
       <th><%= Article.human_attribute_name(:title) %></th>

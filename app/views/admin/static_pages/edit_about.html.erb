@@ -27,7 +27,13 @@
         </div>
       </div>      
       <div class="form-group">
-        <%= f.cktext_area :about, rows: 10, class: "form-control ckeditor" %>
+        <%= t("comments.label.use_markdown") %>
+        <a href="javascript:void(0)" class="markdown_link"><%= t("comments.label.here") %></a>
+        <div class="markdown_examples">
+          <%= render "shared/markdown_sample" %>
+        </div>
+        <br/>
+        <%= f.text_area :about, rows: 20, class: "form-control" %>
       </div>
       <div class="form-group">
         <%= f.submit t("action.update"), class: "btn btn-primary" %>
@@ -35,3 +41,13 @@
     <% end %>
   </div>
 </div>
+<script type="text/javascript">
+  $(".markdown_examples").hide();
+  $(".markdown_link").click(function(){
+    if($(".markdown_examples").is(":visible")){
+      $(".markdown_examples").hide();
+    }else{
+      $(".markdown_examples").show();
+    }    
+  });
+</script>
