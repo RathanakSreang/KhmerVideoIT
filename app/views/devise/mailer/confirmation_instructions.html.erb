@@ -1,13 +1,5 @@
-<% if I18n.locale == :en %>
-  <p>Welcome <%= @resource.name %>!</p>
+<p><%= t("email.welcome") %> <%= @resource.name %>!</p>
 
-  <p>Thanks for signing up for Let Talk IT! Please click the link below to confirm your email address.</p>
+<p><%= t("email.thank") %></p>
 
-  <p><%= link_to confirmation_url(@resource, confirmation_token: @token) , confirmation_url(@resource, confirmation_token: @token) %></p>
-<% else %>
-  <p>Welcome <%= @resource.name %>!</p>
-
-  <p>Thanks for signing up for Let Talk IT! Please click the link below to confirm your email address.</p>
-
-  <p><%= link_to confirmation_url(@resource, confirmation_token: @token) , confirmation_url(@resource, confirmation_token: @token) %></p>
-<% end %>
+<p><%= link_to confirmation_url(@resource, confirmation_token: @token) , confirmation_url(@resource, confirmation_token: @token) %></p>
