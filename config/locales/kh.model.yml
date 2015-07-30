@@ -27,3 +27,8 @@ kh:
       question:
         title: "ចំណងជើង"
         content: "មាតិការ"
+      user:
+        email: "អ៊ីម៉ែល"
+        password: "ពាក្យសម្ងាត់"
+        password_confirmation: "បញ្ជាក់ពាក្យសម្ងាត់"
+        name: "ឈ្មោះ"

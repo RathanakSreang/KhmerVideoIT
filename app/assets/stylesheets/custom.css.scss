@@ -3,6 +3,19 @@
 $question-color: #009659;
 $video-color: #F39532;
 $article-color: #337ab7;
+
+@font-face {
+  font-family: "Hanuman";
+  src: url("Hanuman.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "Hanuman";
+  font-size: 14px;
+}
+
 .navbar {
   border-radius: 0px;
 }
@@ -393,6 +406,11 @@ body {
   background: #FFF url(activity.png) no-repeat left top;  
 }
 
+.about-show {
+  border-top: 2px #00A9D4 solid;
+  box-shadow: 3px 3px 3px #888888;
+}
+
 .activity-show, .article-show, .question-show, .video-show {
   padding: 1.25em 1em 1.25em 55px;
   box-shadow: 3px 3px 3px #888888;
@@ -416,4 +434,22 @@ body {
 .article-detail {
   border-top: 1px $question-color solid;
   box-shadow: 3px 3px 3px #888888;
+}
+
+.style-markdown {
+  img {
+    @extend .img-responsive;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .highlight {
+    overflow: auto;    
+  }
+}
+
+textarea { resize:vertical; }
+
+.img-circle {
+  border: 2px #00A9D4 solid;
 }

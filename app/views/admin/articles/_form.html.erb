@@ -24,8 +24,14 @@
     <%= f.text_area :description, rows: 12, class: "form-control", placeholder: Article.human_attribute_name(:description) %>
   </div>
 
-  <div class="form-group">    
-    <%= f.cktext_area :content, rows: 30, class: "form-control ckeditor", placeholder: Article.human_attribute_name(:content) %>
+  <div class="form-group">
+    <%= t("comments.label.use_markdown") %>
+    <a href="javascript:void(0)" class="markdown_link"><%= t("comments.label.here") %></a>
+    <div class="markdown_examples">
+      <%= render "shared/markdown_sample" %>
+    </div>
+    <br/>
+    <%= f.text_area :content, rows: 30, class: "form-control", placeholder: Article.human_attribute_name(:content) %>
   </div>
   
   <div class="form-group">
@@ -40,3 +46,13 @@
     <%= f.submit action, class: "btn btn-primary" %>
   </div>
 <% end %>
+<script type="text/javascript">
+  $(".markdown_examples").hide();
+  $(".markdown_link").click(function(){
+    if($(".markdown_examples").is(":visible")){
+      $(".markdown_examples").hide();
+    }else{
+      $(".markdown_examples").show();
+    }    
+  });
+</script>

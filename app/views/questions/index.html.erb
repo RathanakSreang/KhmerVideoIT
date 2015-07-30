@@ -1,5 +1,7 @@
 <div class="col-md-12 new-question">
-  <%= link_to t("question.link.ask_question"), new_question_path, class: "pull-right btn btn-info" %>
+  <%= link_to new_question_path, class: "pull-right btn btn-info" do %>
+    <%= t("question.link.ask_question") %> <i class="fa fa-question"></i>
+  <% end %>
 </div>
 
 <% if params[:search].present? %>
