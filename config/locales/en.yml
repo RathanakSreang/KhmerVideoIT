@@ -306,9 +306,9 @@ en:
       sign_in: "Sign in"
   layouts:
     footer:
-      copy_right: "©2015 Kh I -"
+      copy_right: "©2015 Kh - "
       policy: "Privacy Policy"
-      host: "Hosted by"
+      host: "Lettalkit.com"
     header:
       label:
         or: "OR"
@@ -381,3 +381,17 @@ en:
       latest_video: "Latest Videos"
       latest_question: "Latest Questions"
       latest_article: "Latest Articles"
+  email:
+    welcome: "Welcome"
+    hello: "Hello"
+    thank: "Thanks for signing up for Let Talk IT! Please click the link below to confirm your email address."
+    change_pass: "Someone has requested a link to change your password. You can do this through the link below."
+    ignore: "If you didn't request this, please ignore this email."
+    not_change_pass: "Your password won't change until you access the link above and create a new one."
+  page_error:
+    title_422: "Oops! The change you wanted was rejected."
+    content_422: "It looks like you was not allow to view this location. Maybe try one of other links or a search?"
+    title_500: "We're sorry, but something went wrong."
+    content_500: "It looks like we have problems on this link. Maybe try one of other links or a search?"
+    title_404: "Oops! That page can’t be found."
+    content_404: "It looks like nothing was found at this location. Maybe try one of the links or a search?"

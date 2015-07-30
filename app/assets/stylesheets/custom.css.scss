@@ -12,8 +12,9 @@ $article-color: #337ab7;
 }
 
 body {
-  font-family: "Hanuman";
-  font-size: 14px;
+  font-family: "Hanuman" !important;
+  font-size: 16px !important;
+  line-height: 26px !important;
 }
 
 .navbar {

@@ -1,19 +1,8 @@
-<% if I18n.locale == :en %>
-  <div class="col-md-10 col-md-offset-1 error-page-404">
-    <div class="col-md-10 col-md-offset-1 error-404-title">
-      <center><h1>Oops! That page can’t be found.</h1></center>
-    </div>
-    <div class="col-md-12 error-content">
-      <p>It looks like nothing was found at this location. Maybe try one of the links or a search?</p>
-    </div>
+<div class="col-md-10 col-md-offset-1 error-page-404">
+  <div class="col-md-10 col-md-offset-1 error-404-title">
+    <center><h1><%= t("page_error.title_404") %></h1></center>
   </div>
-<% else %>
-  <div class="col-md-10 col-md-offset-1 error-page-404">
-    <div class="col-md-10 col-md-offset-1 error-404-title">
-      <center><h1>Oops! That page can’t be found.</h1></center>
-    </div>
-    <div class="col-md-12 error-content">
-      <p>It looks like nothing was found at this location. Maybe try one of the links or a search?</p>
-    </div>
+  <div class="col-md-12 error-content">
+    <p><%= t("page_error.content_404") %></p>
   </div>
-<% end %>
+</div>
