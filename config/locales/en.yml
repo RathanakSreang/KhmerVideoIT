@@ -220,7 +220,7 @@ en:
       sign_in: "Sign in"
   devise:
     label:
-      edit: "Edit"
+      edit: "Edit User"
       login: "Log in"
       name: "Name"
       sign_up: "Sign up"

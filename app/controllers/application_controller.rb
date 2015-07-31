@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  before_filter :set_side_menu
+
   before_filter :set_locale
   protected
 
@@ -34,5 +36,12 @@ class ApplicationController < ActionController::Base
 
   def default_url_options(options = {})
     {locale: I18n.locale}
-  end  
+  end
+
+  def set_side_menu
+    @random_tags ||= Tag.order("created_at DESC").limit(6)
+    @latest_videos ||= Video.status_show.order("created_at DESC").limit(6) unless "videos".include?(params[:controller])
+    @latest_articles ||= Article.status_show.order("created_at DESC").limit(6) unless "articles".include?(params[:controller])
+    @latest_question ||= Question.order("created_at DESC").limit(6) unless "questions".include?(params[:controller])
+  end
 end

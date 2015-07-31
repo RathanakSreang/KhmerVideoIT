@@ -15,7 +15,9 @@
       <%= markdown @page.about %>
     </div>    
     <br/>    
-    <%= link_to t("link.edit"), admin_edit_about_path, class: "btn btn-primary" %>
+    <%= link_to admin_edit_about_path, class: "btn btn-primary" do %>
+      <i class="fa fa-pencil-square-o"> </i> <%= t("link.edit") %>
+    <% end %>
   </div>
 </div>
 <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js" data-no-turbolink ></script>

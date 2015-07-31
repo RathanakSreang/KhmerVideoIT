@@ -3,8 +3,12 @@
     <legend><h3><%= @question.title %></h3></legend>    
     <%= markdown @question.content %>
     <% if @question.user == current_user %>
-      <%= link_to t("link.edit"), edit_question_path(@question), class: "btn btn-primary" %>      
-      <%= link_to t("link.delete"), question_path(@question), data: {method: :delete, confirm: t("info.confirm_delete")} , class: "btn btn-danger" %>
+      <%= link_to edit_question_path(@question), class: "btn btn-primary" do %>
+        <i class="fa fa-pencil-square-o"></i> <%= t("link.edit") %>
+      <% end %>
+      <%= link_to question_path(@question), data: {method: :delete, confirm: t("info.confirm_delete")} , class: "btn btn-danger" do %>
+        <i class="fa fa-trash-o"></i></i> <%= t("link.delete") %>
+      <% end %>
     <% end %>
     <br/>
     <span class="text-muted small">

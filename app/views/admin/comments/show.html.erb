@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-8 col-md-offset-2 well">
+  <div class="col-md-10 col-md-offset-1 well">
     <div class="media">
       <a class="pull-left" href="#">    
         <%= image_tag @comment.user.avatar, class: "img-round img-responsive user_profile" %>
@@ -21,7 +21,9 @@
         </div>    
       </div>
       <br/>      
-      <%= link_to t("link.delete"), admin_comment_path(@comment), data: {method: :delete, confirm: t("info.confirm_delete")}, class: "btn btn-danger" %>
+      <%= link_to admin_comment_path(@comment), data: {method: :delete, confirm: t("info.confirm_delete")}, class: "btn btn-danger" do %>
+        <i class="fa fa-trash-o"></i> <%= t("link.delete") %>
+      <% end %>
     </div>
   </div>
 </div>
