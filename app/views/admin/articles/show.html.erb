@@ -1,6 +1,8 @@
 <div class="row">
   <div class="col-md-10 col-md-offset-1 well">
-    <%= link_to t("link.back"), :back %>
+    <%= link_to :back do %>
+      <i class="fa fa-arrow-left"></i> <%= t("link.back") %>
+    <% end %>
     <center><h3><u><%= @article.title.capitalize if @article.title %></u></h3></center>    
     <span class="text-muted small">
       <em>
@@ -19,8 +21,12 @@
     </span>
     <br/>
     <p><%= @article.description %></p>
-    <%= link_to t("link.edit"), edit_admin_article_path(@article), class: "btn btn-primary" %>
-    <%= link_to t("link.delete"), admin_article_path(@article), data: {method: :delete, confirm: t("info.confirm_delete")}, class: "btn btn-danger" %>
+    <%= link_to edit_admin_article_path(@article), class: "btn btn-primary" do %>
+      <i class="fa fa-pencil-square-o"> </i> <%= t("link.edit") %>
+    <% end %>
+    <%= link_to admin_article_path(@article), data: {method: :delete, confirm: t("info.confirm_delete")}, class: "btn btn-danger" do %>
+      <i class="fa fa-trash-o"></i></i> <%= t("link.delete") %>
+    <% end %>
     <hr/>    
     <div class="style-markdown">
       <%= markdown @article.content %>

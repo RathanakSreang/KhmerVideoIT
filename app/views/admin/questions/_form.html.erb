@@ -11,8 +11,10 @@
   <div class="form-group">
     <%= f.label t("admin.articles.label.tag") %>
     <%= f.collection_select :tag_ids, Tag.with_translations.order(:name), "id", "name",{},{multiple: true, size: 5, class: "form-control tags_choosen"} %>
-  </div>
-  <div class="action">
-    <%= f.submit action, class: "btn btn-primary" %>
+  </div>  
+  <div class="actions">
+    <%= f.button :submit, class: "btn btn-primary" do %>
+      <i class="fa fa-floppy-o"> </i> <%= action %>
+    <% end %>
   </div>
 <% end %>

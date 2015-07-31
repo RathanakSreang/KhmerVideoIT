@@ -1,6 +1,8 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3 well">
-    <%= link_to t("link.back"), :back %>
+    <%= link_to :back do %>
+      <i class="fa fa-arrow-left"></i> <%= t("link.back") %>
+    <% end %>
     <legend><center><%= t("admin.user.label.edit_user") %></center></legend>
     <%= render "form", action: t("action.update") %>
   </div>

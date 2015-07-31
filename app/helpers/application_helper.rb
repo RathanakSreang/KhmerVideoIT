@@ -76,10 +76,10 @@ module ApplicationHelper
     return t("layouts.header.label.search_all_holder")
   end
 
-  def side_bar
-    @random_tags = Tag.order("created_at DESC").limit(6)
-    @latest_videos = Video.order("created_at DESC").limit(6) unless controller?("videos")
-    @latest_articles = Article.order("created_at DESC").limit(6) unless controller?("articles")
-    @latest_question = Question.order("created_at DESC").limit(6) unless controller?("questions")
-  end
+  # def side_bar
+  #   # @random_tags = Tag.order("created_at DESC").limit(6)
+  #   # @latest_videos = Video.order("created_at DESC").limit(6) unless controller?("videos")
+  #   # @latest_articles = Article.order("created_at DESC").limit(6) unless controller?("articles")
+  #   # @latest_question = Question.order("created_at DESC").limit(6) unless controller?("questions")
+  # end
 end
