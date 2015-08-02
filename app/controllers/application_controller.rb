@@ -39,6 +39,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_side_menu
+    @page ||= Page.first
     @random_tags ||= Tag.order("created_at DESC").limit(6)
     @latest_videos ||= Video.status_show.order("created_at DESC").limit(6) unless "videos".include?(params[:controller])
     @latest_articles ||= Article.status_show.order("created_at DESC").limit(6) unless "articles".include?(params[:controller])

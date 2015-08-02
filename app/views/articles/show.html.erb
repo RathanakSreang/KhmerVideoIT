@@ -1,3 +1,4 @@
+<% provide :title, @article.title %>
 <div class="row">
   <div class="col-md-12 white-container question-detail">
     <center><h3><%= @article.title.capitalize %></h3></center>
@@ -18,7 +19,7 @@
         </p>
       </em>
     </span>
-    <%= social_share_button_tag(@article.title, :popup => "true", :image => "https://raw.github.com/vkulpa/social-share-button/master/lib/assets/images/sprites/social-share-button/tumblr.png", :'data-type' => 'photo') %>
+    <%= social_share_button_tag(@article.title, :popup => "true", desc: @article.description) %>
   </div>
   <div class="col-md-12 white-container question-detail">
     <br/>

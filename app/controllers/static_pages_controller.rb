@@ -5,7 +5,7 @@ class StaticPagesController < ApplicationController
     @questions = Question.order("created_at DESC").limit(3)
   end
 
-  def help
+  def privacy
   end
 
   def about

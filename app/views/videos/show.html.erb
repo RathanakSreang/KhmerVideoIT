@@ -1,3 +1,4 @@
+<% provide :title, @video.title %>
 <div class="row">
   <div class="col-md-12 white-container video-detail" id="video-show">
     <div class="embed-responsive embed-responsive-16by9 video_wrapper">
@@ -21,7 +22,7 @@
       </em>
     </span>
     <br>
-    <%= social_share_button_tag(@video.title, popup: "true") %>    
+    <%= social_share_button_tag(@video.title, image: @video.image, desc: @video.description, popup: "true") %>
     <%= @video.description %>
   </div>  
 

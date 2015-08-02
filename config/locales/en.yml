@@ -267,6 +267,7 @@ en:
     link:
       all_video: "See all videos"
       all_article: "See all articles"
+      all_question: "See all questions"
   sheared:
     label:
       error: "Error"
@@ -306,7 +307,7 @@ en:
       sign_in: "Sign in"
   layouts:
     footer:
-      copy_right: "©2015 Kh - "
+      copy_right: "©2015 KH - "
       policy: "Privacy Policy"
       host: "Lettalkit.com"
     header:
@@ -330,7 +331,7 @@ en:
     admin:
       header:
         link:
-          root_path: "KH IT"
+          root_path: "Let Talk IT"
           welcome: "Welcome! "
           profile: "Profile"
           sign_out: "Sign Out"
@@ -395,3 +396,20 @@ en:
     content_500: "It looks like we have problems on this link. Maybe try one of other links or a search?"
     title_404: "Oops! That page can’t be found."
     content_404: "It looks like nothing was found at this location. Maybe try one of the links or a search?"
+  page_title:
+    privacy: "Privacy"
+    home: "Home"
+    video: "Videos"
+    search_video: "Search Videos:"
+    about: "About Us"
+    search_article: "Search Articles: "
+    article: "Articles"
+    search_question: "Search Question: "
+    question: "Questions"
+  privacy_page:
+    title: "Privacy Policy"
+    personal_info: "Personal Information"
+    content_1: "LetTalkIT is committed to protecting our users' privacy. This statement is meant to inform our users of how we define, gather and utilize personally identifiable information. We will take reasonable steps to protect user privacy consistent within the guidelines set forth in this policy and the law. By using this site, you consent to the following privacy policy."
+    last_edit: "This policy was last modified on August  01, 2015."
+    content_2: "User information is collected when filling out a form, processing an order, or signing in through a third party service (such as Facebook, Twitter, Google plus, GitHub).."
+    content_3: "Cookies are used to store information about your current session and other preferences. This information may be used to track user progress and to offer a more personalized experience. Cookies can be disabled or cleared in your web browser settings."
