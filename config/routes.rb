@@ -45,6 +45,7 @@ Rails.application.routes.draw do
     end
     root "static_pages#home"
     get "about" => "static_pages#about"
+    get "privacy" => "static_pages#privacy"
   end 
 
   # get "*path", to: redirect("/#{I18n.default_locale}/%{path}")  

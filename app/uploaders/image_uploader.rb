@@ -26,7 +26,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Process files as they are uploaded:
   process convert: "png"
-  process resize_to_fill: [200, 125, "Center"]
+  process resize_to_fill: [200, 180, "Center"]
   #
   # def scale(width, height)
   #   # do something

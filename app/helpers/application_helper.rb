@@ -58,7 +58,7 @@ module ApplicationHelper
     if title.blank?
       base_title
     else
-      "#{base_title} | #{title}"
+      "#{title} - #{base_title}"
     end
   end
 

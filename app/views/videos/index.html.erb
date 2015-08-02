@@ -1,4 +1,5 @@
 <% if params[:search].present? %>
+  <% provide :title, "#{t("page_title.search_video")} " + params[:search].to_s %>
   <b><%= t("search.label.filter") %> <%= params[:search] %></b>
   <% unless @videos && @videos.any? %>
     <p><%= t("search.label.video_no_found") %>  <%= link_to t("search.link.all_video"), videos_path %></p>
@@ -7,6 +8,7 @@
     <%= will_paginate @videos %>
   <% end %>
 <% else %>
+  <% provide :title, t("page_title.video") %>
   <%= render @videos %>
   <%= will_paginate @videos %>
 <% end %>
