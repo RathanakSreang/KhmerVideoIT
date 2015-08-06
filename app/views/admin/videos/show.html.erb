@@ -41,12 +41,6 @@
       <div class="panel-body">
         <div class="row">
           <div class="col-md-12">
-            <%= t("admin.videos.label.link_in_video") %>
-            <ul>
-              <%= render partial: "usefull_links/usefull_link", collection: @video.usefull_links %>
-            </ul>
-          </div>
-          <div class="col-md-12">
             <% if @video.snippet %>
               <%= render "snippets/snippet", snippet: @video.snippet %>
             <% end %>

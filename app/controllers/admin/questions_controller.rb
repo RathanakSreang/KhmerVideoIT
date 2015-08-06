@@ -10,9 +10,11 @@ class Admin::QuestionsController < ApplicationController
   def index
     if params[:search]
       @questions = Question.search(params[:search])
-            .order("created_at DESC").paginate page: params[:page], per_page: 7
+            .includes(:user)
+            .paginate page: params[:page], per_page: 7
     else
       @questions = Question.order("created_at DESC")
+            .includes(:user)
             .paginate page: params[:page], per_page: 7
     end
   end
@@ -41,7 +43,7 @@ class Admin::QuestionsController < ApplicationController
 
   private
   def load_question
-    @question = Question.friendly.find params[:id]
+    @question = Question.includes(:user, tags: :translations).friendly.find params[:id]
   end
 
   def question_params

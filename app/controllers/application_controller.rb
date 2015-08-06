@@ -40,9 +40,14 @@ class ApplicationController < ActionController::Base
 
   def set_side_menu
     @page ||= Page.first
-    @random_tags ||= Tag.order("created_at DESC").limit(6)
-    @latest_videos ||= Video.status_show.order("created_at DESC").limit(6) unless "videos".include?(params[:controller])
-    @latest_articles ||= Article.status_show.order("created_at DESC").limit(6) unless "articles".include?(params[:controller])
-    @latest_question ||= Question.order("created_at DESC").limit(6) unless "questions".include?(params[:controller])
+    @random_tags ||= Tag.order("created_at DESC").includes(:translations).limit(6)
+    @latest_videos ||= Video.status_show.order("created_at DESC")
+                    .includes(:translations)
+                    .limit(6) unless "videos".include?(params[:controller])
+    @latest_articles ||= Article.status_show.order("created_at DESC")
+                    .includes(:translations)
+                    .limit(6) unless "articles".include?(params[:controller])
+    @latest_question ||= Question.order("created_at DESC")                    
+                    .limit(6) unless "questions".include?(params[:controller])
   end
 end

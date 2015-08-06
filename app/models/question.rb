@@ -10,7 +10,7 @@ class Question < ActiveRecord::Base
   friendly_id :title, use: :slugged
 
   def self.search(query)    
-    where("content like ?", "%#{query}%") 
+    where("title like ? OR content like ?", "%#{query}%", "%#{query}%") 
   end
 
   def simlar_questions

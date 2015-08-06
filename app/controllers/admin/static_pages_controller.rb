@@ -9,11 +9,17 @@ class Admin::StaticPagesController < ApplicationController
     @total_video = Video.all.size
     @total_tag = Tag.all.size
     @total_comment = Comment.all.size
-    @comments = Comment.order("created_at DESC").limit 7
+    @comments = Comment.order("created_at DESC")
+                        .includes(:user, :commentable)
+                        .limit 7
     @total_activity = Activity.all.size
-    @activities = Activity.order("created_at DESC").limit 7
+    @activities = Activity.order("created_at DESC")
+                          .includes(:user, :trackable)
+                          .limit 7
     @total_question = Question.all.size
-    @questions = Question.order("created_at DESC").limit 7
+    @questions = Question.order("created_at DESC")
+                          .includes(:user)
+                          .limit 7
   end
 
   def about

@@ -5,15 +5,23 @@ class Admin::TagsController < ApplicationController
   layout "admin/application"
 
   def show
-    @videos = @tag.videos.order("created_at DESC").paginate page: params[:page], per_page: 7
-    @articles = @tag.articles.order("created_at DESC").paginate page: params[:page], per_page: 7
+    @videos = @tag.videos.order("created_at DESC")
+                  .includes(:user, :translations)
+                  .paginate page: params[:page], per_page: 7
+    @articles = @tag.articles.order("created_at DESC")
+                  .includes(:user, :translations)
+                  .paginate page: params[:page], per_page: 7
   end
 
   def index
     if params[:search]
-      @tags = Tag.search(params[:search]).order("created_at DESC").paginate page: params[:page], per_page: 7
+      @tags = Tag.search(params[:search])              
+              .includes(:user, :translations)
+              .paginate page: params[:page], per_page: 7
     else
-      @tags = Tag.order("created_at DESC").paginate page: params[:page], per_page: 7
+      @tags = Tag.order("created_at DESC")
+      .includes(:user, :translations)
+      .paginate page: params[:page], per_page: 7
     end    
   end
 
@@ -57,7 +65,7 @@ class Admin::TagsController < ApplicationController
 
   private
   def load_tag
-    @tag = Tag.friendly.find params[:id]
+    @tag = Tag.includes(:user, :translations).friendly.find params[:id]
   end
 
   def tag_params

@@ -1,5 +1,6 @@
 source "https://rubygems.org"
 
+gem "rack-mini-profiler"
 gem "unicorn"
 gem "friendly_id"
 gem "social-share-button"
@@ -37,3 +38,4 @@ group :development, :test do
   gem "letter_opener"
 end
 
+gem "bullet", :group => "development"
