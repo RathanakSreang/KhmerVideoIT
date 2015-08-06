@@ -4,14 +4,19 @@ class Admin::VideosController < ApplicationController
   layout "admin/application"
 
   def show
-    @video = Video.friendly.find params[:id]
+    @video = Video.includes(:user, :translations, tags: :translations)
+                  .friendly.find params[:id]
   end
 
   def index    
     if params[:search]
-      @videos = Video.search(params[:search]).order("created_at DESC").paginate page: params[:page], per_page: 7
+      @videos = Video.search(params[:search])                
+                .includes(:user, :translations)
+                .paginate page: params[:page], per_page: 7
     else
-      @videos = Video.order("created_at DESC").paginate page: params[:page], per_page: 7
+      @videos = Video.order("created_at DESC")
+                .includes(:user, :translations)
+                .paginate page: params[:page], per_page: 7
     end
   end
 
@@ -59,8 +64,7 @@ class Admin::VideosController < ApplicationController
   private
   def video_params
     params.require(:video).permit :id, :title, :image, :image_cache, :description,
-                                  :link, :file_link, :duration, :status, :publish_date,
-                                  usefull_links_attributes: [:id, :title, :link, :_destroy],
+                                  :link, :file_link, :duration, :status, :publish_date,                                  
                                   snippet_attributes: [:id, :content], tag_ids:[]
 
   end

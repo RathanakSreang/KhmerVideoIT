@@ -9,9 +9,13 @@ class Admin::ArticlesController < ApplicationController
 
   def index    
     if params[:search]
-      @articles = Article.search(params[:search]).order("created_at DESC").paginate page: params[:page], per_page: 7
+      @articles = Article.search(params[:search])                  
+                  .includes(:user, :translations)
+                  .paginate page: params[:page], per_page: 7
     else
-      @articles = Article.order("created_at DESC").paginate page: params[:page], per_page: 7
+      @articles = Article.order("created_at DESC")
+                  .includes(:user, :translations)
+                  .paginate page: params[:page], per_page: 7
     end
   end
 
@@ -60,7 +64,8 @@ class Admin::ArticlesController < ApplicationController
   end
 
   def load_article
-    @article = Article.friendly.find params[:id]
+    @article = Article.includes(:user, :translations, :tags => :translations)
+                      .friendly.find params[:id]
   end
 
   def admin_user

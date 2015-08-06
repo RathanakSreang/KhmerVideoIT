@@ -6,15 +6,17 @@ class QuestionsController < ApplicationController
     @commentable = @question
     @comments = @commentable.comments
     @comment = Comment.new
-    @simlar_questions = @question.simlar_questions
+    @simlar_questions = @question.simlar_questions.includes(:user, :tags => :translations)
   end
 
   def index    
     if params[:search]
-      @questions = Question.search(params[:search])
-            .order("created_at DESC").paginate page: params[:page], per_page: 7
+      @questions = Question.search(params[:search])            
+            .includes(:user, :tags => :translations)
+            .paginate page: params[:page], per_page: 7
     else
       @questions = Question.order("created_at DESC")
+            .includes(:user, :tags => :translations)
             .paginate page: params[:page], per_page: 7
     end
   end
@@ -59,7 +61,7 @@ class QuestionsController < ApplicationController
 
   private
   def load_question
-    @question = Question.friendly.find params[:id]
+    @question = Question.includes(:user, :tags => :translations).friendly.find(params[:id])
   end
 
   def question_params

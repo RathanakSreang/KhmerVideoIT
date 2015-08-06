@@ -9,11 +9,13 @@ class Admin::CommentsController < ApplicationController
 
   def index
     if params[:search]
-      @comments = Comment.search(params[:search]).order("created_at DESC")
-                         .paginate page: params[:page], per_page: 7
+      @comments = Comment.search(params[:search])                        
+                        .includes(:user, :commentable)
+                        .paginate page: params[:page], per_page: 7
     else      
-      @comments = Comment.order("created_at DESC").paginate page: params[:page],
-                        per_page: 7
+      @comments = Comment.order("created_at DESC")
+                        .includes(:user, :commentable)
+                        .paginate page: params[:page], per_page: 7
     end
   end
 

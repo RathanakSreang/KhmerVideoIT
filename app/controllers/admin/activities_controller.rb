@@ -5,6 +5,7 @@ class Admin::ActivitiesController < ApplicationController
 
   def index
     @activities = Activity.order("created_at desc")
+                          .includes(:user, :trackable)
                           .paginate page: params[:page], per_page: 12
   end
 

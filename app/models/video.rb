@@ -1,8 +1,7 @@
 class Video < ActiveRecord::Base
   extend FriendlyId
   enum status: [:show, :hide]
-  before_save :default_values
-  has_many :usefull_links, dependent: :destroy , inverse_of: :video
+  before_save :default_values  
   has_one :snippet, dependent: :destroy
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :video_tags, dependent: :destroy
@@ -26,8 +25,7 @@ class Video < ActiveRecord::Base
   mount_uploader :image, ImageUploader
 
   translates :title, :description
-  friendly_id :title, use: :slugged
-  accepts_nested_attributes_for :usefull_links, allow_destroy: true
+  friendly_id :title, use: :slugged  
   accepts_nested_attributes_for :snippet, allow_destroy: true  
 
   scope :order_video, ->{
