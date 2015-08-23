@@ -57,11 +57,11 @@
     <% end %>
   </div>
   <div class="form-group">
-    <%= f.label :status, class: "radio-inline", value: :show do %>
-      <%= f.radio_button :status, :show %><%= t("admin.videos.label.show") %>
+    <%= f.label :status, class: "radio-inline", value: true do %>
+      <%= f.radio_button :status, true %><%= t("admin.videos.label.show") %>
     <% end%>
-    <%= f.label :status, class: "radio-inline", value: :hide do %>
-      <%= f.radio_button :status, :hide %><%= t("admin.videos.label.hide") %>
+    <%= f.label :status, class: "radio-inline", value: false do %>
+      <%= f.radio_button :status, false %><%= t("admin.videos.label.hide") %>
     <% end%>
   </div>  
   <div class="actions">

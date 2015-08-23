@@ -5,7 +5,11 @@ class Comment < ActiveRecord::Base
 
   validates :content, presence: true
 
-  def self.search(query)    
-    where("content like ?", "%#{query}%") 
+  searchable do
+    text :content
+    time :created_at
+    text :user do
+      user.name
+    end
   end
 end

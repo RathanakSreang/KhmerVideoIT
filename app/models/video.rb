@@ -1,6 +1,6 @@
 class Video < ActiveRecord::Base
   extend FriendlyId
-  enum status: [:show, :hide]
+  # enum status: [:show, :hide]
   before_save :default_values  
   has_one :snippet, dependent: :destroy
   has_many :comments, as: :commentable, dependent: :destroy
@@ -32,15 +32,24 @@ class Video < ActiveRecord::Base
     order("created_at DESC")
   }
 
-  def self.search(query)
-    # where(:title, query) -> This would return an exact match of the query
-    # where("title like ?", "%#{query}%") 
-    # Video.find_by_title "%#{query}%"
-    with_translations.where("video_translations.title LIKE ?", "%#{query}%")
+  searchable do
+    text :title, boost: 5
+    text :description
+    boolean :status
+    time    :publish_date
+    text :snippet do
+      snippet.content
+    end
+    text :user do
+      user.name
+    end
+    text :tags do
+      tags.map { |tag| tag.name }
+    end
   end
 
   def self.status_show
-    where status: 0
+    where status: true
   end
 
   def simlar_videos
@@ -67,5 +76,10 @@ class Video < ActiveRecord::Base
   def default_values
     self.status ||= :show
     self.publish_date ||= Date.current
+  end
+
+  def self.cached_latest_video
+    Rails.cache.fetch([self, "random_tags"]){status_show.order("created_at DESC")
+                    .includes(:translations).limit(6).to_a}
   end
 end

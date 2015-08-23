@@ -12,7 +12,7 @@
     <%= video.duration %>
   </td>
   <td>
-    <%= video.status %>
+    <%= video.status  ? t("admin.videos.label.show") : t("admin.videos.label.hide") %>
   </td>
   <td>
     <%= link_to t("link.detail"), admin_video_path(video) %>

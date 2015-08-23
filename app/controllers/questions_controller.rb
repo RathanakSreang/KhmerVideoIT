@@ -9,16 +9,13 @@ class QuestionsController < ApplicationController
     @simlar_questions = @question.simlar_questions.includes(:user, :tags => :translations)
   end
 
-  def index    
-    if params[:search]
-      @questions = Question.search(params[:search])            
-            .includes(:user, :tags => :translations)
-            .paginate page: params[:page], per_page: 7
-    else
-      @questions = Question.order("created_at DESC")
-            .includes(:user, :tags => :translations)
-            .paginate page: params[:page], per_page: 7
+  def index
+    search = Question.search do
+      fulltext params[:search]
+      order_by :created_at, :desc
+      paginate page: params[:page], per_page: 7
     end
+    @questions = search.results
   end
 
   def new

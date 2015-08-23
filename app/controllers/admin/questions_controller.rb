@@ -8,15 +8,12 @@ class Admin::QuestionsController < ApplicationController
   end
 
   def index
-    if params[:search]
-      @questions = Question.search(params[:search])
-            .includes(:user)
-            .paginate page: params[:page], per_page: 7
-    else
-      @questions = Question.order("created_at DESC")
-            .includes(:user)
-            .paginate page: params[:page], per_page: 7
+    search = Question.search do
+      fulltext params[:search]
+      order_by :created_at, :desc
+      paginate page: params[:page], per_page: 7
     end
+    @questions = search.results
   end
 
   def edit

@@ -20,7 +20,11 @@ class Tag < ActiveRecord::Base
     # where("name like ?", "%#{query}%")
     with_translations.where("tag_translations.name LIKE ?", "%#{query}%")
   end
-  
+
+  def self.cached_random_tags
+    Rails.cache.fetch([self, "random_tags"]){order("created_at DESC")
+                                        .includes(:translations).limit(6).to_a}
+  end
   # def check_language
   #   unless I18n.locale == :en
   #     self.with_translations("en").name = name

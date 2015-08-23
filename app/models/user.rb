@@ -26,9 +26,11 @@ class User < ActiveRecord::Base
                             message: "the password confirmation belove did not match", if: :provider?
 
   mount_uploader :avatar, AvatarUploader
-  def self.search(query)
-    # where(:title, query) -> This would return an exact match of the query
-    where("email like ?", "%#{query}%") 
+
+  searchable do
+    text :name
+    text :email
+    time :created_at
   end
 
   def self.all_admin

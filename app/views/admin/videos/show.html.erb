@@ -29,7 +29,7 @@
       <br/>
       <%= t("admin.videos.label.video_link") %> <%= link_to @video.file_link, @video.file_link, target: "_blank" %>
       <br/>
-      <%= t("admin.videos.label.status") %>: <%= @video.status %>
+      <%= t("admin.videos.label.status") %>: <%= @video.status  ? t("admin.videos.label.show") : t("admin.videos.label.hide") %>
     </span>
     <br>
     <p><%= @video.description %></p>    

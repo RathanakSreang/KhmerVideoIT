@@ -258,6 +258,7 @@ kh:
       videos: "វីដេអូ"
       articles: "អត្ថបទ"
       all_in_tag: "ក្រុមទាំងអស់"
+      questions: "សំនួរ"
   users:
     label:
       profile: "​"

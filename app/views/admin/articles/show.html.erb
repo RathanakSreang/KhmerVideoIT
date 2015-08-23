@@ -3,7 +3,7 @@
     <%= link_to :back do %>
       <i class="fa fa-arrow-left"></i> <%= t("link.back") %>
     <% end %>
-    <center><h3><u><%= @article.title.capitalize if @article.title %></u></h3></center>    
+    <h3 class="center"><u><%= @article.title.capitalize if @article.title %></u></h3>
     <span class="text-muted small">
       <em>
         <%= t("admin.articles.label.author") %> <%= (link_to @article.user.name, [:admin, @article.user]) if @article.user %>
@@ -15,7 +15,7 @@
             <%= link_to tag.name, [:admin, tag] %>,
           <% end %>
           <br/>
-          <%= t("admin.articles.label.status") %>: <%= @article.status %>
+          <%= t("admin.articles.label.status") %>: <%= @article.status ? t("admin.articles.label.show") : t("admin.articles.label.hide") %>
         </p>
       </em>
     </span>
