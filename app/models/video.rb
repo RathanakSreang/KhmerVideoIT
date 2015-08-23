@@ -77,4 +77,9 @@ class Video < ActiveRecord::Base
     self.status ||= :show
     self.publish_date ||= Date.current
   end
+
+  def self.cached_latest_video
+    Rails.cache.fetch([self, "random_tags"]){status_show.order("created_at DESC")
+                    .includes(:translations).limit(6).to_a}
+  end
 end

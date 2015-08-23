@@ -44,3 +44,5 @@ config/environments/*.local.yml
 .zeus.sock
 zeus.json
 custom_plan.rb
+/solr
+/solr/*
