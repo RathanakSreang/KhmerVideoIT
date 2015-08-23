@@ -28,9 +28,4 @@ class Question < ActiveRecord::Base
       Question.order("RAND()").limit(4)
     end
   end
-
-  def self.cached_latest_question
-    Rails.cache.fetch([self, "random_tags"]){order("created_at DESC")
-                    .limit(6).to_a}
-  end
 end
