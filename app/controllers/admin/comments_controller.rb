@@ -8,15 +8,12 @@ class Admin::CommentsController < ApplicationController
   end
 
   def index
-    if params[:search]
-      @comments = Comment.search(params[:search])                        
-                        .includes(:user, :commentable)
-                        .paginate page: params[:page], per_page: 7
-    else      
-      @comments = Comment.order("created_at DESC")
-                        .includes(:user, :commentable)
-                        .paginate page: params[:page], per_page: 7
+    search = Comment.search do
+      fulltext params[:search]
+      order_by :created_at, :desc
+      paginate page: params[:page], per_page: 7
     end
+    @comments = search.results
   end
 
   def destroy

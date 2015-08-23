@@ -9,7 +9,7 @@
     <%= truncate article.description, length: 30 %>
   </td>
   <td>
-    <%= article.status %>
+    <%= article.status ? t("admin.articles.label.show") : t("admin.articles.label.hide") %>
   </td>
   <td>
     <%= link_to t("link.detail"), admin_article_path(article) %>

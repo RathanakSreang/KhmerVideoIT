@@ -1,6 +1,6 @@
 class Article < ActiveRecord::Base
   extend FriendlyId
-  enum status: [:show, :hide]
+  # enum status: [:show, :hide]
   before_save :default_values
   has_many :comments, as: :commentable, dependent: :destroy
   belongs_to :user
@@ -15,14 +15,22 @@ class Article < ActiveRecord::Base
   scope :order_article, ->{
     order("created_at DESC")
   }
-  def self.search(query)
-    # where(:title, query) -> This would return an exact match of the query
-    # where("title like ?", "%#{query}%") 
-    with_translations.where("article_translations.title LIKE ?", "%#{query}%")
+
+  searchable do
+    text :title, boost: 5
+    text :content, :description
+    boolean :status
+    time    :publish_date
+    text :user do
+      user.name
+    end
+    text :tags do
+      tags.map { |tag| tag.name }
+    end
   end
 
   def self.status_show
-    where status: 0
+    where status: true
   end
 
   def simlar_articles

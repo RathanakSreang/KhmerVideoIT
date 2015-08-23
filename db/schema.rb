@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150806145012) do
+ActiveRecord::Schema.define(version: 20150823103622) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id",         limit: 4
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20150806145012) do
     t.datetime "updated_at",                             null: false
     t.integer  "user_id",        limit: 4
     t.string   "slug",           limit: 255
-    t.integer  "status",         limit: 4
+    t.boolean  "status",         limit: 1
     t.datetime "publish_date"
     t.integer  "comments_count", limit: 4,   default: 0, null: false
   end
@@ -212,7 +212,7 @@ ActiveRecord::Schema.define(version: 20150806145012) do
     t.string   "image",          limit: 255
     t.integer  "user_id",        limit: 4
     t.string   "slug",           limit: 255
-    t.integer  "status",         limit: 4
+    t.boolean  "status",         limit: 1
     t.datetime "publish_date"
     t.integer  "comments_count", limit: 4,   default: 0, null: false
   end

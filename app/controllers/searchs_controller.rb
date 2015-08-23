@@ -1,13 +1,25 @@
 class SearchsController < ApplicationController
 
-  def index    
-    if params[:search].present?
-      @videos = Video.status_show.search(params[:search])                
-                .includes(:translations, :user, :tags => :translations)
-      @articles = Article.status_show.search(params[:search])                
-                .includes(:translations, :user, :tags => :translations)
-      @questions = Question.search(params[:search])                
-                .includes(:user, :tags => :translations)
+  def index
+    search = Video.search do
+      fulltext params[:search]
+      with :status, true
+      order_by :publish_date, :desc
+      paginate page: params[:page], per_page: 7
     end
+    @videos = search.results
+    search = Article.search do
+      fulltext params[:search]
+      with :status, true
+      order_by :publish_date, :desc
+      paginate page: params[:page], per_page: 7
+    end
+    @articles = search.results
+    search = Question.search do
+      fulltext params[:search]
+      order_by :created_at, :desc
+      paginate page: params[:page], per_page: 7
+    end
+    @questions = search.results
   end
 end

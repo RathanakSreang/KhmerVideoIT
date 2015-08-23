@@ -13,14 +13,12 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    if params[:search]
-      @articles = Article.status_show.search(params[:search])            
-            .includes(:translations, :user, :tags => :translations)
-            .paginate page: params[:page], per_page: 10
-    else
-      @articles = Article.status_show.order("created_at DESC")
-            .includes(:translations, :user, :tags => :translations)
-            .paginate page: params[:page], per_page: 10
+    search = Article.search do
+      fulltext params[:search]
+      with :status, true
+      order_by :publish_date, :desc
+      paginate page: params[:page], per_page: 7
     end
+    @articles = search.results
   end
 end

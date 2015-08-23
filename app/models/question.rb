@@ -9,8 +9,16 @@ class Question < ActiveRecord::Base
   validates :title, :content, presence: true
   friendly_id :title, use: :slugged
 
-  def self.search(query)    
-    where("title like ? OR content like ?", "%#{query}%", "%#{query}%") 
+  searchable do
+    text :title, boost: 5
+    text :content
+    time    :created_at
+    text :user do
+      user.name
+    end
+    text :tags do
+      tags.map { |tag| tag.name }
+    end
   end
 
   def simlar_questions

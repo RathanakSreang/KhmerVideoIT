@@ -8,12 +8,12 @@ class Admin::UsersController < ApplicationController
   end
 
   def index
-   if params[:search]
-      @users = User.search(params[:search]).order("created_at DESC")
-                   .paginate page: params[:page], per_page: 7
-    else
-      @users = User.order("created_at DESC").paginate page: params[:page], per_page: 7
+    search = User.search do
+      fulltext params[:search]
+      order_by :created_at, :desc
+      paginate page: params[:page], per_page: 7
     end
+    @users = search.results
   end
 
   def new

@@ -4,19 +4,19 @@
   </div>
   <div class="col-md-12">
     <% if @questions.any? %>
-      <legend><%= t("tags.label.questions") %></legend>
+      <legend><%#= t("tags.label.questions") %></legend>
       <%= render @questions %>      
     <% end %>
   </div>
   <div class="col-md-12">
     <% if @articles.any? %>
-      <legend><%= t("tags.label.articles") %></legend>
+      <legend><%#= t("tags.label.articles") %></legend>
       <%= render @articles %>      
     <% end %>
   </div>
   <div class="col-md-12">
     <% if @videos.any? %>
-      <legend><%= t("tags.label.videos") %></legend>
+      <legend><%#= t("tags.label.videos") %></legend>
       <%= render @videos %>      
     <% end %>
   </div>
@@ -29,7 +29,7 @@
     <% end %>
   <% else %>
     <% if @questions.total_entries > @articles.total_entries %>
-      <%= will_paginate @questios %>
+      <%= will_paginate @questions %>
     <% else %>
       <%= will_paginate @articles %>
     <% end %>

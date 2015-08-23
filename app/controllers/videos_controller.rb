@@ -8,15 +8,13 @@ class VideosController < ApplicationController
     @simlar_videos = @video.simlar_videos.includes(:translations, :tags => :translations)
   end
 
-  def index      
-    if params[:search]
-      @videos = Video.status_show.search(params[:search])          
-          .includes(:translations, :user, :tags => :translations)
-          .paginate page: params[:page], per_page: 7
-    else
-      @videos = Video.status_show.order("created_at DESC")
-            .includes(:translations, :user, :tags => :translations)
-            .paginate page: params[:page], per_page: 7
+  def index
+    search = Video.search do
+      fulltext params[:search]
+      with :status, true
+      order_by :publish_date, :desc
+      paginate page: params[:page], per_page: 7
     end
+    @videos = search.results
   end
 end

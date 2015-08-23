@@ -3,7 +3,7 @@
     <%= link_to :back do %>
       <i class="fa fa-arrow-left"></i> <%= t("link.back") %>
     <% end %>
-    <center><h3><u><%= @tag.name %></u></h3></center>
+    <h3 class="center"><u><%= @tag.name %></u></h3>
     <span class="text-muted small">
       <em>
         <%= t("admin.tags.label.created_by") %> <%= (link_to @tag.user.name , [:admin, @tag.user]) if @tag.user %>

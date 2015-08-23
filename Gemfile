@@ -39,3 +39,6 @@ group :development, :test do
 end
 
 gem "bullet", :group => "development"
+gem "sunspot_rails"
+gem "sunspot_solr"
+gem "progress_bar"
