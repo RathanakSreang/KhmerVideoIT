@@ -45,9 +45,4 @@ class Article < ActiveRecord::Base
     self.status ||= :show
     self.publish_date ||= Date.current
   end
-
-  def self.cached_latest_article
-    Rails.cache.fetch([self, "latest_article"]){status_show.order("created_at DESC")
-                    .includes(:translations).limit(6).to_a}
-  end
 end
