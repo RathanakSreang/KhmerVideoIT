@@ -36,6 +36,8 @@ Page.create about: Faker::Lorem.paragraph(10)
   user1.tags.create name: Faker::Name.name
 end
 
+# snnippet = Snippet.create content: Faker::Lorem.paragraph
+
 10.times do
   tag_ids = Tag.pluck :id
   user1.videos.create title: Faker::Lorem.word,
@@ -47,11 +49,6 @@ end
 end
 
 Video.all.each do |video|
-  5.times do
-    video.usefull_links.create title: Faker::Lorem.sentence,
-                              link: Faker::Internet.url
-  end
-
   video.create_snippet content: Faker::Lorem.paragraph(10)
 end
 
