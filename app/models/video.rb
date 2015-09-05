@@ -38,7 +38,7 @@ class Video < ActiveRecord::Base
     boolean :status
     time    :publish_date
     text :snippet do
-      snippet.content
+      snippet.content if snippet
     end
     text :user do
       user.name

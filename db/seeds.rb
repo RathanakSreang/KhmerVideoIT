@@ -36,24 +36,21 @@ Page.create about: Faker::Lorem.paragraph(10)
   user1.tags.create name: Faker::Name.name
 end
 
-# 10.times do
-#   tag_ids = Tag.pluck :id
-#   user1.videos.create title: Faker::Lorem.word,
-#               description: Faker::Lorem.paragraph,
-#               duration: 10,
-#               file_link: "https://www.youtube.com/watch?v=kBdZ9_yGLjg",
-#               tag_ids: tag_ids,
-#               remote_image_url: Faker::Avatar.image("screenshot.png", "50x50")
-# end
+# snnippet = Snippet.create content: Faker::Lorem.paragraph
 
-# Video.all.each do |video|
-  # 5.times do
-  #   video.usefull_links.create title: Faker::Lorem.sentence,
-  #                             link: Faker::Internet.url
-  # end
+10.times do
+  tag_ids = Tag.pluck :id
+  user1.videos.create title: Faker::Lorem.word,
+              description: Faker::Lorem.paragraph,
+              duration: 10,
+              file_link: "https://www.youtube.com/watch?v=kBdZ9_yGLjg",
+              tag_ids: tag_ids,
+              remote_image_url: Faker::Avatar.image("screenshot.png", "50x50")
+end
 
-  # video.create_snippet content: Faker::Lorem.paragraph(10)
-# end
+Video.all.each do |video|
+  video.create_snippet content: Faker::Lorem.paragraph(10)
+end
 
 5.times do
   tag_ids = Tag.pluck :id
