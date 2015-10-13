@@ -1,6 +1,6 @@
 <tr>
   <td>
-    <p><%= truncate question.title, length: 50 %></p>
+    <p><%= link_to (truncate question.title, length: 50), admin_question_path(question) %></p>
   </td>
   <td>
     <%= link_to question.user.name, [:admin, question.user] %>

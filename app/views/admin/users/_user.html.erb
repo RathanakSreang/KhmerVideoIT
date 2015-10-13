@@ -1,10 +1,10 @@
 <tr>
   <td>
-    <p><%= user.name %></p>
+    <p><%= link_to user.name, admin_user_path(user) %></p>
   </td>
   <td>    
     <% unless user.provider.present? %>
-      <p><%= user.email %></p>
+      <p><%= link_to user.email, admin_user_path(user) %></p>
     <% else %>
       <p>
         <%= link_to user.url do %>

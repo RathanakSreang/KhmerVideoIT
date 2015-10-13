@@ -64,13 +64,22 @@ class RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-  def update_resource resource, params    
-    resource.update_without_password user_params    
+  def update_resource resource, params
+    var_param = user_params
+    if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
+      var_param = user_params_without_pass
+    end
+    resource.update_attributes var_param
   end
 
   private
   def user_params
     params.require(:user).permit :id, :name, :email,
-     :password, :password_confirmation, :avatar, :avatar_cache      
+     :password, :password_confirmation, :avatar, :avatar_cache
+  end
+
+  def user_params_without_pass
+    params.require(:user).permit :id, :name, :role, :avatar, :avatar_cache,
+                                  :email
   end
 end

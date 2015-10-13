@@ -1,6 +1,6 @@
 <tr>
   <td>
-    <p><%= truncate tag.name, length: 50 %></p>
+    <p><%= link_to (truncate tag.name, length: 50), admin_tag_path(tag) %></p>
   </td>
   <td>
     <p><%= (link_to tag.user.name, [:admin, tag.user]) if tag.user %></p>

@@ -1,9 +1,9 @@
 <tr>
   <td>
-    <p><%= truncate video.title, length: 20 %></p>
+    <p><%= link_to (truncate video.title, length: 20), admin_video_path(video) %></p>
   </td>
   <td>
-    <p><%= truncate video.description, length: 20 %></p>
+    <p><%= link_to (truncate video.description, length: 20), admin_video_path(video) %></p>
   </td>
   <td>
     <%= (link_to video.user.name, video.user) if video.user %>
