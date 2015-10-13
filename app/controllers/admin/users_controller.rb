@@ -33,11 +33,15 @@ class Admin::UsersController < ApplicationController
     end
   end
 
-  def edit    
+  def edit
   end
 
   def update
-    if @user.update_without_password user_params
+    var_param = user_params
+    if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
+      var_param = user_params_without_pass
+    end
+    if @user.update_attributes var_param
       track_activity @user
       flash[:success] = t "flash.success_update"
       redirect_to [:admin, @user]
@@ -59,6 +63,11 @@ class Admin::UsersController < ApplicationController
   def user_params
     params.require(:user).permit :id, :name, :role, :avatar, :avatar_cache,
                                   :email, :password, :password_confirmation
+  end
+
+  def user_params_without_pass
+    params.require(:user).permit :id, :name, :role, :avatar, :avatar_cache,
+                                  :email
   end
 
   def load_user
