@@ -1,4 +1,4 @@
 class Page < ActiveRecord::Base
-  validates :about, presence: true
-  translates :about
+  validates :content, :title, presence: true
+  validates :title, uniqueness: true
 end

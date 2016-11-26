@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-md-12 white-container about-show">
     <div class="style-markdown">
-      <%= markdown @page.about %>
+      <%= @page.content %>
     </div>
   </div>
   <% @users.each do |user| %>
@@ -11,7 +11,7 @@
         <%= link_to user, class: "pull-left" do %>
           <%= image_tag user.avatar, class: "img-circle img-responsive" %>
         <% end %>
-        <div class="media-body">          
+        <div class="media-body">
           <%= User.human_attribute_name(:name) %>: <%= link_to user.name, user %>
           <br/>
           <%= User.human_attribute_name(:email) %>: <%= user.email %>

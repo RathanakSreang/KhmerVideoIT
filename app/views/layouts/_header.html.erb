@@ -3,17 +3,17 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="pull-right">
-            <% unless user_signed_in? %> 
+            <% unless user_signed_in? %>
              <%= link_to t("layouts.header.link.sign_in"), new_user_session_path %>
              <%= t("layouts.header.label.or") %>
              <%= link_to t("layouts.header.link.sign_up"), new_user_registration_path %>
-            <% else %>                
+            <% else %>
               <%= link_to user_activities_path(current_user) do %>
                 <i class="fa fa-bell-o"><sup><%= current_user.notify.size if current_user.notify.size > 0 %></sup></i>
-              <% end %>                
+              <% end %>
               <%= t("layouts.header.label.log_as") %> <%= link_to current_user.name, user_path(current_user) %>
               | <%= link_to t("layouts.header.link.sign_out"), sign_out_path %>
-            <% end %>                
+            <% end %>
           </div>
         </div>
         <div class="col-xs-12">
@@ -21,14 +21,14 @@
         </div>
         <div class="col-md-4 col-sm-12 col-xs-12">
           <!-- <img src="dddd"> -->
-          <div class="image-logo">            
+          <div class="image-logo">
             <%= image_tag "logo_#{locale}.png", class: "img-responsive" %>
           </div>
         </div>
 
         <div class="col-md-12">
             <div class="row">
-              <div class="col-md-12 subscript">                
+              <div class="col-md-12 subscript">
                 <% if @page %>
                 <ul class="">
                   <li>
@@ -47,10 +47,10 @@
                     <% end %>
                   </li>
                 </ul>
-                <% end %>                                                     
-              </div>  
+                <% end %>
+              </div>
             </div>
-        </div>        
+        </div>
     </div>
   </div>
 </div>
@@ -62,7 +62,7 @@
          <span class="icon-bar"></span>
          <span class="icon-bar"></span>
          <span class="icon-bar"></span>
-         </button>         
+         </button>
          <%#= link_to t("layouts.header.link.root_path_full"), root_path, class: "navbar-brand hidden-xs" %>
          <%= link_to root_path, class: "navbar-brand" do %>
             <%#= t("layouts.header.link.root_path") %>
@@ -75,20 +75,17 @@
                   <button type="submit" class="btn btn-default">
                      <i class="fa fa-search fa-lg"></i>
                   </button>
-               </div>            
+               </div>
           </div>
-        <% end %>         
+        <% end %>
       </div>
       <div class="navbar-collapse collapse">
          <ul class="nav navbar-nav navbar-right">
             <li class="video-menu <%= "active" if controller?("videos") %>">
                <%= link_to t("layouts.header.link.all_video"), videos_path %>
-            </li>            
+            </li>
             <li class="article-menu <%= "active" if controller?("articles") %>">
                <%= link_to t("layouts.header.link.articles"), articles_path %></li>
-            <li class="question-menu <%= "active" if controller?("questions") %>" >
-               <%= link_to t("layouts.header.link.question"), questions_path %>
-            </li>
             <li class="<%= "active" if controller?("static_pages")&&action?("about") %>" >
                <%= link_to t("layouts.header.link.about"), about_path %>
             </li>

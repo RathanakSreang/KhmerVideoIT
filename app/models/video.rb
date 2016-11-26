@@ -1,13 +1,13 @@
 class Video < ActiveRecord::Base
   extend FriendlyId
   # enum status: [:show, :hide]
-  before_save :default_values  
+  before_save :default_values
   has_one :snippet, dependent: :destroy
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :video_tags, dependent: :destroy
   has_many :tags, through: :video_tags
   belongs_to :user
-  
+
   URL_FORMATS = {
       regular: /^(https?:\/\/)?(www\.)?youtube.com\/watch\?(.*\&)?v=(?<id>[^&]+)/,
       shortened: /^(https?:\/\/)?(www\.)?youtu.be\/(?<id>[^&]+)/,
@@ -24,29 +24,12 @@ class Video < ActiveRecord::Base
   validates :duration, numericality: { only_integer: true, greater_than: 0 }
   mount_uploader :image, ImageUploader
 
-  translates :title, :description
-  friendly_id :title, use: :slugged  
-  accepts_nested_attributes_for :snippet, allow_destroy: true  
+  friendly_id :title, use: :slugged
+  accepts_nested_attributes_for :snippet, allow_destroy: true
 
   scope :order_video, ->{
     order("created_at DESC")
   }
-
-  searchable do
-    text :title, boost: 5
-    text :description
-    boolean :status
-    time    :publish_date
-    text :snippet do
-      snippet.content if snippet
-    end
-    text :user do
-      user.name
-    end
-    text :tags do
-      tags.map { |tag| tag.name }
-    end
-  end
 
   def self.status_show
     where status: true
@@ -76,5 +59,5 @@ class Video < ActiveRecord::Base
   def default_values
     self.status ||= :show
     self.publish_date ||= Date.current
-  end  
+  end
 end

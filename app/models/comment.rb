@@ -4,12 +4,4 @@ class Comment < ActiveRecord::Base
   belongs_to :user
 
   validates :content, presence: true
-
-  searchable do
-    text :content
-    time :created_at
-    text :user do
-      user.name
-    end
-  end
 end

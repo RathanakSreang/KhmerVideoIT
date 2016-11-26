@@ -1,14 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
-    @videos = Video.status_show.order_video
-                    .includes(:translations, :user, :tags => :translations)
-                    .limit(3)
-    @articles = Article.status_show.order("created_at DESC")
-                        .includes(:translations, :user, :tags => :translations)
-                        .limit(3)
-    @questions = Question.order("created_at DESC")
-                        .includes(:user, :tags => :translations)
-                        .limit(3)
+    @videos = Video.status_show.order_video.limit(3)
+    @articles = Article.status_show.order("created_at DESC").limit(3)
   end
 
   def privacy

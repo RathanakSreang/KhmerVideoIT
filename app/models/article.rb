@@ -6,28 +6,14 @@ class Article < ActiveRecord::Base
   belongs_to :user
   has_many :article_tags, dependent: :destroy
   has_many :tags, through: :article_tags
-  
+
   validates :title, :content, presence: true
-  
+
   friendly_id :title, use: :slugged
-  translates :title, :content, :description
 
   scope :order_article, ->{
     order("created_at DESC")
   }
-
-  searchable do
-    text :title, boost: 5
-    text :content, :description
-    boolean :status
-    time    :publish_date
-    text :user do
-      user.name
-    end
-    text :tags do
-      tags.map { |tag| tag.name }
-    end
-  end
 
   def self.status_show
     where status: true

@@ -6,5 +6,6 @@ class CreateVideoTags < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    add_index :video_tags, [:video_id, :tag_id]
   end
 end
