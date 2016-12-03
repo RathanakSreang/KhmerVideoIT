@@ -16,10 +16,6 @@ class Admin::StaticPagesController < ApplicationController
     @activities = Activity.order("created_at DESC")
                           .includes(:user, :trackable)
                           .limit 7
-    @total_question = Question.all.size
-    @questions = Question.order("created_at DESC")
-                          .includes(:user)
-                          .limit 7
   end
 
   def about

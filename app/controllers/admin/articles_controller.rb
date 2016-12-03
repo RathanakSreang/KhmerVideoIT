@@ -4,16 +4,11 @@ class Admin::ArticlesController < ApplicationController
   before_action :load_article, only: [:show, :edit, :update]
   layout "admin/application"
 
-  def show    
+  def show
   end
 
   def index
-    search = Article.search do
-      fulltext params[:search]
-      order_by :publish_date, :desc
-      paginate page: params[:page], per_page: 7
-    end
-    @articles = search.results
+    @articles = Article.order(publish_date: :desc).paginate page: params[:page], per_page: 7
   end
 
   def new
@@ -29,10 +24,10 @@ class Admin::ArticlesController < ApplicationController
     else
       flash.now[:danger] = t "flash.fail_create"
       render "new"
-    end    
+    end
   end
 
-  def edit    
+  def edit
   end
 
   def update
@@ -61,7 +56,7 @@ class Admin::ArticlesController < ApplicationController
   end
 
   def load_article
-    @article = Article.includes(:user, :translations, :tags => :translations)
+    @article = Article.includes(:user)
                       .friendly.find params[:id]
   end
 

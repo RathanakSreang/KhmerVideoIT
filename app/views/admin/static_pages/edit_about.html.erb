@@ -1,16 +1,16 @@
 <div class="row">
-  <div class="col-md-10 col-md-offset-1 well">    
+  <div class="col-md-10 col-md-offset-1 well">
     <legend><h3><%= t("admin.static_pages.label.edit_about") %></h3></legend>
     <%= form_for @page, url: admin_update_about_path, method: :patch do |f| %>
       <div class="form-group">
         <div class="input-group">
           <span class="input-group-addon" id="basic-addon1">
             <i class="fa fa-facebook facebook"></i>
-          </span>          
+          </span>
           <%= f.text_field :ff_link, class: "form-control", placeHolder: t("admin.static_pages.label.fb_link") %>
         </div>
-      </div>      
-      <div class="form-group">            
+      </div>
+      <div class="form-group">
         <div class="input-group">
           <span class="input-group-addon" id="basic-addon1">
             <i class="fa fa-twitter twitter"></i>
@@ -25,7 +25,7 @@
           </span>
           <%= f.text_field :yt_link, class: "form-control", placeHolder: t("admin.static_pages.label.yt_link") %>
         </div>
-      </div>      
+      </div>
       <div class="form-group">
         <%= t("comments.label.use_markdown") %>
         <a href="javascript:void(0)" class="markdown_link"><%= t("comments.label.here") %></a>
@@ -33,12 +33,12 @@
           <%= render "shared/markdown_sample" %>
         </div>
         <br/>
-        <%= f.text_area :about, rows: 20, class: "form-control" %>
-      </div>      
+        <%= f.text_area :content, rows: 20, class: "form-control" %>
+      </div>
       <div class="actions">
         <%= f.button :submit, class: "btn btn-primary" do %>
           <i class="fa fa-floppy-o"> </i> <%= t("action.update") %>
-        <% end %>        
+        <% end %>
       </div>
     <% end %>
   </div>
@@ -50,6 +50,6 @@
       $(".markdown_examples").hide();
     }else{
       $(".markdown_examples").show();
-    }    
+    }
   });
 </script>

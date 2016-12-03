@@ -4,17 +4,12 @@ class Admin::VideosController < ApplicationController
   layout "admin/application"
 
   def show
-    @video = Video.includes(:user, :translations, tags: :translations)
+    @video = Video.includes(:user, :tags)
                   .friendly.find params[:id]
   end
 
   def index
-    search = Video.search do
-      fulltext params[:search]
-      order_by :publish_date, :desc
-      paginate page: params[:page], per_page: 7
-    end
-    @videos = search.results
+    @videos = Video.order(publish_date: :desc).paginate page: params[:page], per_page: 7
   end
 
   def new
@@ -40,7 +35,7 @@ class Admin::VideosController < ApplicationController
 
   def update
     @video = Video.friendly.find params[:id]
-    if @video.update_attributes video_params      
+    if @video.update_attributes video_params
       flash[:success] = t "flash.success_update"
       track_activity @video
       redirect_to [:admin, @video]
@@ -61,7 +56,7 @@ class Admin::VideosController < ApplicationController
   private
   def video_params
     params.require(:video).permit :id, :title, :image, :image_cache, :description,
-                                  :link, :file_link, :duration, :status, :publish_date,                                  
+                                  :link, :file_link, :duration, :status, :publish_date,
                                   snippet_attributes: [:id, :content], tag_ids:[]
 
   end

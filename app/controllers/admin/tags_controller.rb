@@ -6,23 +6,23 @@ class Admin::TagsController < ApplicationController
 
   def show
     @videos = @tag.videos.order("created_at DESC")
-                  .includes(:user, :translations)
+                  .includes(:user)
                   .paginate page: params[:page], per_page: 7
     @articles = @tag.articles.order("created_at DESC")
-                  .includes(:user, :translations)
+                  .includes(:user)
                   .paginate page: params[:page], per_page: 7
   end
 
   def index
     if params[:search]
-      @tags = Tag.search(params[:search])              
-              .includes(:user, :translations)
+      @tags = Tag.search(params[:search])
+              .includes(:user)
               .paginate page: params[:page], per_page: 7
     else
       @tags = Tag.order("created_at DESC")
-      .includes(:user, :translations)
+      .includes(:user)
       .paginate page: params[:page], per_page: 7
-    end    
+    end
   end
 
   def new
@@ -41,7 +41,7 @@ class Admin::TagsController < ApplicationController
     end
   end
 
-  def edit 
+  def edit
   end
 
   def update
@@ -65,7 +65,7 @@ class Admin::TagsController < ApplicationController
 
   private
   def load_tag
-    @tag = Tag.includes(:user, :translations).friendly.find params[:id]
+    @tag = Tag.includes(:user).friendly.find params[:id]
   end
 
   def tag_params

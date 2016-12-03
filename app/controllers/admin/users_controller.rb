@@ -4,16 +4,11 @@ class Admin::UsersController < ApplicationController
   before_action :load_user, only: [:show, :edit, :update]
   layout "admin/application"
 
-  def show    
+  def show
   end
 
   def index
-    search = User.search do
-      fulltext params[:search]
-      order_by :created_at, :desc
-      paginate page: params[:page], per_page: 7
-    end
-    @users = search.results
+    @users = User.order(created_at: :desc).paginate page: params[:page], per_page: 7
   end
 
   def new

@@ -1,25 +1,20 @@
 class Admin::CommentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :admin_user  
+  before_action :admin_user
   layout "admin/application"
 
   def show
-    @comment = Comment.find params[:id]  
+    @comment = Comment.find params[:id]
   end
 
   def index
-    search = Comment.search do
-      fulltext params[:search]
-      order_by :created_at, :desc
-      paginate page: params[:page], per_page: 7
-    end
-    @comments = search.results
+    @comments = Comment.order(created_at: :desc).paginate page: params[:page], per_page: 7
   end
 
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-    track_activity @comment    
+    track_activity @comment
     flash[:success] = t "flash.success_delete"
     redirect_to admin_comments_path
   end

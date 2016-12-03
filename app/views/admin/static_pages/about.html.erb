@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-10 col-md-offset-1 well">    
+  <div class="col-md-10 col-md-offset-1 well">
     <legend><h3><%= t("admin.static_pages.label.about") %></h3></legend>
     <%= link_to @page.ff_link do %>
       <i class="fa fa-facebook-square fa-3x"></i>
@@ -9,12 +9,12 @@
     <% end %>
     <%= link_to @page.yt_link do %>
       <i class="fa fa-youtube-square fa-3x"></i>
-    <% end %>  
+    <% end %>
     <br/>
     <div class="style-markdown">
-      <%= markdown @page.about %>
-    </div>    
-    <br/>    
+      <%= markdown @page.content %>
+    </div>
+    <br/>
     <%= link_to admin_edit_about_path, class: "btn btn-primary" do %>
       <i class="fa fa-pencil-square-o"> </i> <%= t("link.edit") %>
     <% end %>
